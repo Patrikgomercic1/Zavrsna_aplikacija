@@ -17,7 +17,7 @@ create table kupac(
 	adresa varchar(50) not null
 );
 
-create table košarica(
+create table kosarica(
 	sifra int not null primary key identity(1,1),
 	kolicina int not null,
 	kupac int,
@@ -37,3 +37,9 @@ create table inventar(
 	kolicina int not null,
 	dostupnost varchar(13) not null
 );
+
+
+
+alter table kosarica add foreign key (kupac) references  kupac(sifra);
+alter table kosarica add foreign key (proizvod) references  proizvod(sifra);
+alter table inventar add foreign key (proizvod) references  proizvod(sifra);
