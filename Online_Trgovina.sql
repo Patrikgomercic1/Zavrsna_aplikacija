@@ -70,6 +70,7 @@ insert into proizvod(sifra,naziv,opis,cijena)
 values (3,'LED fleksibilna traka','Proširite mogućnosti osvjetljenja vašeg doma. 1m, 2.1W, 24V','11.59');
 
 
+--SET IDENTITY_INSERT dbo.inventar ON zbog nekog razloga nije htio raditi
 insert into inventar(sifra,proizvod,kolicina,dostupnost)
 values (1,'2','250','dostupno');
 
@@ -79,7 +80,7 @@ values (2,'3','100','nedostupno');
 insert into inventar(sifra,proizvod,kolicina,dostupnost)
 values (3,'1','50','dostupno');
 
-
+--SET IDENTITY_INSERT dbo.kosarica ON zbog nekog razloga nije htio raditi
 insert into kosarica(sifra,kolicina,kupac,proizvod)
 values (1,'20','1','3');
 
