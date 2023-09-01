@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LjetnaAplikacija
 {
-    internal class Kupac
+    internal class Kupac : Entitet
     {
         public string KorisnickoIme { get; set; }
         public string Ime { get; set; }

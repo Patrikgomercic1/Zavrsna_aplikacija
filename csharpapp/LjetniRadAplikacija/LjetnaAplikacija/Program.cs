@@ -1,1 +1,3 @@
-﻿
+﻿using LjetnaAplikacija;
+
+new Izbornik();
