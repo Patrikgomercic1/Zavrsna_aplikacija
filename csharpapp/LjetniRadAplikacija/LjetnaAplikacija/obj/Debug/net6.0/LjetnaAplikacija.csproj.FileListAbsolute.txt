@@ -1,0 +1,14 @@
+C:\Users\Samuel\Documents\GitHub\Zavrsna_aplikacija\csharpapp\LjetniRadAplikacija\LjetnaAplikacija\obj\Debug\net6.0\LjetnaAplikacija.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Samuel\Documents\GitHub\Zavrsna_aplikacija\csharpapp\LjetniRadAplikacija\LjetnaAplikacija\obj\Debug\net6.0\LjetnaAplikacija.AssemblyInfoInputs.cache
+C:\Users\Samuel\Documents\GitHub\Zavrsna_aplikacija\csharpapp\LjetniRadAplikacija\LjetnaAplikacija\obj\Debug\net6.0\LjetnaAplikacija.AssemblyInfo.cs
+C:\Users\Samuel\Documents\GitHub\Zavrsna_aplikacija\csharpapp\LjetniRadAplikacija\LjetnaAplikacija\obj\Debug\net6.0\LjetnaAplikacija.csproj.CoreCompileInputs.cache
+C:\Users\Samuel\Documents\GitHub\Zavrsna_aplikacija\csharpapp\LjetniRadAplikacija\LjetnaAplikacija\bin\Debug\net6.0\LjetnaAplikacija.exe
+C:\Users\Samuel\Documents\GitHub\Zavrsna_aplikacija\csharpapp\LjetniRadAplikacija\LjetnaAplikacija\bin\Debug\net6.0\LjetnaAplikacija.deps.json
+C:\Users\Samuel\Documents\GitHub\Zavrsna_aplikacija\csharpapp\LjetniRadAplikacija\LjetnaAplikacija\bin\Debug\net6.0\LjetnaAplikacija.runtimeconfig.json
+C:\Users\Samuel\Documents\GitHub\Zavrsna_aplikacija\csharpapp\LjetniRadAplikacija\LjetnaAplikacija\bin\Debug\net6.0\LjetnaAplikacija.dll
+C:\Users\Samuel\Documents\GitHub\Zavrsna_aplikacija\csharpapp\LjetniRadAplikacija\LjetnaAplikacija\bin\Debug\net6.0\LjetnaAplikacija.pdb
+C:\Users\Samuel\Documents\GitHub\Zavrsna_aplikacija\csharpapp\LjetniRadAplikacija\LjetnaAplikacija\obj\Debug\net6.0\LjetnaAplikacija.dll
+C:\Users\Samuel\Documents\GitHub\Zavrsna_aplikacija\csharpapp\LjetniRadAplikacija\LjetnaAplikacija\obj\Debug\net6.0\refint\LjetnaAplikacija.dll
+C:\Users\Samuel\Documents\GitHub\Zavrsna_aplikacija\csharpapp\LjetniRadAplikacija\LjetnaAplikacija\obj\Debug\net6.0\LjetnaAplikacija.pdb
+C:\Users\Samuel\Documents\GitHub\Zavrsna_aplikacija\csharpapp\LjetniRadAplikacija\LjetnaAplikacija\obj\Debug\net6.0\LjetnaAplikacija.genruntimeconfig.cache
+C:\Users\Samuel\Documents\GitHub\Zavrsna_aplikacija\csharpapp\LjetniRadAplikacija\LjetnaAplikacija\obj\Debug\net6.0\ref\LjetnaAplikacija.dll

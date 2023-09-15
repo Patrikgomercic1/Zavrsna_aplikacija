@@ -8,53 +8,62 @@ namespace LjetnaAplikacija
 {
     internal class Izbornik
     {
-        private ObradaGrupa ObradaGrupa;
-        public ObradaSmjer ObradaSmjer { get; }
-        public ObradaPolaznik ObradaPolaznik { get; }
+
+        private ObradaKupac ObradaKupac;
+        private ObradaKosarica ObradaKosarica;
+        private ObradaProizvod ObradaProizvod;
+        private ObradaInventar ObradaInventar;
 
         public Izbornik()
         {
-            ObradaGrupa = new ObradaGrupa(this);
-            ObradaPolaznik = new ObradaPolaznik();
-            ObradaSmjer = new ObradaSmjer();
+            ObradaKupac = new ObradaKupac();
+            ObradaKosarica = new ObradaKosarica();
+            ObradaProizvod = new ObradaProizvod();
+            ObradaInventar = new ObradaInventar();
             PozdravnaPoruka();
-            PrikaziIzborinik();
+            PrikaziIzbornik();     
         }
 
         private void PozdravnaPoruka()
         {
-            Console.WriteLine("************************************");
-            Console.WriteLine("***** Edunova Console App v 1.0*****");
-            Console.WriteLine("************************************");
+            Console.WriteLine("******************************************");
+            Console.WriteLine("******** Online Trgovina v1.0 ************");
+            Console.WriteLine("******************************************");
         }
 
-        private void PrikaziIzborinik()
+        private void PrikaziIzbornik()  
         {
             Console.WriteLine("Glavni Izbornik");
-            Console.WriteLine("1. Smjerovi");
-            Console.WriteLine("2. Polaznici");
-            Console.WriteLine("3. Grupe");
-            Console.WriteLine("4. Izlaz iz programa");
-
-            switch (Pomocno.UcitajRaspon("Odaberite stavku izbornika: ", "Odabir mora biti 1 - 4.", 1, 4))
+            Console.WriteLine("1. Kupac");
+            Console.WriteLine("2. Košarica");
+            Console.WriteLine("3. Proizvod");
+            Console.WriteLine("4. Inventar");
+            Console.WriteLine("5. Izlaz iz programa");
+            
+            switch(Pomocno.UcitajBrojRaspon("Odaberite stavku izbornika: ", "Odabir mora biti od 1 do 5", 1, 5))
             {
                 case 1:
-                    ObradaSmjer.PrikaziIzbornik();
-                    PrikaziIzborinik();
+                    ObradaKupac.PrikaziIzbornik();
+                    PrikaziIzbornik();
                     break;
                 case 2:
-                    ObradaPolaznik.PrikaziIzbornik();
-                    PrikaziIzborinik();
+                    ObradaKosarica.PrikaziIzbornik();
+                    PrikaziIzbornik();
                     break;
                 case 3:
-                    ObradaGrupa.PrikaziIzbornik();
-                    PrikaziIzborinik();
+                    Console.WriteLine("Rad s proizvodima");
+                    PrikaziIzbornik();
                     break;
                 case 4:
+                    Console.WriteLine("Rad s inventarom");
+                    PrikaziIzbornik();
+                    break;
+                case 5:
                     Console.WriteLine("Hvala na korištenju, doviđenja");
                     break;
             }
 
         }
+
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LjetnaAplikacija
 {
-    internal class Proizvod
+    internal class Proizvod : Entitet
     {
         public string Naziv { get; set; }
         public string Opis { get; set; }

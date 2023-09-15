@@ -9,94 +9,63 @@ namespace LjetnaAplikacija
 {
     internal class ObradaKosarica
     {
-        private List<Grupa> Grupe;
+        public List<Kosarica> Kosarice { get;  }
 
-        private Izbornik Izbornik;
-
-
-        public ObradaGrupa()
+        public ObradaKosarica() 
         {
-            Grupe = new List<Grupa>();
+            Kosarice = new List<Kosarica>();
+            
         }
 
-        public ObradaGrupa(Izbornik izbornik) : this()
-        {
-            this.Izbornik = izbornik;
-        }
-
+       
 
         public void PrikaziIzbornik()
         {
-            Console.WriteLine("Izbornik za rad s grupama");
-            Console.WriteLine("1. Pregled postojećih grupa");
-            Console.WriteLine("2. Unos nove grupe");
-            Console.WriteLine("3. Promjena postojeće grupe");
-            Console.WriteLine("4. Brisanje grupe");
-            Console.WriteLine("5. Povratak na glavni izbornik");
+            Console.WriteLine("Izbornik za rad s košaricom");
+            Console.WriteLine("1. Pregled košarice");
+            Console.WriteLine("2. Promjena košarice");
+            Console.WriteLine("3. Brisanje košarice");
+            Console.WriteLine("4. Povratak na glavni izbornik");
 
-            switch (Pomocno.UcitajRaspon("Odaberite stavku izbornika grupa: ", "Odabir mora biti 1-5", 1, 5))
+            switch (Pomocno.UcitajBrojRaspon("Odaberite stavku izbornika košarice: ", "Odabri mora biti od 1 do 3", 1, 4))
             {
                 case 1:
-                    PrikaziGrupe();
+                    PregledKosarice();
                     PrikaziIzbornik();
                     break;
                 case 2:
-                    UnosNoveGrupe();
+                    PromjeniKosaricu();
                     PrikaziIzbornik();
                     break;
-                case 5:
-                    Console.WriteLine("Gotov rad s grupama");
+                case 3:
+                    Console.WriteLine("BrisanjeKosarice");
+                    PrikaziIzbornik();
+                    break;
+                case 4:
+                    Console.WriteLine("Gotov rad s košaricom");
                     break;
             }
         }
 
-        private void PrikaziGrupe()
+        private void PregledKosarice()
         {
-            foreach (Grupa grupa in Grupe)
+            Console.WriteLine();
+            Console.WriteLine("-----------------------------");
+            Console.WriteLine("-----Dostupni proizvodi-----");
+            int b = 1;
+            foreach(Kosarica kosarica in Kosarice)
             {
-                Console.WriteLine("{0} ({1})", grupa.Naziv, grupa.Smjer.Naziv);
-
-                foreach (Polaznik polaznik in grupa.Polaznici)
-                {
-                    Console.WriteLine("\t\t{0}", polaznik);
-                }
+                Console.WriteLine("\t{0}. {1}", b++, kosarica);
             }
+            Console.WriteLine("-----------------------------");
         }
 
-        private void UnosNoveGrupe()
+        private void PromjeniKosaricu()
         {
-            var g = new Grupa();
-            g.Sifra = Pomocno.ucitajCijeliBroj("Unesite sifru grupe: ", "Unos mora biti pozitivni cijeli broj");
-            g.Naziv = Pomocno.UcitajString("Unesite naziv grupe: ", "Unos obavezan");
-            g.Smjer = UcitajSmjer();
-            g.Polaznici = UcitajPolaznike();
-            Grupe.Add(g);
-        }
+            PregledKosarice();
+            int broj = Pomocno.UcitajBrojRaspon("Odaberi redni broj proizvoda za uređivanje: ", "Nije dobro", 1, Kosarice.Count());
+            var k = Kosarice[broj - 1];
 
-        private List<Polaznik> UcitajPolaznike()
-        {
-            List<Polaznik> polaznici = new List<Polaznik>();
-
-            while (Pomocno.ucitajCijeliBroj("1 za dodavanje polaznika", "greska") == 1)
-            {
-                polaznici.Add(UcitajPolaznika());
-            }
-
-            return polaznici;
-        }
-
-        private Polaznik UcitajPolaznika()
-        {
-            Izbornik.ObradaPolaznik.PregledPolaznika();
-            int broj = Pomocno.UcitajRaspon("Odaberi redni broj smjera za postavljanje na grupu: ", "Nije dobro", 1, Izbornik.ObradaPolaznik.Polaznici.Count());
-            return Izbornik.ObradaPolaznik.Polaznici[broj - 1];
-        }
-
-        private Smjer UcitajSmjer()
-        {
-            Izbornik.ObradaSmjer.PrikaziSmjerove();
-            int broj = Pomocno.UcitajRaspon("Odaberi redni broj smjera za postavljanje na grupu: ", "Nije dobro", 1, Izbornik.ObradaSmjer.Smjerovi.Count());
-            return Izbornik.ObradaSmjer.Smjerovi[broj - 1];
         }
     }
 }

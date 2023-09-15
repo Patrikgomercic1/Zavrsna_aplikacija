@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace LjetnaAplikacija
 {
-    internal class Kosarica
+    internal class Kosarica : Entitet
     {
         public int Kolicina { get; set; }
         public int Kupac { get; set; }
         public int Proizvod { get; set; }
+
+        public override string ToString()
+        {
+            return Kolicina + " " + Kupac + " " + Proizvod;
+        }
     }
 }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace LjetnaAplikacija
 {
-    internal class Inventar
+    internal class Inventar : Entitet
     {
         public int Proizvod { get; set; }
         public int Kolicina { get; set; }
-        public string MyProperty { get; set; }
+        public string Dostupnost { get; set; }
     }
 }
