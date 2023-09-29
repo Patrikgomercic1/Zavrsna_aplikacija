@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Samuel\\Documents\\GitHub\\Zavrsna_aplikacija\\csharpapp\\LjetniRadAplikacija\\LjetnaAplikacija\\LjetnaAplikacija.csproj": {}
+    "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\csharpapp\\LjetniRadAplikacija\\LjetnaAplikacija\\LjetnaAplikacija.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Samuel\\Documents\\GitHub\\Zavrsna_aplikacija\\csharpapp\\LjetniRadAplikacija\\LjetnaAplikacija\\LjetnaAplikacija.csproj": {
+    "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\csharpapp\\LjetniRadAplikacija\\LjetnaAplikacija\\LjetnaAplikacija.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Samuel\\Documents\\GitHub\\Zavrsna_aplikacija\\csharpapp\\LjetniRadAplikacija\\LjetnaAplikacija\\LjetnaAplikacija.csproj",
+        "projectUniqueName": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\csharpapp\\LjetniRadAplikacija\\LjetnaAplikacija\\LjetnaAplikacija.csproj",
         "projectName": "LjetnaAplikacija",
-        "projectPath": "C:\\Users\\Samuel\\Documents\\GitHub\\Zavrsna_aplikacija\\csharpapp\\LjetniRadAplikacija\\LjetnaAplikacija\\LjetnaAplikacija.csproj",
-        "packagesPath": "C:\\Users\\Samuel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Samuel\\Documents\\GitHub\\Zavrsna_aplikacija\\csharpapp\\LjetniRadAplikacija\\LjetnaAplikacija\\obj\\",
+        "projectPath": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\csharpapp\\LjetniRadAplikacija\\LjetnaAplikacija\\LjetnaAplikacija.csproj",
+        "packagesPath": "C:\\Users\\samhe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\csharpapp\\LjetniRadAplikacija\\LjetnaAplikacija\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Samuel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\samhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -27,7 +27,7 @@ namespace LjetnaAplikacija
             Console.WriteLine("3. Brisanje košarice");
             Console.WriteLine("4. Povratak na glavni izbornik");
 
-            switch (Pomocno.UcitajBrojRaspon("Odaberite stavku izbornika košarice: ", "Odabri mora biti od 1 do 3", 1, 4))
+            switch (Pomocno.UcitajBrojRaspon("Odaberite stavku izbornika košarice: ", "Odabri mora biti od 1 do 4", 1, 4))
             {
                 case 1:
                     PregledKosarice();
@@ -50,14 +50,15 @@ namespace LjetnaAplikacija
         private void PregledKosarice()
         {
             Console.WriteLine();
-            Console.WriteLine("-----------------------------");
-            Console.WriteLine("-----Dostupni proizvodi-----");
+            Console.WriteLine(" ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ ");
+            Console.WriteLine("|*****|   Dostupni proizvodi   |*****|");
             int b = 1;
-            foreach(Kosarica kosarica in Kosarice)
+            foreach(Kosarica kosarica in Kosarice)  //privremeno - treba proizvod
             {
                 Console.WriteLine("\t{0}. {1}", b++, kosarica);
             }
-            Console.WriteLine("-----------------------------");
+            Console.WriteLine(" ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ ");
+            Console.WriteLine();
         }
 
         private void PromjeniKosaricu()

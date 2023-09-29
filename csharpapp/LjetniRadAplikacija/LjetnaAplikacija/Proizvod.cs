@@ -11,5 +11,9 @@ namespace LjetnaAplikacija
         public string Naziv { get; set; }
         public string Opis { get; set; }
         public int Cijena { get; set; }
+        public override string ToString()
+        {
+            return Naziv + ", " + Opis + ", " + Cijena;
+        }
     }
 }
