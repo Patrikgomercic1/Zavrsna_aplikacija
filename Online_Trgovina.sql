@@ -1,4 +1,4 @@
-﻿use master
+﻿
 drop database if exists online_trgovina;
 go
 create database online_trgovina;
@@ -47,7 +47,7 @@ alter table inventar add foreign key (proizvod) references  proizvod(sifra);
 
 
 --TABLICA KUPAC
-SET IDENTITY_INSERT kupac ON
+
 insert into kupac(korisnickoime,ime,prezime,lozinka,telefon,adresa)
 values ('DarkLord34','Matej','Knežević','Alsmhtj563nb','095 284 2371','Opatijska 12, Osijek');
 
@@ -57,11 +57,9 @@ values ('Avante_marauder2','Eugen','Novak','770#kB7RGsJV','031/150-620','Rapska 
 insert into kupac(korisnickoime,ime,prezime,lozinka,telefon,adresa)
 values ('OniKyu','Tihana','Babić','1h8h9zYx@Ii@','092 358 1548','Put Ravnih Njiva 30, Split');
 
-SET IDENTITY_INSERT kupac OFF
 
 
 --TABLICA PROIZVOD
-SET IDENTITY_INSERT proizvod ON
 
 insert into proizvod(naziv,opis,cijena)
 values ('NINTENDO Switch Lite-crven','Nintendo Switch Lite je mali i lagan Nintendo Switch sustav po odličnoj cijeni.','259.99');
@@ -72,11 +70,9 @@ values ('Battlefield 2042 PS5','Sljedeća generacija sveobuhvatnog rata je ovdje
 insert into proizvod(naziv,opis,cijena)
 values ('LED fleksibilna traka','Proširite mogućnosti osvjetljenja vašeg doma. 1m, 2.1W, 24V','11.59');
 
-SET IDENTITY_INSERT proizvod OFF
 
 
 --TABLICA INVENTAR
-SET IDENTITY_INSERT inventar ON
 
 insert into inventar(proizvod,kolicina,dostupnost)
 values ('2','250','dostupno');
@@ -87,11 +83,9 @@ values ('3','100','nedostupno');
 insert into inventar(proizvod,kolicina,dostupnost)
 values ('1','50','dostupno');
 
-SET IDENTITY_INSERT inventar OFF
 
 
 --TABLICA KOSARICA
-SET IDENTITY_INSERT kosarica ON
 
 insert into kosarica(kolicina,kupac,proizvod)
 values ('20','1','3');
@@ -102,7 +96,7 @@ values ('1','2','2');
 insert into kosarica(kolicina,kupac,proizvod)
 values ('2','3','1');
 
-SET IDENTITY_INSERT kosarica OFF
+
 
 --isprobavanje inner join-a
 select i.dostupnost, p.naziv, kk.korisnickoime, k.kolicina
