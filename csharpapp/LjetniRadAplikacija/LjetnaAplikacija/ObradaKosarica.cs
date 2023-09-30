@@ -17,7 +17,6 @@ namespace LjetnaAplikacija
             
         }
 
-       
 
         public void PrikaziIzbornik()
         {
@@ -47,25 +46,14 @@ namespace LjetnaAplikacija
             }
         }
 
-        private void PregledKosarice()
+        private void PregledKosarice()  //pregled proizvoda u košarici
         {
-            Console.WriteLine();
-            Console.WriteLine(" ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ ");
-            Console.WriteLine("|*****|   Dostupni proizvodi   |*****|");
-            int b = 1;
-            foreach(Kosarica kosarica in Kosarice)  //privremeno - treba proizvod
-            {
-                Console.WriteLine("\t{0}. {1}", b++, kosarica);
-            }
-            Console.WriteLine(" ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ ");
-            Console.WriteLine();
+            
         }
 
         private void PromjeniKosaricu()
         {
-            PregledKosarice();
-            int broj = Pomocno.UcitajBrojRaspon("Odaberi redni broj proizvoda za uređivanje: ", "Nije dobro", 1, Kosarice.Count());
-            var k = Kosarice[broj - 1];
+           
 
         }
     }

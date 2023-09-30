@@ -56,9 +56,23 @@ namespace LjetnaAplikacija
 
         private void BrisanjeProizvoda()
         {
-            PrikaziProizvode();
-            int broj = Pomocno.UcitajBrojRaspon("\tOdaberite redni broj PROIZVODA za brisanje: ", "\tUneseni broj nije valjan.", 1, Proizvodi.Count());
-            Proizvodi.RemoveAt(broj - 1);
+            if(Proizvodi.Count == 0)
+            {
+                Console.WriteLine("\t Nema proizvoda za brisanje");
+            }
+            else
+            {
+                PrikaziProizvode();
+                int index = Pomocno.UcitajBrojRaspon("\tOdaberite redni broj proizvoda za brisanje, za ODUSTAJANJE unesite 0: ", "Morate unijeti broj koji je trenutno u korištenju", 0, Proizvodi.Count());
+                if (index == 0)
+                {
+                    Console.WriteLine("\tOdustali ste od promjene.");
+                }
+                else
+                {
+                    Proizvodi.RemoveAt(index - 1);
+                }
+            }           
         }
 
         private void PromjenaProizvoda()
@@ -70,17 +84,17 @@ namespace LjetnaAplikacija
             else
             {
                 PrikaziProizvode();
-                int index = Pomocno.UcitajBrojRaspon(" Odaberite redni broj proizvoda za promjenu, za ODUSTAJANJE unesite 0 za povratak: ", "Morate unijeti broj koji je trenutno u korištenju", 0, Proizvodi.Count());
+                int index = Pomocno.UcitajBrojRaspon("\tOdaberite redni broj proizvoda za promjenu, za ODUSTAJANJE unesite 0: ", "Morate unijeti broj koji je trenutno u korištenju", 0, Proizvodi.Count());
                 if(index == 0)
                 {
-                    Console.WriteLine(" Odustali ste od promjene.");
+                    Console.WriteLine("\tOdustali ste od promjene.");
                 }
                 else
                 {
                     var p = Proizvodi[index - 1];
-                    p.Sifra = Pomocno.UcitajCijeliBroj(" Unesite novu ŠIFRU proizvoda (" + p.Sifra + "): ", " Obavezno morate unijeti ŠIFRU proizvoda");
-                    p.Naziv = Pomocno.UcitajString(" Unesite NAZIV proizvoda (" + p.Naziv + "): ", " Obavezno morate unijeti NAZIV proizvoda");
-                    p.Opis = Pomocno.UcitajString(" Unesite OPIS proizvoda (" + p.Opis + "): ", " Obavezno morate unijeti OPIS proizvoda");
+                    p.Sifra = Pomocno.UcitajCijeliBroj("\tUnesite novu ŠIFRU proizvoda (" + p.Sifra + "): ", " Obavezno morate unijeti ŠIFRU proizvoda");
+                    p.Naziv = Pomocno.UcitajString("\tUnesite NAZIV proizvoda (" + p.Naziv + "): ", " Obavezno morate unijeti NAZIV proizvoda");
+                    p.Opis = Pomocno.UcitajString("\tUnesite OPIS proizvoda (" + p.Opis + "): ", " Obavezno morate unijeti OPIS proizvoda");
                     p.Cijena = Pomocno.UcitajCijeliBroj("\tUnesite CIJENU proizvoda (" + p.Cijena + "): ", "\tObavezno morate unijeti CIJENU proizvoda");
                 }
             }
@@ -89,9 +103,9 @@ namespace LjetnaAplikacija
         private void UnosNovogProizvoda()
         {
             var p = new Proizvod();
-            p.Naziv = Pomocno.UcitajString(" Unesite NAZIV proizvoda: ", " Obavezno morate unijeti NAZIV proizvoda");
-            p.Opis = Pomocno.UcitajString(" Unesite OPIS proizvoda: ", " Obavezno morate unijeti OPIS proizvoda");
-            p.Cijena = Pomocno.UcitajCijeliBroj(" Unesite CIJENU proizvoda: ", " Obavezno morate unijeti CIJENU proizvoda");//prebacuje se u idući red
+            p.Naziv = Pomocno.UcitajString("\tUnesite NAZIV proizvoda: ", " Obavezno morate unijeti NAZIV proizvoda");
+            p.Opis = Pomocno.UcitajString("\tUnesite OPIS proizvoda: ", " Obavezno morate unijeti OPIS proizvoda");
+            p.Cijena = Pomocno.UcitajCijeliBroj("\tUnesite CIJENU proizvoda: ", " Obavezno morate unijeti CIJENU proizvoda");//prebacuje se u idući red
 
             Proizvodi.Add(p);
         }
@@ -113,10 +127,10 @@ namespace LjetnaAplikacija
 
                 foreach(Proizvod p in Proizvodi)
                 {
-                    Console.WriteLine("\t {0}. {1}", broj++,p);
+                    Console.WriteLine("\t {0}. {1}", broj++, p);
                 }
 
-                Console.WriteLine("\n \t-----------------------------------");
+                Console.WriteLine("\n \t|---------------------------------|");
             }
         }
 
