@@ -13,27 +13,32 @@ namespace LjetnaAplikacija
         public ObradaKupac() 
         {
             Kupci = new List<Kupac>();
-            TestniPodaci();
+            if (Pomocno.Dev == true)
+            {
+                TestniPodaci();
+            }
 
         }
 
         public void PrikaziIzbornik()
         {
             Console.WriteLine();
-            Console.WriteLine(" ---------------------------------------");
-            Console.WriteLine(" ---| Izbornik za rad s kupcima |---");
-            Console.WriteLine(" ---------------------------------------");
+            Console.WriteLine(" \t-----------------------------------");
+            Console.WriteLine(" \t---| Izbornik za rad s kupcima |---");
+            Console.WriteLine(" \t-----------------------------------");
+            Console.WriteLine();
 
-            Console.WriteLine(" 1. Pregled postojećih kupaca");
-            Console.WriteLine(" 2. Unos novog kupca");
-            Console.WriteLine(" 3. Promjena postojećeg kupca");
-            Console.WriteLine(" 4. Brisanje kupca");
-            Console.WriteLine(" 5. Povratak na glavni izbornik");
+            Console.WriteLine("\t1. Pregled postojećih kupaca");
+            Console.WriteLine("\t2. Unos novog kupca");
+            Console.WriteLine("\t3. Promjena postojećeg kupca");
+            Console.WriteLine("\t4. Brisanje kupca");
+            Console.WriteLine("\t5. Povratak na glavni izbornik\n");
 
-            switch(Pomocno.UcitajBrojRaspon("\tOdaberite stavku izbornika kupca: ", "\tOdabri mora biti od 1 do 5", 1, 5))
+            switch(Pomocno.UcitajBrojRaspon("\tOdaberite stavku izbornika: ", "\tOdabri mora biti između 1 i 5", 1, 5))
             {
                 case 1:
                     PrikaziKupce();
+                    DetaljiKorisnika();
                     PrikaziIzbornik();
                     break;
                 case 2:
@@ -49,7 +54,7 @@ namespace LjetnaAplikacija
                     PrikaziIzbornik();
                     break;
                 case 5:
-                    Console.WriteLine("Gotov rad s kupcima");
+                    Console.WriteLine("\t~~Vraćanje na prijašnji izbornik~~");
                     break;
             }
         }
@@ -58,7 +63,7 @@ namespace LjetnaAplikacija
         {
             if(Kupci.Count == 0)
             {
-                Console.WriteLine("\t Nema kupaca za brisanje");
+                Console.WriteLine("\t Nema kupaca za brisanje!");
             }
             else
             {
@@ -71,6 +76,7 @@ namespace LjetnaAplikacija
                 else
                 {
                     Kupci.RemoveAt(index - 1);
+                    Console.WriteLine("\tKupac je uspješno obrisan.");
                 }
             }            
         }
@@ -79,7 +85,7 @@ namespace LjetnaAplikacija
         {
             if (Kupci.Count == 0)
             {
-                Console.WriteLine("\tNema kupaca za promjenu");
+                Console.WriteLine("\tNema kupaca za promjenu!");
             }
             else
             {
@@ -87,7 +93,7 @@ namespace LjetnaAplikacija
                 int index = Pomocno.UcitajBrojRaspon("\tUnesite redni broj kupca za promjenu, za odustajanje unesite 0: ", "\tMorate unijeti broj koji je trenutno u korištenju", 0, Kupci.Count());
                 if (index == 0)
                 {
-                    Console.WriteLine("\tOdustali ste od promjene");
+                    Console.WriteLine("\tOdustali ste od promjene.");
                 }
                 else
                 {
@@ -115,7 +121,7 @@ namespace LjetnaAplikacija
             Kupci.Add(k);
         }
 
-        private void PrikaziKupce()
+        public void PrikaziKupce()
         {
             if(Kupci.Count == 0) 
             {
@@ -140,6 +146,27 @@ namespace LjetnaAplikacija
 
         }
 
+        private void DetaljiKorisnika()
+        {
+            Console.WriteLine();
+            int index = Pomocno.UcitajBrojRaspon("\tZa detalje odaberite broj korisnika (0 za povratak na izbornik): ", "\tOdabir mora biti jedan od ponuđenih brojeva", 0, Kupci.Count());
+            if (index != 0)
+            {
+                var p = Kupci[index - 1];
+
+                Console.WriteLine("\t|---------------------------------------------------------------|");
+                Console.WriteLine();
+                Console.WriteLine("\tKorisničko ime: {0}", p.KorisnickoIme);
+                Console.WriteLine("\tIme korisnika: {0}", p.Ime);
+                Console.WriteLine("\tPrezime korisnika: {0}", p.Prezime);
+                Console.WriteLine("\tPrezime korisnika: {0}", p.Lozinka);
+                Console.WriteLine("\tPrezime korisnika: {0}", p.Telefon);
+                Console.WriteLine("\tAdresa korisnika: {0}", p.Adresa);
+                Console.WriteLine();
+                Console.WriteLine("\t|---------------------------------------------------------------|\n");
+            }
+        }
+
         private void TestniPodaci()
         {
             Kupci.Add(new Kupac() 
@@ -147,7 +174,7 @@ namespace LjetnaAplikacija
                 KorisnickoIme = "MarkoMark", 
                 Ime = "Marko",
                 Prezime = "Marković",
-                Lozinka = "kldagčkas33sld",
+                Lozinka = "MarkoMark123",
                 Telefon = 255121335,
                 Adresa = "primjeradresa1"
 
@@ -159,7 +186,7 @@ namespace LjetnaAplikacija
                 KorisnickoIme = "MarkoMark2",
                 Ime = "Marko",
                 Prezime = "Marković",
-                Lozinka = "kldagčkas33sld",
+                Lozinka = "MarkoMark1234",
                 Telefon = 255121335,
                 Adresa = "primjeradresa2"
 
@@ -171,7 +198,7 @@ namespace LjetnaAplikacija
                 KorisnickoIme = "MarkoMark3",
                 Ime = "Marko",
                 Prezime = "Marković",
-                Lozinka = "kldagčkas33sld",
+                Lozinka = "MarkoMark12345",
                 Telefon = 255121335,
                 Adresa = "primjeradresa3"
 

@@ -8,8 +8,9 @@ namespace LjetnaAplikacija
 {
     internal class Inventar : Entitet
     {
-        public int Proizvod { get; set; }
+        public Proizvod Proizvod { get; set; }
         public int Kolicina { get; set; }
-        public string Dostupnost { get; set; }
+        public bool Dostupnost { get; set; }
+        public List<Proizvod> Proizvodi { get; set; }
     }
 }

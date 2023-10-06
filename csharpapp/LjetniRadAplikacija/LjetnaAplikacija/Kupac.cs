@@ -14,9 +14,10 @@ namespace LjetnaAplikacija
         public string Lozinka { get; set; }
         public int Telefon { get; set; }    //promjeniti u sql na int
         public string Adresa { get; set; }
+        public List<Kupac> Kupci { get; set; }
         public override string ToString()
         {
-            return KorisnickoIme + ", " + Ime + ", " + Prezime + ", " + Lozinka + ", " + Telefon + ", " + Adresa;
+            return KorisnickoIme;
         }
     }
 }

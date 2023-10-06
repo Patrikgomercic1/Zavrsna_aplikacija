@@ -9,40 +9,41 @@ namespace LjetnaAplikacija
     internal class Izbornik
     {
 
-        private ObradaKupac ObradaKupac;
+        public ObradaKupac ObradaKupac {  get; }
         private ObradaKosarica ObradaKosarica;
-        private ObradaProizvod ObradaProizvod;
+        public ObradaProizvod ObradaProizvod { get; }
         private ObradaInventar ObradaInventar;
 
         public Izbornik()
         {
             ObradaKupac = new ObradaKupac();
-            ObradaKosarica = new ObradaKosarica();
+            ObradaKosarica = new ObradaKosarica(this);
             ObradaProizvod = new ObradaProizvod();
-            ObradaInventar = new ObradaInventar();
+            ObradaInventar = new ObradaInventar(this);
             PozdravnaPoruka();
             PrikaziIzbornik();     
         }
 
         private void PozdravnaPoruka()
         {
-            Console.WriteLine("******************************************");
-            Console.WriteLine("******** Online Trgovina v1.0 ************");
-            Console.WriteLine("******************************************\n");
+            Console.WriteLine();
+            Console.WriteLine("\t------------------*-----------------------");
+            Console.WriteLine("\t|******* Online Trgovina v3.0 ***********|");
+            Console.WriteLine("\t------------------*-----------------------\n");
         }
 
         private void PrikaziIzbornik()  
         {
-            Console.WriteLine("  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ ");
-            Console.WriteLine(" |¯¯¯¯¯¯¯¯| GLAVNI IZBORNIK |¯¯¯¯¯¯¯¯|");
-            Console.WriteLine("  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n ");
-            Console.WriteLine(" 1. Kupac");
-            Console.WriteLine(" 2. Košarica");
-            Console.WriteLine(" 3. Proizvodi");
-            Console.WriteLine(" 4. Inventar");
-            Console.WriteLine(" 5. Izlaz iz programa");
+            Console.WriteLine("  \t¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ ");
+            Console.WriteLine(" \t|¯¯¯¯¯¯¯¯| GLAVNI IZBORNIK |¯¯¯¯¯¯¯¯|");
+            Console.WriteLine("  \t¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n ");
+            Console.WriteLine(" \t1. Kupac");
+            Console.WriteLine(" \t2. Košarica");
+            Console.WriteLine(" \t3. Proizvodi");
+            Console.WriteLine(" \t4. Inventar");
+            Console.WriteLine(" \t5. Izlaz iz programa");
             
-            switch(Pomocno.UcitajBrojRaspon("\n\t Odaberite stavku izbornika: ", "\t Odabir mora biti od 1 do 5", 1, 5))
+            switch(Pomocno.UcitajBrojRaspon("\n \tOdaberite stavku izbornika: ", "\n \tOdabir mora biti broj između 1 i 5", 1, 5))
             {
                 case 1:
                     ObradaKupac.PrikaziIzbornik();
@@ -57,11 +58,11 @@ namespace LjetnaAplikacija
                     PrikaziIzbornik();
                     break;
                 case 4:
-                    Console.WriteLine("Rad s inventarom");
+                    ObradaInventar.PrikaziIzbornik();
                     PrikaziIzbornik();
                     break;
                 case 5:
-                    Console.WriteLine("\n Hvala na korištenju, doviđenja.");
+                    Console.WriteLine("\n \tHvala na korištenju, doviđenja.");
                     break;
             }
 

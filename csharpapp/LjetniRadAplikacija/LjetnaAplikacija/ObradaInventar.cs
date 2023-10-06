@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -9,48 +10,87 @@ namespace LjetnaAplikacija
 {   
     internal class ObradaInventar
     {
-        public List<Inventar> Inventari { get; }
+        public List<Inventar> Inventari;
+        private Izbornik Izbornik;
 
         public ObradaInventar() 
         {
             Inventari = new List<Inventar>();
         }
 
+        public ObradaInventar(Izbornik izbornik):this()
+        {
+            this.Izbornik = izbornik;
+        }
+
         public void PrikaziIzbornik()
         {
             Console.WriteLine("Izbornik za rad s Inventarom");
-            Console.WriteLine("1. Pregled postojećih inventara");
-            Console.WriteLine("2. Unos novog inventara");
-            Console.WriteLine("3. Promjena postojećeg inventara");
-            Console.WriteLine("4. Brisanje inventara");
-            Console.WriteLine("5. Povratak na glavni izbornik");
+            Console.WriteLine("\t1. Pregled proizvoda u inventaru");
+            Console.WriteLine("\t2. Unos novih proizvoda u inventar");
+            Console.WriteLine("\t3. Promjena proizvoda u inventaru");
+            Console.WriteLine("\t4. Brisanje proizvoda s inventara");
+            Console.WriteLine("\t5. Povratak na glavni izbornik");
 
-            switch (Pomocno.UcitajBrojRaspon("Odaberite stavku izbornika kupca: ", "Odabri mora biti od 1 do 5", 1, 5))
+            switch (Pomocno.UcitajBrojRaspon("\tOdaberite stavku izbornika: ", "\tOdabri mora biti između 1 i 5", 1, 5))
             {
                 case 1:
-                    Console.WriteLine("PrikaziInventar"); 
+                    PrikaziInventar();
                     PrikaziIzbornik();
                     break;
                 case 2:
-                    Console.WriteLine("UnosNovogInventara");
+                    UnosNovogProizvoda();
                     PrikaziIzbornik();
                     break;
                 case 3:
-                    Console.WriteLine("PromjenaInventara");
+                    PromjenaProizvodaInventara();
                     PrikaziIzbornik();
                     break;
                 case 4:
-                    Console.WriteLine("BrisanjeInventara");
+                    BrisanjeProizvodaInventara();
                     PrikaziIzbornik();
                     break;
                 case 5:
-                    Console.WriteLine("Gotov rad s kupcima");
+                    Console.WriteLine("\t~~Vraćanje na prijašnji izbornik~~");
                     break;
             }
         }
 
+        private void UnosNovogProizvoda()
+        {
+            var i = new Inventar();
+            Izbornik.ObradaProizvod.UnosNovogProizvoda();
+            i.Kolicina = Pomocno.UcitajCijeliBroj("\tUnesite količinu odabranog proizvoda: ", "\tGreška! Morate unijeti cijeli broj.");
+            i.Dostupnost = Pomocno.UcitajBool("\tOdaberite dostupnost odabranog proizvoda, za potvrdu unesite ''da'', za odbijanje unesite bilo što: ");
+            Inventari.Add(i);
+        }
+
+        private void PrikaziInventar()
+        {
+            Izbornik.ObradaProizvod.PrikaziIzbornik();
+        }
+
+        private void BrisanjeProizvodaInventara()
+        {
+            Izbornik.ObradaProizvod.BrisanjeProizvoda();
+        }
+
+        private void PromjenaProizvodaInventara()
+        {
+            var i = new Inventar();
+            i.Proizvod = UcitajProizvod();
+            i.Kolicina = Pomocno.UcitajCijeliBroj("\tUnesite količinu odabranog proizvoda: ", "\tGreška! Morate unijeti cijeli broj.");
+            i.Dostupnost = Pomocno.UcitajBool("\tOdaberite dostupnost odabranog proizvoda, za potvrdu unesite ''da'', za odbijanje unesite bilo što: ");
+            Inventari.Add(i);
+        }
+
+        private Proizvod UcitajProizvod()
+        {
+            Izbornik.ObradaProizvod.PrikaziProizvode();
+            int index = Pomocno.UcitajBrojRaspon("\tOdaberite broj proizvoda za prikaz: ", "\tGreška! Odabir mora biti jedan od ponuđenih brojeva.", 1, Izbornik.ObradaProizvod.Proizvodi.Count());
+            return Izbornik.ObradaProizvod.Proizvodi[index - 1];
+        }
 
     }
-
-    
+  
 }
