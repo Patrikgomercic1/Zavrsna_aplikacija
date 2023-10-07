@@ -28,14 +28,14 @@ namespace LjetnaAplikacija
         {
             Console.WriteLine();
             Console.WriteLine("\t------------------*-----------------------");
-            Console.WriteLine("\t|******* Online Trgovina v3.0 ***********|");
+            Console.WriteLine("\t|********* Online Trgovina v3.2 *********|");
             Console.WriteLine("\t------------------*-----------------------\n");
         }
 
         private void PrikaziIzbornik()  
         {
             Console.WriteLine("  \t¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ ");
-            Console.WriteLine(" \t|¯¯¯¯¯¯¯¯| GLAVNI IZBORNIK |¯¯¯¯¯¯¯¯|");
+            Console.WriteLine(" \t|¯¯¯¯¯¯¯| GLAVNI IZBORNIK |¯¯¯¯¯¯¯|");
             Console.WriteLine("  \t¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n ");
             Console.WriteLine(" \t1. Kupac");
             Console.WriteLine(" \t2. Košarica");
@@ -43,7 +43,7 @@ namespace LjetnaAplikacija
             Console.WriteLine(" \t4. Inventar");
             Console.WriteLine(" \t5. Izlaz iz programa");
             
-            switch(Pomocno.UcitajBrojRaspon("\n \tOdaberite stavku izbornika: ", "\n \tOdabir mora biti broj između 1 i 5", 1, 5))
+            switch(Pomocno.UcitajBrojRaspon("\n \tOdaberite stavku izbornika: ", "\n\tGreška! Odabir mora biti broj između 1 i 5", 1, 5))
             {
                 case 1:
                     ObradaKupac.PrikaziIzbornik();
@@ -62,7 +62,7 @@ namespace LjetnaAplikacija
                     PrikaziIzbornik();
                     break;
                 case 5:
-                    Console.WriteLine("\n \tHvala na korištenju, doviđenja.");
+                    Console.WriteLine("\n\tHvala na korištenju, doviđenja.");
                     break;
             }
 

@@ -24,7 +24,7 @@ namespace LjetnaAplikacija
         {
             Console.WriteLine();
             Console.WriteLine(" \t-----------------------------------");
-            Console.WriteLine(" \t---| Izbornik za rad s kupcima |---");
+            Console.WriteLine(" \t---| Izbornik za rad s Kupcima |---");
             Console.WriteLine(" \t-----------------------------------");
             Console.WriteLine();
 
@@ -34,7 +34,7 @@ namespace LjetnaAplikacija
             Console.WriteLine("\t4. Brisanje kupca");
             Console.WriteLine("\t5. Povratak na glavni izbornik\n");
 
-            switch(Pomocno.UcitajBrojRaspon("\tOdaberite stavku izbornika: ", "\tOdabri mora biti između 1 i 5", 1, 5))
+            switch(Pomocno.UcitajBrojRaspon("\n\tOdaberite stavku izbornika: ", "\n\tOdabir mora biti između 1 i 5!", 1, 5))
             {
                 case 1:
                     PrikaziKupce();
@@ -54,7 +54,7 @@ namespace LjetnaAplikacija
                     PrikaziIzbornik();
                     break;
                 case 5:
-                    Console.WriteLine("\t~~Vraćanje na prijašnji izbornik~~");
+                    Console.WriteLine("\n\t~~Vraćanje na prijašnji izbornik~~\n");
                     break;
             }
         }
@@ -63,12 +63,12 @@ namespace LjetnaAplikacija
         {
             if(Kupci.Count == 0)
             {
-                Console.WriteLine("\t Nema kupaca za brisanje!");
+                Console.WriteLine("\tGreška! Nema kupaca za brisanje!");
             }
             else
             {
                 PrikaziKupce();
-                int index = Pomocno.UcitajBrojRaspon("\tOdaberite redni broj kupca za brisanje, za ODUSTAJANJE unesite 0: ", "Morate unijeti broj koji je trenutno u korištenju", 0, Kupci.Count());
+                int index = Pomocno.UcitajBrojRaspon("\tOdaberite redni broj kupca za brisanje, za odustajanje unesite 0: ", "Greška! Morate unijeti broj koji je trenutno u korištenju!", 0, Kupci.Count());
                 if (index == 0)
                 {
                     Console.WriteLine("\tOdustali ste od promjene.");
@@ -85,12 +85,12 @@ namespace LjetnaAplikacija
         {
             if (Kupci.Count == 0)
             {
-                Console.WriteLine("\tNema kupaca za promjenu!");
+                Console.WriteLine("\tGreška! Nema kupaca za promjenu!");
             }
             else
             {
                 PrikaziKupce();
-                int index = Pomocno.UcitajBrojRaspon("\tUnesite redni broj kupca za promjenu, za odustajanje unesite 0: ", "\tMorate unijeti broj koji je trenutno u korištenju", 0, Kupci.Count());
+                int index = Pomocno.UcitajBrojRaspon("\tUnesite redni broj kupca za promjenu, za odustajanje unesite 0: ", "\tGreška! Morate unijeti broj koji je trenutno u korištenju!", 0, Kupci.Count());
                 if (index == 0)
                 {
                     Console.WriteLine("\tOdustali ste od promjene.");
@@ -98,13 +98,13 @@ namespace LjetnaAplikacija
                 else
                 {
                     var k = Kupci[index - 1];
-                    k.Sifra = Pomocno.UcitajCijeliBroj("\tUnesite šifru kupca(" + k.Sifra + "): ", "\tUnos mora biti pozitivan cijeli broj");
-                    k.KorisnickoIme = Pomocno.UcitajString("\tUnesite korisničko ime kupca(" + k.KorisnickoIme + "): ", "\tUnos mora biti niz slova");
-                    k.Ime = Pomocno.UcitajString("\tUnesite ime korisnika(" + k.Ime + "): ", "\tUnos je obavezan");
-                    k.Prezime = Pomocno.UcitajString("\tUnesite prezime korisnika(" + k.Prezime + "): ", "\tUnos je obavezan");
-                    k.Lozinka = Pomocno.UcitajString("\tUnesite lozinku korisnika(" + k.Lozinka + "): ", "\tUnos je obavezan");
-                    k.Telefon = Pomocno.UcitajCijeliBroj("\tUnesite broj telefona korisnika(" + k.Telefon + "): ", "\tUnos je obavezan");
-                    k.Adresa = Pomocno.UcitajString("\tUnesite adresu korisnika(" + k.Adresa + "): ", "\tUnos je obavezan");
+                    k.Sifra = Pomocno.UcitajCijeliBroj("\tUnesite ŠIFRU kupca(" + k.Sifra + "): ", "\tGreška! Unos mora biti pozitivan cijeli broj");
+                    k.KorisnickoIme = Pomocno.UcitajString("\tUnesite KORISNIČKO IME kupca(" + k.KorisnickoIme + "): ", "\tGreška! Unos mora biti niz slova/brojeva");
+                    k.Ime = Pomocno.UcitajString("\tUnesite IME korisnika(" + k.Ime + "): ", "\tGreška! Unos mora biti niz slova");
+                    k.Prezime = Pomocno.UcitajString("\tUnesite PREZIME korisnika(" + k.Prezime + "): ", "\tGreška! Unos mora biti niz slova");
+                    k.Lozinka = Pomocno.UcitajString("\tUnesite LOZINKU korisnika(" + k.Lozinka + "): ", "\tGreška! Unos mora biti niz slova/brojeva");
+                    k.Telefon = Pomocno.UcitajCijeliBroj("\tUnesite broj TELEFONA korisnika(" + k.Telefon + "): ", "\tGreška! Unos mora biti pozitivan cijeli broj");
+                    k.Adresa = Pomocno.UcitajString("\tUnesite ADRESU korisnika(" + k.Adresa + "): ", "\tGreška! Unos mora biti niz slova/brojeva");
                 }
             }
         }
@@ -112,12 +112,12 @@ namespace LjetnaAplikacija
         private void UnosNovogKupca()
         {
             var k = new Kupac();
-            k.KorisnickoIme = Pomocno.UcitajString("\tUnesite korisničko ime kupca: ", "\tUnos mora biti niz slova");
-            k.Ime = Pomocno.UcitajString("\tUnesite ime korisnika: ", "\tUnos je obavezan");
-            k.Prezime = Pomocno.UcitajString("\tUnesite prezime korisnika: ", "\tUnos je obavezan");
-            k.Lozinka = Pomocno.UcitajString("\tUnesite lozinku korisnika: ", "\tUnos je obavezan");
-            k.Telefon = Pomocno.UcitajCijeliBroj("\tUnesite broj telefona korisnika: ", "\tUnos je obavezan");
-            k.Adresa = Pomocno.UcitajString("\tUnesite adresu korisnika: ", "\tUnos je obavezan");
+            k.KorisnickoIme = Pomocno.UcitajString("\tUnesite KORISNIČKO IME kupca(" + k.KorisnickoIme + "): ", "\tGreška! Unos mora biti niz slova/brojeva");
+            k.Ime = Pomocno.UcitajString("\tUnesite IME korisnika(" + k.Ime + "): ", "\tGreška! Unos mora biti niz slova");
+            k.Prezime = Pomocno.UcitajString("\tUnesite PREZIME korisnika(" + k.Prezime + "): ", "\tGreška! Unos mora biti niz slova");
+            k.Lozinka = Pomocno.UcitajString("\tUnesite LOZINKU korisnika(" + k.Lozinka + "): ", "\tGreška! Unos mora biti niz slova/brojeva");
+            k.Telefon = Pomocno.UcitajCijeliBroj("\tUnesite broj TELEFONA korisnika(" + k.Telefon + "): ", "\tGreška! Unos mora biti pozitivan cijeli broj");
+            k.Adresa = Pomocno.UcitajString("\tUnesite ADRESU korisnika(" + k.Adresa + "): ", "\tGreška! Unos mora biti niz slova/brojeva");
             Kupci.Add(k);
         }
 
@@ -125,7 +125,7 @@ namespace LjetnaAplikacija
         {
             if(Kupci.Count == 0) 
             {
-                Console.WriteLine("\n Nema kupaca za prikaz");
+                Console.WriteLine("\nGreška! Nema kupaca za prikaz");
             }
             else
             {
@@ -149,7 +149,7 @@ namespace LjetnaAplikacija
         private void DetaljiKorisnika()
         {
             Console.WriteLine();
-            int index = Pomocno.UcitajBrojRaspon("\tZa detalje odaberite broj korisnika (0 za povratak na izbornik): ", "\tOdabir mora biti jedan od ponuđenih brojeva", 0, Kupci.Count());
+            int index = Pomocno.UcitajBrojRaspon("\tZa detalje odaberite broj korisnika (0 za povratak na izbornik): ", "\tGreška! Odabir mora biti jedan od ponuđenih brojeva", 0, Kupci.Count());
             if (index != 0)
             {
                 var p = Kupci[index - 1];

@@ -25,36 +25,27 @@ namespace LjetnaAplikacija
         {
             Console.WriteLine();
             Console.WriteLine(" \t---------------------------------------");
-            Console.WriteLine(" \t---| Izbornik za rad s proizvodima |---");
+            Console.WriteLine(" \t---| Izbornik za rad s Proizvodima |---");
             Console.WriteLine(" \t---------------------------------------");
+            Console.WriteLine();
 
             Console.WriteLine("\t1. Pregled postojećih proizvoda");
-            Console.WriteLine("\t2. Unos novog proizvoda");
-            Console.WriteLine("\t3. Promjena postojećeg proizvoda");
-            Console.WriteLine("\t4. Brisanje proizvoda");
-            Console.WriteLine("\t5. Povratak na glavni izbornik\n");
+            Console.WriteLine("\t2. Promjena postojećih proizvoda");
+            Console.WriteLine("\t3. Povratak na glavni izbornik\n");
 
-            switch (Pomocno.UcitajBrojRaspon("\n\tOdaberite stavku izbornika: ",  "\n\tOdabir mora biti između 1 i 5", 1, 5))
+            switch (Pomocno.UcitajBrojRaspon("\n\tOdaberite stavku izbornika: ", "\n\tGreška!Odabir mora biti između 1 i 3!", 1, 3))
             {
                 case 1:
                     PrikaziProizvode();
                     DetaljiProizvoda();
                     PrikaziIzbornik();
                     break;
-                case 2:
-                    UnosNovogProizvoda();
-                    PrikaziIzbornik();
-                    break;
-                case 3:
+                case 2: 
                     PromjenaProizvoda();
                     PrikaziIzbornik();
                     break;
-                case 4:
-                    BrisanjeProizvoda();
-                    PrikaziIzbornik();
-                    break;
-                case 5:
-                    Console.WriteLine("\t~~Vraćanje na prijašnji izbornik~~");
+                case 3:
+                    Console.WriteLine("\n\t~~Vraćanje na prijašnji izbornik~~\n");
                     break;
             }
         }
@@ -63,12 +54,12 @@ namespace LjetnaAplikacija
         {
             if(Proizvodi.Count == 0)
             {
-                Console.WriteLine("\tNema proizvoda za brisanje!");
+                Console.WriteLine("\tGreška! Nema proizvoda za brisanje!");
             }
             else
             {
                 PrikaziProizvode();
-                int index = Pomocno.UcitajBrojRaspon("\tOdaberite redni broj proizvoda za brisanje, za ODUSTAJANJE unesite 0: ", "\tMorate unijeti broj koji je trenutno u korištenju", 0, Proizvodi.Count());
+                int index = Pomocno.UcitajBrojRaspon("\tOdaberite redni broj proizvoda za brisanje, za odustajanje unesite 0: ", "\tGreška! Morate unijeti broj koji je trenutno u korištenju!", 0, Proizvodi.Count());
                 if (index == 0)
                 {
                     Console.WriteLine("\tOdustali ste od promjene.");
@@ -85,12 +76,12 @@ namespace LjetnaAplikacija
         {
             if (Proizvodi.Count == 0)
             {
-                Console.WriteLine("\tNema proizvoda za promjenu");
+                Console.WriteLine("\tNema proizvoda za promjenu!");
             }
             else
             {
                 PrikaziProizvode();
-                int index = Pomocno.UcitajBrojRaspon("\tOdaberite redni broj proizvoda za promjenu, za ODUSTAJANJE unesite 0: ", "\tMorate unijeti broj koji je trenutno u korištenju", 0, Proizvodi.Count());
+                int index = Pomocno.UcitajBrojRaspon("\tOdaberite redni broj proizvoda za promjenu, za odustajanje unesite 0: ", "\tGreška! Morate unijeti broj koji je trenutno u korištenju!", 0, Proizvodi.Count());
                 if(index == 0)
                 {
                     Console.WriteLine("\tOdustali ste od promjene.");
@@ -98,10 +89,11 @@ namespace LjetnaAplikacija
                 else
                 {
                     var p = Proizvodi[index - 1];
-                    //p.Sifra = Pomocno.UcitajCijeliBroj("\tUnesite novu ŠIFRU proizvoda (" + p.Sifra + "): ", "\tObavezno morate unijeti ŠIFRU proizvoda");
-                    p.Naziv = Pomocno.UcitajString("\tUnesite NAZIV proizvoda (" + p.Naziv + "): ", "\tObavezno morate unijeti NAZIV proizvoda");
-                    p.Opis = Pomocno.UcitajString("\tUnesite OPIS proizvoda (" + p.Opis + "): ", "\tObavezno morate unijeti OPIS proizvoda");
-                    p.Cijena = Pomocno.UcitajCijeliBroj("\tUnesite CIJENU proizvoda (" + p.Cijena + "): ", "\tObavezno morate unijeti CIJENU proizvoda");
+                    p.Naziv = Pomocno.UcitajString("\tUnesite NAZIV proizvoda (" + p.Naziv + "): ", "\tGreška! Morate unijeti znak/broj!");
+                    p.Opis = Pomocno.UcitajString("\tUnesite OPIS proizvoda (" + p.Opis + "): ", "\tGreška! Morate unijeti znak/broj!");
+                    p.Cijena = Pomocno.UcitajCijeliBroj("\tUnesite CIJENU proizvoda (" + p.Cijena + "): ", "\tGreška! Morate unijeti cijeli broj!");
+                    p.Kolicina = Pomocno.UcitajCijeliBroj("\tUnesite količinu odabranog proizvoda: ", "\tGreška! Morate unijeti pozitivan cijeli broj!");
+                    p.Dostupnost = Pomocno.UcitajBool("\tOdaberite dostupnost odabranog proizvoda, za potvrdu unesite ''da'', za odbijanje unesite bilo što: ");
                 }
             }
         }
@@ -109,10 +101,11 @@ namespace LjetnaAplikacija
         public void UnosNovogProizvoda()
         {
             var p = new Proizvod();
-            p.Naziv = Pomocno.UcitajString("\tUnesite NAZIV proizvoda: ", "\tObavezno morate unijeti NAZIV proizvoda");
-            p.Opis = Pomocno.UcitajString("\tUnesite OPIS proizvoda: ", "\tObavezno morate unijeti OPIS proizvoda");
-            p.Cijena = Pomocno.UcitajCijeliBroj("\tUnesite CIJENU proizvoda: ", "\tObavezno morate unijeti CIJENU proizvoda");//prebacuje se u idući red
-
+            p.Naziv = Pomocno.UcitajString("\tUnesite NAZIV proizvoda: ", "\tGreška! Morate unijeti znak/broj!");
+            p.Opis = Pomocno.UcitajString("\tUnesite OPIS proizvoda: ", "\tGreška! Morate unijeti znak/broj!");
+            p.Cijena = Pomocno.UcitajCijeliBroj("\tUnesite CIJENU proizvoda: ", "\tGreška! Morate unijeti cijeli broj!");  //prebacuje se u idući red
+            p.Kolicina = Pomocno.UcitajCijeliBroj("\tUnesite KOLIČINU odabranog proizvoda: ", "\tGreška! Morate unijeti cijeli broj!");
+            p.Dostupnost = Pomocno.UcitajBool("\tOdaberite dostupnost odabranog proizvoda, za potvrdu unesite ''da'', za odbijanje unesite bilo što: ");
             Proizvodi.Add(p);
         }
 
@@ -136,7 +129,7 @@ namespace LjetnaAplikacija
                     Console.WriteLine("\t {0}. {1}", broj++,p);
                 }
 
-                Console.WriteLine("\n \t|---------------------------------|");
+                Console.WriteLine("\n \t|---------------------------------|\n");
             }
         }
 
@@ -148,13 +141,15 @@ namespace LjetnaAplikacija
             {
                 var p = Proizvodi[index - 1];
 
-                Console.WriteLine("\t|---------------------------------|");
+                Console.WriteLine("\t|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
                 Console.WriteLine();
                 Console.WriteLine("\t Naziv proizvoda: {0}", p.Naziv);
                 Console.WriteLine("\t Opis proizvoda: {0}", p.Opis);
                 Console.WriteLine("\t Cijena proizvoda: {0}", p.Cijena);
+                Console.WriteLine("\t Količina proizvoda: {0}", p.Kolicina);
+                Console.WriteLine("\t Dostupnost proizvoda: {0}", p.Dostupnost);
                 Console.WriteLine();
-                Console.WriteLine("\t|---------------------------------|");
+                Console.WriteLine("\t|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
             }
         }   
 
@@ -163,15 +158,17 @@ namespace LjetnaAplikacija
             Proizvodi.Add(new Proizvod() 
             { 
                 Naziv = "Majica" ,
-                Opis="Testni proizvod", 
-                Cijena=25
+                Opis = "Testni proizvod", 
+                Cijena = 10,
+                Kolicina = 100
             });
 
             Proizvodi.Add(new Proizvod()
             {
                 Naziv = "Majica2",
                 Opis = "Testni proizvod2",
-                Cijena = 50
+                Cijena = 20,
+                Kolicina = 200
             });
         }
 

@@ -25,14 +25,19 @@ namespace LjetnaAplikacija
 
         public void PrikaziIzbornik()
         {
-            Console.WriteLine("Izbornik za rad s košaricom");
+            Console.WriteLine();
+            Console.WriteLine(" \t-----------------------------------");
+            Console.WriteLine(" \t--| Izbornik za rad s Košaricom |--");
+            Console.WriteLine(" \t-----------------------------------");
+            Console.WriteLine();
+
             Console.WriteLine("\t1. Pregled košarice");
             Console.WriteLine("\t2. Promjena košarice");
-            Console.WriteLine("\t3. Dodavanje košarice");
+            Console.WriteLine("\t3. Dodavanje stavki u košaricu");
             Console.WriteLine("\t4. Brisanje košarice");
             Console.WriteLine("\t5. Povratak na glavni izbornik");
 
-            switch (Pomocno.UcitajBrojRaspon("Odaberite stavku izbornika: ", "Odabir mora biti između 1 i 5", 1, 5))
+            switch (Pomocno.UcitajBrojRaspon("\n\tOdaberite stavku izbornika: ", "\n\tGreška! Odabir mora biti između 1 i 5!", 1, 5))
             {
                 case 1:
                     PregledKosarice();
@@ -51,7 +56,7 @@ namespace LjetnaAplikacija
                     PrikaziIzbornik();
                     break;
                 case 5:
-                    Console.WriteLine("\t~~Vraćanje na prijašnji izbornik~~");
+                    Console.WriteLine("\n\t~~Vraćanje na prijašnji izbornik~~\n");
                     break;
             }
         }
@@ -60,12 +65,12 @@ namespace LjetnaAplikacija
         {
             if (Kosarice.Count == 0)
             {
-                Console.WriteLine("\tNema proizvoda za brisanje!");
+                Console.WriteLine("\tGreška! Nema proizvoda za brisanje!");
             }
             else
             {
                 PregledKosarice();
-                int index = Pomocno.UcitajBrojRaspon("\tOdaberite redni broj košarice za brisanje, za ODUSTAJANJE unesite 0: ", "\tMorate unijeti broj koji je trenutno u korištenju", 0, Kosarice.Count());
+                int index = Pomocno.UcitajBrojRaspon("\tOdaberite redni broj košarice za brisanje, za odustajanje unesite 0: ", "\tMorate unijeti broj koji je trenutno u korištenju!", 0, Kosarice.Count());
                 if (index == 0)
                 {
                     Console.WriteLine("\tOdustali ste od promjene.");
@@ -82,12 +87,12 @@ namespace LjetnaAplikacija
         {
             if (Kosarice.Count == 0)
             {
-                Console.WriteLine("\tNema košarice za promjenu");
+                Console.WriteLine("\tGreška! Nema košarice za promjenu");
             }
             else
             {
                 PregledKosarice();
-                int index = Pomocno.UcitajBrojRaspon("\tOdaberite redni broj košarice za promjenu, za ODUSTAJANJE unesite 0: ", "\tMorate unijeti broj koji je trenutno u korištenju", 0, Kosarice.Count());
+                int index = Pomocno.UcitajBrojRaspon("\tOdaberite redni broj košarice za promjenu, za odustajanje unesite 0: ", "\tGreška! Morate unijeti broj koji je trenutno u korištenju!", 0, Kosarice.Count());
                 if (index == 0)
                 {
                     Console.WriteLine("\tOdustali ste od promjene.");
@@ -96,7 +101,7 @@ namespace LjetnaAplikacija
                 {
                     var k = Kosarice[index - 1];
                     k.Proizvod = UcitajProizvod();
-                    k.Kolicina = Pomocno.UcitajCijeliBroj("\tUnesite količinu proizvoda (" + k.Kolicina + "): ", "\tObavezno morate unijeti količinu proizvoda");
+                    k.Kolicina = Pomocno.UcitajCijeliBroj("\tUnesite količinu proizvoda (" + k.Kolicina + "): ", "\tGreška! Morate unijeti cijeli broj!");
                     
                 }
             }
@@ -106,7 +111,7 @@ namespace LjetnaAplikacija
         {
             var k = new Kosarica();
             k.Proizvod = UcitajProizvod();
-            k.Kolicina = Pomocno.UcitajCijeliBroj("\tUnesite količinu proizvoda: ", "\tGreška! Morate unijeti cijeli broj.");
+            k.Kolicina = Pomocno.UcitajCijeliBroj("\tUnesite količinu proizvoda: ", "\tGreška! Morate unijeti cijeli broj!");
             k.Kupac = UcitajKupca();
             Kosarice.Add(k);
         }
@@ -114,14 +119,14 @@ namespace LjetnaAplikacija
         private Kupac UcitajKupca()
         {
             Izbornik.ObradaKupac.PrikaziKupce();
-            int index = Pomocno.UcitajBrojRaspon("\tOdaberite broj kupca za dodavanje u košaricu: ", "\tGreška! Odabir mora biti jedan od ponuđenih brojeva.", 1, Izbornik.ObradaProizvod.Proizvodi.Count());
+            int index = Pomocno.UcitajBrojRaspon("\tOdaberite broj kupca za dodavanje u košaricu: ", "\tGreška! Odabir mora biti jedan od ponuđenih brojeva!", 1, Izbornik.ObradaProizvod.Proizvodi.Count());
             return Izbornik.ObradaKupac.Kupci[index - 1];
         }
 
         private Proizvod UcitajProizvod()
         {
             Izbornik.ObradaProizvod.PrikaziProizvode();
-            int index = Pomocno.UcitajBrojRaspon("\tOdaberite broj proizvoda za dodavanje u košaricu: ", "\tGreška! Odabir mora biti jedan od ponuđenih brojeva.", 1, Izbornik.ObradaProizvod.Proizvodi.Count());
+            int index = Pomocno.UcitajBrojRaspon("\tOdaberite broj proizvoda za dodavanje u košaricu: ", "\tGreška! Odabir mora biti jedan od ponuđenih brojeva!", 1, Izbornik.ObradaProizvod.Proizvodi.Count());
             return Izbornik.ObradaProizvod.Proizvodi[index - 1];
         }
 
@@ -129,7 +134,7 @@ namespace LjetnaAplikacija
         {
             if (Kosarice.Count == 0)
             {
-                Console.WriteLine("\tNema popunjene košarice za prikaz");
+                Console.WriteLine("\tNema popunjene košarice za prikaz!");
             }
             else
             {

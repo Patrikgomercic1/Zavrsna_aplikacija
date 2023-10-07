@@ -25,14 +25,18 @@ namespace LjetnaAplikacija
 
         public void PrikaziIzbornik()
         {
-            Console.WriteLine("Izbornik za rad s Inventarom");
+            Console.WriteLine();
+            Console.WriteLine(" \t--------------------------------------");
+            Console.WriteLine(" \t---| Izbornik za rad s Inventarom |---");
+            Console.WriteLine(" \t--------------------------------------");
+            Console.WriteLine();
             Console.WriteLine("\t1. Pregled proizvoda u inventaru");
             Console.WriteLine("\t2. Unos novih proizvoda u inventar");
             Console.WriteLine("\t3. Promjena proizvoda u inventaru");
             Console.WriteLine("\t4. Brisanje proizvoda s inventara");
             Console.WriteLine("\t5. Povratak na glavni izbornik");
 
-            switch (Pomocno.UcitajBrojRaspon("\tOdaberite stavku izbornika: ", "\tOdabri mora biti između 1 i 5", 1, 5))
+            switch (Pomocno.UcitajBrojRaspon("\n\tOdaberite stavku izbornika: ", "\n\tGreška! Odabri mora biti između 1 i 5!", 1, 5))
             {
                 case 1:
                     PrikaziInventar();
@@ -51,7 +55,7 @@ namespace LjetnaAplikacija
                     PrikaziIzbornik();
                     break;
                 case 5:
-                    Console.WriteLine("\t~~Vraćanje na prijašnji izbornik~~");
+                    Console.WriteLine("\n\t~~Vraćanje na prijašnji izbornik~~\n");
                     break;
             }
         }
@@ -59,9 +63,7 @@ namespace LjetnaAplikacija
         private void UnosNovogProizvoda()
         {
             var i = new Inventar();
-            Izbornik.ObradaProizvod.UnosNovogProizvoda();
-            i.Kolicina = Pomocno.UcitajCijeliBroj("\tUnesite količinu odabranog proizvoda: ", "\tGreška! Morate unijeti cijeli broj.");
-            i.Dostupnost = Pomocno.UcitajBool("\tOdaberite dostupnost odabranog proizvoda, za potvrdu unesite ''da'', za odbijanje unesite bilo što: ");
+            Izbornik.ObradaProizvod.UnosNovogProizvoda();           
             Inventari.Add(i);
         }
 
@@ -79,8 +81,6 @@ namespace LjetnaAplikacija
         {
             var i = new Inventar();
             i.Proizvod = UcitajProizvod();
-            i.Kolicina = Pomocno.UcitajCijeliBroj("\tUnesite količinu odabranog proizvoda: ", "\tGreška! Morate unijeti cijeli broj.");
-            i.Dostupnost = Pomocno.UcitajBool("\tOdaberite dostupnost odabranog proizvoda, za potvrdu unesite ''da'', za odbijanje unesite bilo što: ");
             Inventari.Add(i);
         }
 

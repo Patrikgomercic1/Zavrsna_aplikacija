@@ -21,21 +21,21 @@ create table kosarica(
 	sifra int not null primary key identity(1,1),
 	kolicina int not null,
 	kupac int,
-	proizvod int,
+	proizvod int
 );
 
 create table proizvod(
 	sifra int not null primary key identity(1,1),
 	naziv varchar(50) not null,
 	opis varchar(750) not null,
-	cijena decimal(6,2) not null
+	cijena decimal(6,2) not null,
+	kolicina int not null,
+	dostupnost bit not null
 );
 
 create table inventar(
 	sifra int not null primary key identity(1,1),
-	proizvod int,
-	kolicina int not null,
-	dostupnost varchar(13) not null
+	proizvod int
 );
 
 
@@ -61,27 +61,27 @@ values ('OniKyu','Tihana','Babić','1h8h9zYx@Ii@','092 358 1548','Put Ravnih Nji
 
 --TABLICA PROIZVOD
 
-insert into proizvod(naziv,opis,cijena)
-values ('NINTENDO Switch Lite-crven','Nintendo Switch Lite je mali i lagan Nintendo Switch sustav po odličnoj cijeni.','259.99');
+insert into proizvod(naziv,opis,cijena,kolicina,dostupnost)
+values ('NINTENDO Switch Lite-crven','Nintendo Switch Lite je mali i lagan Nintendo Switch sustav po odličnoj cijeni.','259.99','10',0);
 
-insert into proizvod(naziv,opis,cijena)
-values ('Battlefield 2042 PS5','Sljedeća generacija sveobuhvatnog rata je ovdje.','79.99');
+insert into proizvod(naziv,opis,cijena,kolicina,dostupnost)
+values ('Battlefield 2042 PS5','Sljedeća generacija sveobuhvatnog rata je ovdje.','79.99','50',1);
 
-insert into proizvod(naziv,opis,cijena)
-values ('LED fleksibilna traka','Proširite mogućnosti osvjetljenja vašeg doma. 1m, 2.1W, 24V','11.59');
+insert into proizvod(naziv,opis,cijena,kolicina,dostupnost)
+values ('LED fleksibilna traka','Proširite mogućnosti osvjetljenja vašeg doma. 1m, 2.1W, 24V','11.59','50',1);
 
 
 
 --TABLICA INVENTAR
 
-insert into inventar(proizvod,kolicina,dostupnost)
-values ('2','250','dostupno');
+insert into inventar(proizvod)
+values ('2');
 
-insert into inventar(proizvod,kolicina,dostupnost)
-values ('3','100','nedostupno');
+insert into inventar(proizvod)
+values ('3');
 
-insert into inventar(proizvod,kolicina,dostupnost)
-values ('1','50','dostupno');
+insert into inventar(proizvod)
+values ('1');
 
 
 
@@ -99,7 +99,7 @@ values ('2','3','1');
 
 
 --isprobavanje inner join-a
-select i.dostupnost, p.naziv, kk.korisnickoime, k.kolicina
+select p.naziv, kk.korisnickoime, k.kolicina
 from proizvod p inner join inventar i on p.sifra=i.proizvod 
 inner join kosarica k on i.sifra=k.proizvod
 inner join kupac kk on k.kupac=kk.sifra
