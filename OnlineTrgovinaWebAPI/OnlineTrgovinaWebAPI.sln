@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Početak", "Početak\Početak.csproj", "{2CD6034C-9133-45B9-9123-43580952382A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrgovina", "OnlineTrgovina\OnlineTrgovina.csproj", "{74E7F5A1-DFCD-4D5B-88E7-A23BA3F817A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CD6034C-9133-45B9-9123-43580952382A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CD6034C-9133-45B9-9123-43580952382A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CD6034C-9133-45B9-9123-43580952382A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CD6034C-9133-45B9-9123-43580952382A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74E7F5A1-DFCD-4D5B-88E7-A23BA3F817A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74E7F5A1-DFCD-4D5B-88E7-A23BA3F817A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74E7F5A1-DFCD-4D5B-88E7-A23BA3F817A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74E7F5A1-DFCD-4D5B-88E7-A23BA3F817A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {387732A6-771E-4481-9026-EAD34D4C8B33}
+	EndGlobalSection
+EndGlobal

@@ -136,7 +136,7 @@ namespace LjetnaAplikacija
         private void DetaljiProizvoda()
         {
             Console.WriteLine();
-            int index = Pomocno.UcitajBrojRaspon("\tZa detalje odaberite broj proizvoda (0 za povratak na izbornik): ", "\tOdabir mora biti jedan od ponuđenih brojeva", 0, Proizvodi.Count());
+            int index = Pomocno.UcitajBrojRaspon("\tZa detalje odaberite broj proizvoda (\0\za povratak na izbornik): ", "\tOdabir mora biti jedan od ponuđenih brojeva", 0, Proizvodi.Count());
             if (index != 0)
             {
                 var p = Proizvodi[index - 1];
