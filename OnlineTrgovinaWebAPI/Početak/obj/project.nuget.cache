@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "0109aaxo5az9uNhL91bCwcInFg3pGsxbnJ42jqZwEfjy3Ptw4exWAOJNn7WUojofaPZMm9dGblNclhoj2euRDg==",
+  "dgSpecHash": "8PfLrBPisJFCuXzrXmc2PpNIh4STOrxjVfMIGrigIrTTtG+GJauRBu1l20H57Z9aOLvXe91X7SHaZf8VXA+sBA==",
   "success": true,
   "projectFilePath": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\Početak\\Početak.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\samhe\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.11\\microsoft.aspnetcore.openapi.7.0.11.nupkg.sha512",
+    "C:\\Users\\samhe\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.12\\microsoft.aspnetcore.openapi.7.0.12.nupkg.sha512",
     "C:\\Users\\samhe\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\samhe\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
     "C:\\Users\\samhe\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
