@@ -1,11 +1,37 @@
 {
   "Version": 1,
-  "Hash": "rmMFf4XobB18VK0i1gQhYLmyy4gGdddAeDTLqOWvKR4=",
+  "Hash": "yMVlYSEO7osbGJJfmkqbJAtgwsYAGMUixD8EsDDuljw=",
   "Source": "OnlineTrgovina",
   "BasePath": "_content/OnlineTrgovina",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "OnlineTrgovina\\wwwroot",
+      "Source": "OnlineTrgovina",
+      "ContentRoot": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
+      "BasePath": "_content/OnlineTrgovina",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\index.html",
+      "SourceId": "OnlineTrgovina",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
+      "BasePath": "_content/OnlineTrgovina",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    }
+  ]
 }

@@ -19,9 +19,8 @@ create table kupac(
 
 create table kosarica(
 	sifra int not null primary key identity(1,1),
-	kolicina int not null,
 	kupac int,
-	proizvod int
+	datumStvaranja datetime
 );
 
 create table proizvod(
@@ -38,11 +37,19 @@ create table inventar(
 	dostupnost bit not null
 );
 
+create table kosaricaProizvod
+(
+	sifra int not null primary key identity (1,1),
+	kosarica int,
+	proizvod int
+);
 
+--Veze između tablica
 
-alter table kosarica add foreign key (kupac) references  kupac(sifra);
-alter table kosarica add foreign key (proizvod) references  proizvod(sifra);
-alter table inventar add foreign key (proizvod) references  proizvod(sifra);
+alter table kosarica add foreign key (kupac) references kupac(sifra);
+alter table kosaricaProizvod add foreign key (kosarica) references kosarica(sifra);
+alter table kosaricaProizvod add foreign key (proizvod) references proizvod(sifra);
+alter table inventar add foreign key (proizvod) references proizvod(sifra);
 
 
 
@@ -75,31 +82,58 @@ values ('LED fleksibilna traka','Proširite mogućnosti osvjetljenja vašeg doma
 --TABLICA INVENTAR
 
 insert into inventar(proizvod,kolicina,dostupnost)
-values ('2','10',0);
+values (2,10,0);
 
 insert into inventar(proizvod,kolicina,dostupnost)
-values ('3','50',1);
+values (3,50,1);
 
 insert into inventar(proizvod,kolicina,dostupnost)
-values ('1','50',1);
+values (1,50,1);
 
 
 
 --TABLICA KOSARICA
 
-insert into kosarica(kolicina,kupac,proizvod)
-values ('20','1','3');
+insert into kosarica(kupac,datumStvaranja)
+values (2,'2020-02-20 17:25:01');
 
-insert into kosarica(kolicina,kupac,proizvod)
-values ('1','2','2');
+insert into kosarica(kupac,datumStvaranja)
+values (1,'2022-05-02 10:58:32');
 
-insert into kosarica(kolicina,kupac,proizvod)
-values ('2','3','1');
+insert into kosarica(kupac,datumStvaranja)
+values (3,'2023-12-05 08:26:41');
 
 
 
---isprobavanje inner join-a
-select p.naziv, kk.korisnickoime, k.kolicina
-from proizvod p inner join inventar i on p.sifra=i.proizvod 
-inner join kosarica k on i.sifra=k.proizvod
-inner join kupac kk on k.kupac=kk.sifra
+--TABLICA KOSARICAPROIZVOD
+
+insert into kosaricaProizvod(kosarica,proizvod)
+values(1,2),(2,3),(3,1);
+
+
+
+--Isprobavanje inner join-a
+
+select k.ime, kk.datumStvaranja, p.naziv, i.dostupnost
+from kupac k inner join kosarica kk on k.sifra=kk.kupac
+inner join kosaricaProizvod kP on kk.sifra=kP.kosarica
+inner join proizvod p on kP.proizvod=p.sifra
+inner join inventar i on p.sifra=i.proizvod
+
+
+
+--Promjena podataka
+/*
+update kupac set 
+korisnickoime = 'TihBab',
+lozinka = '213svat3Iyfg2i@',
+telefon = '095 418 1748'
+where sifra = 3;
+*/
+
+
+
+--Brisanje podataka
+/*
+delete from proizvod where sifra=3;
+*/

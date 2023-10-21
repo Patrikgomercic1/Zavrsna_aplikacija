@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.OnlineTrgovina.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.OnlineTrgovina.props",
+      "PackagePath": "build\\OnlineTrgovina.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.OnlineTrgovina.props",
+      "PackagePath": "buildMultiTargeting\\OnlineTrgovina.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.OnlineTrgovina.props",
+      "PackagePath": "buildTransitive\\OnlineTrgovina.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

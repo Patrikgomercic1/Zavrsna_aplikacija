@@ -40,6 +40,7 @@ C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\Početak
 C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\Početak\bin\Debug\net7.0\Početak.pdb
 C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\Početak\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\Početak\bin\Debug\net7.0\Microsoft.OpenApi.dll
+C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\Početak\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\Početak\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\Početak\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\Početak\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -64,4 +65,3 @@ C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\Početak
 C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\Početak\obj\Debug\net7.0\Početak.pdb
 C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\Početak\obj\Debug\net7.0\Početak.genruntimeconfig.cache
 C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\Početak\obj\Debug\net7.0\ref\Početak.dll
-C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\Početak\bin\Debug\net7.0\Newtonsoft.Json.dll

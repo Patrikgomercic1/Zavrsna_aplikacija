@@ -6,14 +6,16 @@ namespace OnlineTrgovina.Models
     {
         [Required]
         public string Naziv { get; set; }
+
         [Required]
         public string Opis { get; set; }
+
         [Required]
-        [Range(6,2)]
+        [Range(0,10000)]
         public decimal Cijena { get; set; }
-        [Required]
-        public int Kolicina { get; set; }
-        [Required]
-        public bool Dostupnost { get; set; }
+
+        public ICollection<Inventar> Inventar { get; }
+        public ICollection<Kosarica> Kosarica { get; }
+
     }
 }
