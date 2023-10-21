@@ -14,8 +14,7 @@ namespace OnlineTrgovina.Models
         [Range(0,10000)]
         public decimal Cijena { get; set; }
 
-        public ICollection<Inventar> Inventar { get; }
-        public ICollection<Kosarica> Kosarica { get; }
+   
 
     }
 }

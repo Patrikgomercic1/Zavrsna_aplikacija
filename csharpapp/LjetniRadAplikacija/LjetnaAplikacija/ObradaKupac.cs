@@ -155,6 +155,8 @@ namespace LjetnaAplikacija
                 var p = Kupci[index - 1];
 
                 Console.WriteLine("\t|---------------------------------------------------------------|");
+                Console.WriteLine("\t|                          DETALJI KUPCA                        |");
+                Console.WriteLine("\t|---------------------------------------------------------------|");
                 Console.WriteLine();
                 Console.WriteLine("\tKorisničko ime: {0}", p.KorisnickoIme);
                 Console.WriteLine("\tIme korisnika: {0}", p.Ime);

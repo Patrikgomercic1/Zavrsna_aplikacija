@@ -11,12 +11,11 @@ namespace LjetnaAplikacija
         public string Naziv { get; set; }
         public string Opis { get; set; }
         public decimal Cijena { get; set; }
-        public int Kolicina { get; set; }
-        public bool Dostupnost { get; set; }
+
         public List<Proizvod> Proizvodi { get; set; }
         public override string ToString()
-        {
-            return Naziv + "(" + Kolicina + ")";
+        {           
+            return Naziv + (" ") +"(" + Cijena + " $" + ")";
         }
     }
 }

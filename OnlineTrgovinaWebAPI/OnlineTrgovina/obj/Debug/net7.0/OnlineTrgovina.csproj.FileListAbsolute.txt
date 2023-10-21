@@ -73,3 +73,14 @@ C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTr
 C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Debug\net7.0\OnlineTrgovina.xml
 C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\bin\Debug\net7.0\OnlineTrgovina.staticwebassets.runtime.json
 C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\Polaznik\Documents\EdunovaPP26\www\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Debug\net7.0\OnlineTrgovina.csproj.AssemblyReference.cache
+C:\Users\Polaznik\Documents\EdunovaPP26\www\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Debug\net7.0\OnlineTrgovina.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Polaznik\Documents\EdunovaPP26\www\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Debug\net7.0\OnlineTrgovina.AssemblyInfoInputs.cache
+C:\Users\Polaznik\Documents\EdunovaPP26\www\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Debug\net7.0\OnlineTrgovina.AssemblyInfo.cs
+C:\Users\Polaznik\Documents\EdunovaPP26\www\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Debug\net7.0\OnlineTrgovina.csproj.CoreCompileInputs.cache
+C:\Users\Polaznik\Documents\EdunovaPP26\www\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Debug\net7.0\OnlineTrgovina.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Polaznik\Documents\EdunovaPP26\www\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Debug\net7.0\OnlineTrgovina.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Polaznik\Documents\EdunovaPP26\www\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Debug\net7.0\OnlineTrgovina.dll
+C:\Users\Polaznik\Documents\EdunovaPP26\www\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Debug\net7.0\refint\OnlineTrgovina.dll
+C:\Users\Polaznik\Documents\EdunovaPP26\www\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Debug\net7.0\OnlineTrgovina.xml
+C:\Users\Polaznik\Documents\EdunovaPP26\www\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Debug\net7.0\OnlineTrgovina.pdb

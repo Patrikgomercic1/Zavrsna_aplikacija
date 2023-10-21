@@ -27,15 +27,18 @@ namespace OnlineTrgovina.Data
             //implementacija veze 1:n - Kosarica ima jednog Kupca
             modelBuilder.Entity<Kosarica>().HasOne(kk => kk.Kupac);
 
+            modelBuilder.Entity<Kosarica>().HasOne(kk => kk.Proizvod);
+
             //Inventar i Proizvod
+            /*
             modelBuilder.Entity<Kosarica>().HasMany(kk => kk.Proizvod)
-                .WithMany(p=> p.Kosarica)
+                .WithMany(p => p.Kosarica)
                 .UsingEntity<Dictionary<string, object>>("kosaricaProizvod",
                 kP => kP.HasOne<Proizvod>().WithMany().HasForeignKey("proizvod"),
                 kP => kP.HasOne<Kosarica>().WithMany().HasForeignKey("kosarica"),
                 kP => kP.ToTable("kosaricaProizvod")
                 );
-
+            */
 
         }
     

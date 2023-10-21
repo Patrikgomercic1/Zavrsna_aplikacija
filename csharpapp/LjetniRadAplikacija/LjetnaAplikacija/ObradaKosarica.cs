@@ -50,6 +50,7 @@ namespace LjetnaAplikacija
                 case 3:
                     DodavanjeKosarice();
                     PrikaziIzbornik();
+                    PregledKosarice();
                     break;
                 case 4:
                     BrisanjeKosarice();
@@ -100,8 +101,7 @@ namespace LjetnaAplikacija
                 else
                 {
                     var k = Kosarice[index - 1];
-                    k.Proizvod = UcitajProizvod();
-                    k.Kolicina = Pomocno.UcitajCijeliBroj("\tUnesite količinu proizvoda (" + k.Kolicina + "): ", "\tGreška! Morate unijeti cijeli broj!");
+                    UcitajProizvod();
                     
                 }
             }
@@ -110,17 +110,27 @@ namespace LjetnaAplikacija
         private void DodavanjeKosarice()
         {
             var k = new Kosarica();
-            k.Proizvod = UcitajProizvod();
-            k.Kolicina = Pomocno.UcitajCijeliBroj("\tUnesite količinu proizvoda: ", "\tGreška! Morate unijeti cijeli broj!");
             k.Kupac = UcitajKupca();
+            UcitajProizvod();         
             Kosarice.Add(k);
         }
 
         private Kupac UcitajKupca()
         {
             Izbornik.ObradaKupac.PrikaziKupce();
-            int index = Pomocno.UcitajBrojRaspon("\tOdaberite broj kupca za dodavanje u košaricu: ", "\tGreška! Odabir mora biti jedan od ponuđenih brojeva!", 1, Izbornik.ObradaProizvod.Proizvodi.Count());
+            int index = Pomocno.UcitajBrojRaspon("\tOdaberite broj kupca za dodavanje u košaricu: ", "\tGreška! Odabir mora biti jedan od ponuđenih brojeva!", 1, Izbornik.ObradaKupac.Kupci.Count());
             return Izbornik.ObradaKupac.Kupci[index - 1];
+        }
+
+        private List<Proizvod> PostaviProizvode()
+        {
+            List<Proizvod> proizvodi = new List<Proizvod>();
+            while (Pomocno.UcitajBool("\tŽelite li dodati proizvod? (unesite ''da'' za dodavanje, bilo što drugo za ne): "))
+            {
+                proizvodi.Add(UcitajProizvod());
+            }
+
+            return proizvodi;
         }
 
         private Proizvod UcitajProizvod()
