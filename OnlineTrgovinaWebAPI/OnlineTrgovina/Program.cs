@@ -11,7 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Dokumentacija
+// Dokumentacija aplikacije
 builder.Services.AddSwaggerGen(sgo => { 
     var o = new Microsoft.OpenApi.Models.OpenApiInfo()
     {
@@ -19,14 +19,11 @@ builder.Services.AddSwaggerGen(sgo => {
         Version = "v1",
         Contact = new Microsoft.OpenApi.Models.OpenApiContact()
         {
-            Email = "tjakopec@gmail.com",
+            Email = "patrik.gomercic3@gmail.com",
             Name = "Patrik Gomerèiæ"
         },
         Description = "Ovo je dokumentacija za Online Trgovina API",
-        //License = new Microsoft.OpenApi.Models.OpenApiLicense()
-        //{
-        //    Name = "Edukacijska licenca"
-        //}
+
     };
     sgo.SwaggerDoc("v1", o);
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";

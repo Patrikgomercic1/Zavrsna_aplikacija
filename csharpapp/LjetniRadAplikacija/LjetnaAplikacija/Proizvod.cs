@@ -12,6 +12,8 @@ namespace LjetnaAplikacija
         public string Opis { get; set; }
         public decimal Cijena { get; set; }
 
+        public Inventar Inventar { get; set; }
+
         public List<Proizvod> Proizvodi { get; set; }
         public override string ToString()
         {           

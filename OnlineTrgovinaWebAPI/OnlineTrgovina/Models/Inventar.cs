@@ -8,12 +8,15 @@ namespace OnlineTrgovina.Models
         [ForeignKey("proizvod")]
         public Proizvod? Proizvod { get; set; }
 
+        public string? Kategorija { get; set; }
+
         [Required]
         public int Kolicina { get; set; }
 
         [Required]
         public bool Dostupnost {  get; set; }
-         
-        
+
+
+        public List<Proizvod> Proizvodi { get; set; }
     }
 }

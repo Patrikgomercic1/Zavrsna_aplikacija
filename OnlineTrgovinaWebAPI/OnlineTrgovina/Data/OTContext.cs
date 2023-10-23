@@ -18,29 +18,28 @@ namespace OnlineTrgovina.Data
 
         public DbSet<Inventar> Inventar { get; set; }
 
-
+        //ORM
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //implementacija veze 1:n - Proizvod ima jedan Inventar -- PROBATI OBRNUTO
-            //modelBuilder.Entity<Proizvod>().HasOne(p => p.Inventar);
+            //implementacija veze 1:n - Proizvod ima jedan Inventar
+            modelBuilder.Entity<Inventar>().HasMany(i => i.Proizvodi);
 
-            //implementacija veze 1:n - Kosarica ima jednog Kupca
+            //implementacija veze 1:1 - Košarica ima jednog Kupca/Kupac ima jednu Košaricu
+            modelBuilder.Entity<Kupac>().HasOne(k => k.Kosarica);
             modelBuilder.Entity<Kosarica>().HasOne(kk => kk.Kupac);
 
-            modelBuilder.Entity<Kosarica>().HasOne(kk => kk.Proizvod);
-
-            //Inventar i Proizvod
-            /*
-            modelBuilder.Entity<Kosarica>().HasMany(kk => kk.Proizvod)
-                .WithMany(p => p.Kosarica)
+            //implementacija veze n:n - više Košarica ima više Proizvoda           
+            modelBuilder.Entity<Kosarica>()
+                .HasMany(kk => kk.Proizvodi)
+                .WithMany(p => p.Kosarice)
                 .UsingEntity<Dictionary<string, object>>("kosaricaProizvod",
                 kP => kP.HasOne<Proizvod>().WithMany().HasForeignKey("proizvod"),
                 kP => kP.HasOne<Kosarica>().WithMany().HasForeignKey("kosarica"),
                 kP => kP.ToTable("kosaricaProizvod")
                 );
-            */
+
 
         }
-    
+
     }
 }

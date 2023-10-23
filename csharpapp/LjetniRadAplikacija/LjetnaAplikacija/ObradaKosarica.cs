@@ -41,16 +41,16 @@ namespace LjetnaAplikacija
             {
                 case 1:
                     PregledKosarice();
+                    DetaljiKosarice();
                     PrikaziIzbornik();
                     break;
                 case 2:
                     PromjeniKosaricu();
                     PrikaziIzbornik();
-                    break;               
+                    break;
                 case 3:
                     DodavanjeKosarice();
-                    PrikaziIzbornik();
-                    PregledKosarice();
+                    PrikaziIzbornik();                    
                     break;
                 case 4:
                     BrisanjeKosarice();
@@ -102,7 +102,7 @@ namespace LjetnaAplikacija
                 {
                     var k = Kosarice[index - 1];
                     UcitajProizvod();
-                    
+
                 }
             }
         }
@@ -110,8 +110,8 @@ namespace LjetnaAplikacija
         private void DodavanjeKosarice()
         {
             var k = new Kosarica();
-            k.Kupac = UcitajKupca();
-            UcitajProizvod();         
+            UcitajKupca();
+            UcitajProizvod();
             Kosarice.Add(k);
         }
 
@@ -140,6 +140,29 @@ namespace LjetnaAplikacija
             return Izbornik.ObradaProizvod.Proizvodi[index - 1];
         }
 
+        private void DetaljiKosarice()
+        {
+            Console.WriteLine();
+            int index = Pomocno.UcitajBrojRaspon("\tZa detalje odaberite broj korisnika (0 za povratak na izbornik): ", "\tGreška! Odabir mora biti jedan od ponuđenih brojeva", 0, Kosarice.Count());
+            if (index != 0)
+            {
+                var k = Kosarice[index - 1];
+
+                Console.WriteLine("\t|---------------------------------------------------------------|");
+                Console.WriteLine("\t|                         DETALJI KOSARICE                      |");
+                Console.WriteLine("\t|---------------------------------------------------------------|");
+                Console.WriteLine();
+                Console.WriteLine("\tKorisničko ime: {0}", k.Kupac.KorisnickoIme);
+                Console.WriteLine("\tNaziv košarice: {0}", k.Kosarice);
+                Console.WriteLine("\tDatum stvaranja korisnika: {0}", k.DatumStvaranja);
+                //Console.WriteLine("\tPrezime korisnika: {0}", p.Lozinka);
+                //Console.WriteLine("\tPrezime korisnika: {0}", p.Telefon);
+                //Console.WriteLine("\tAdresa korisnika: {0}", p.Adresa);
+                Console.WriteLine();
+                Console.WriteLine("\t|---------------------------------------------------------------|\n");
+            }
+        }
+
         private void PregledKosarice()
         {
             if (Kosarice.Count == 0)
@@ -160,7 +183,7 @@ namespace LjetnaAplikacija
                     Console.WriteLine("\t {0}. {1}", broj++, k);
                 }
 
-                Console.WriteLine("\n \t|---------------------------------|");
+                Console.WriteLine("\n \t|------------------------------------------|");
             }
         }
     }

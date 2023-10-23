@@ -14,5 +14,6 @@ namespace LjetnaAplikacija
         public int? Kolicina { get; set; }
 
         public bool? Dostupnost { get; set; }
+
     }
 }

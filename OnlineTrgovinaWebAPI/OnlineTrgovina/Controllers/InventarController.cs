@@ -35,12 +35,13 @@ namespace OnlineTrgovina.Controllers
 
             inventar.ForEach(i =>
             {
-                var idto = new InventarDTO()   //ručno presipavanje
+                var idto = new InventarDTO()
                 {
                     Sifra = i.Sifra,
-                    SifraProizvod=i.Proizvod.Sifra,
+                    Kategorija = i.Kategorija,
                     Kolicina = i.Kolicina,
-                    Dostupnost = i.Dostupnost
+                    Dostupnost = i.Dostupnost,
+                    //SifraProizvod = i.Proizvod.Sifra
                 };
                 vratiInventar.Add(idto);
             });

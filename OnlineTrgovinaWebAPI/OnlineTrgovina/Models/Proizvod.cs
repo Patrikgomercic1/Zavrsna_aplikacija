@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 
 namespace OnlineTrgovina.Models
 {
@@ -14,7 +15,8 @@ namespace OnlineTrgovina.Models
         [Range(0,10000)]
         public decimal Cijena { get; set; }
 
-   
 
+        public ICollection<Kosarica> Kosarice { get; } = new List<Kosarica>(); 
+        public ICollection<Inventar> Inventari { get; } = new List<Inventar>(); 
     }
 }

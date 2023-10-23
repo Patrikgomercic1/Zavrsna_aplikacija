@@ -8,5 +8,8 @@ namespace OnlineTrgovina.Models.DTO
         public string Naziv { get; set; }
         public string Opis { get; set; }
         public decimal Cijena { get; set; }
+
+
+
     }
 }

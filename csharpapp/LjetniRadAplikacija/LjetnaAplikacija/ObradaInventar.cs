@@ -40,6 +40,7 @@ namespace LjetnaAplikacija
             {
                 case 1:
                     PrikaziInventar();
+                    DetaljiInventara();
                     PrikaziIzbornik();
                     break;
                 case 2:
@@ -91,6 +92,24 @@ namespace LjetnaAplikacija
             return Izbornik.ObradaProizvod.Proizvodi[index - 1];
         }
 
+        public void DetaljiInventara()
+        {
+            Console.WriteLine();
+            int index = Pomocno.UcitajBrojRaspon("\tZa detalje odaberite jedan od ponuđenih brojeva (0 za povratak na izbornik): ", "\tOdabir mora biti jedan od ponuđenih brojeva", 0, Inventari.Count());
+            if (index != 0)
+            {
+                var i = Inventari[index - 1];
+
+                Console.WriteLine();
+                Console.WriteLine("\t|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
+                Console.WriteLine();
+                Console.WriteLine("\t Naziv proizvoda: {0}", i.Proizvod);
+                Console.WriteLine("\t Kolicina proizvoda: {0}", i.Kolicina);
+                Console.WriteLine("\t Dostupnost proizvoda: {0}", i.Dostupnost);
+                Console.WriteLine();
+                Console.WriteLine("\t|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
+            }
+        }
     }
   
 }

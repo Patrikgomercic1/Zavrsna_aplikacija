@@ -154,6 +154,7 @@ namespace LjetnaAplikacija
             {
                 var p = Kupci[index - 1];
 
+                Console.WriteLine();
                 Console.WriteLine("\t|---------------------------------------------------------------|");
                 Console.WriteLine("\t|                          DETALJI KUPCA                        |");
                 Console.WriteLine("\t|---------------------------------------------------------------|");

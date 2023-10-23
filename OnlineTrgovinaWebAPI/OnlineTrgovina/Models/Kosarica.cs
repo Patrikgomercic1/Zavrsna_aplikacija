@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.RegularExpressions;
 
 namespace OnlineTrgovina.Models
 {
@@ -7,14 +9,13 @@ namespace OnlineTrgovina.Models
         [ForeignKey("kupac")]
         public Kupac? Kupac { get; set; }
 
+        [Required]
+        public int KolicinaProizvod { get; set; }
+
         public DateTime? DatumStvaranja { get; set; }
 
 
-
-        //dodati proizvod kao strani ključ?
-        [ForeignKey("proizvod")]
-        public Proizvod? Proizvod { get; set; }
-
-        public ICollection<Kosarica> Kosarica { get; }
+        public List<Proizvod> Proizvodi { get; set; }
     }
 }
+

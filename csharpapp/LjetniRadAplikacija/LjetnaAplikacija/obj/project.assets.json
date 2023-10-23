@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Polaznik\\.nuget\\packages\\": {}
+    "C:\\Users\\samhe\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Polaznik\\Documents\\EdunovaPP26\\www\\Zavrsna_aplikacija\\csharpapp\\LjetniRadAplikacija\\LjetnaAplikacija\\LjetnaAplikacija.csproj",
+      "projectUniqueName": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\csharpapp\\LjetniRadAplikacija\\LjetnaAplikacija\\LjetnaAplikacija.csproj",
       "projectName": "LjetnaAplikacija",
-      "projectPath": "C:\\Users\\Polaznik\\Documents\\EdunovaPP26\\www\\Zavrsna_aplikacija\\csharpapp\\LjetniRadAplikacija\\LjetnaAplikacija\\LjetnaAplikacija.csproj",
-      "packagesPath": "C:\\Users\\Polaznik\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Polaznik\\Documents\\EdunovaPP26\\www\\Zavrsna_aplikacija\\csharpapp\\LjetniRadAplikacija\\LjetnaAplikacija\\obj\\",
+      "projectPath": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\csharpapp\\LjetniRadAplikacija\\LjetnaAplikacija\\LjetnaAplikacija.csproj",
+      "packagesPath": "C:\\Users\\samhe\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\csharpapp\\LjetniRadAplikacija\\LjetnaAplikacija\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Polaznik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\samhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -20,5 +20,6 @@ namespace OnlineTrgovina.Models
 
 		public string Adresa {  get; set; }
 
+        public Kosarica Kosarica { get; set; }
     }
 }

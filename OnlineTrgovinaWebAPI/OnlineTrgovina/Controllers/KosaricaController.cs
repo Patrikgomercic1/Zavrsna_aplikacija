@@ -32,7 +32,7 @@ namespace OnlineTrgovina.Controllers
             try
             {
                 var kosarice = _context.Kosarica.Include(kk => kk.Kupac)
-                    //.Include(kk => kk.Proizvod)
+                    .Include(kk => kk.Proizvodi)
                     .ToList();
                 if (kosarice == null)
                 {
@@ -47,9 +47,10 @@ namespace OnlineTrgovina.Controllers
                     {
                         Sifra = kk.Sifra,
                         Kupac = kk.Kupac.KorisnickoIme,
-                        KupacSifra = kk.Kupac.Sifra,
+                        KolicinaProizvod = kk.KolicinaProizvod,
                         DatumStvaranja = kk.DatumStvaranja,
-                        //BrojProizvoda=kk.BrojProizvoda.Count()
+                        //KupacSifra = kk.Kupac.Sifra,
+                        //ProizvodNaziv = kk.Proizvod.Naziv
                     });
                 });
 
@@ -61,6 +62,7 @@ namespace OnlineTrgovina.Controllers
             }
         }
 
+        [HttpPost]
         public IActionResult Post(KosaricaDTO kosaricaDTO)
         {
             if (!ModelState.IsValid)
@@ -68,14 +70,14 @@ namespace OnlineTrgovina.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (kosaricaDTO.KupacSifra <= 0)
-            {
-                return BadRequest(ModelState);
-            }
+            //if (kosaricaDTO.Kupac <= 0)
+            //{
+            //    return BadRequest(ModelState);
+            //}
 
             try
             {
-                var kupac = _context.Kupac.Find(kosaricaDTO.KupacSifra);
+                var kupac = _context.Kupac.Find(kosaricaDTO.Kupac);
 
                 if (kupac == null)
                 {
@@ -84,9 +86,9 @@ namespace OnlineTrgovina.Controllers
 
                 Kosarica kk = new()
                 {
-                    DatumStvaranja = kosaricaDTO.DatumStvaranja,
                     Kupac = kupac,
-                    //BrojProizvoda = kosaricaDTO.BrojProizvoda
+                    KolicinaProizvod = kosaricaDTO.KolicinaProizvod,
+                    DatumStvaranja = kosaricaDTO.DatumStvaranja
                 };
 
                 _context.Kosarica.Add(kk);
@@ -119,7 +121,7 @@ namespace OnlineTrgovina.Controllers
 
             try
             {
-                var kupac = _context.Kupac.Find(kosaricaDTO.KupacSifra);
+                var kupac = _context.Kupac.Find(kosaricaDTO.Kupac);
 
                 if (kupac == null)
                 {
@@ -133,9 +135,9 @@ namespace OnlineTrgovina.Controllers
                     return BadRequest(ModelState);
                 }
 
-                kosarica.DatumStvaranja = kosaricaDTO.DatumStvaranja;
                 kosarica.Kupac = kupac;
-                //kosarica.BrojProizvoda = kosaricaDTO.BrojProizvoda;
+                kosarica.KolicinaProizvod = kosaricaDTO.KolicinaProizvod;
+                kosarica.DatumStvaranja = kosaricaDTO.DatumStvaranja;
 
                 _context.Kosarica.Update(kosarica);
                 _context.SaveChanges();
@@ -152,7 +154,7 @@ namespace OnlineTrgovina.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpDelete]    //staviti napomenu da briše CIJELU košaricu jednog korisnika
         [Route("{sifra:int}")]
         [Produces("application/json")]
         public IActionResult Delete(int sifra)
@@ -177,7 +179,7 @@ namespace OnlineTrgovina.Controllers
             {
                 return new JsonResult("Ne može se obrisati!");
             }
-        }
+        }   //dodati rutu za brisanje individualnih proizvoda iz košarice
 
         //dodavanje proizvoda
         [HttpGet]
@@ -197,8 +199,8 @@ namespace OnlineTrgovina.Controllers
             try
             {
                 var kosarica = _context.Kosarica
-                    .Include(kk => kk.Proizvodi) //dodati proizvod u context
-                    .FirstOrDefault(kk => kk.sifra == sifra);
+                    .Include(kk => kk.Proizvodi)
+                    .FirstOrDefault(kk => kk.Sifra == sifra);
 
                 if (kosarica == null)
                 {
@@ -230,7 +232,7 @@ namespace OnlineTrgovina.Controllers
                 return StatusCode(StatusCodes.Status503ServiceUnavailable, kp);
             }
         }
-
+        //postavljanje proizvoda
         [HttpPost]
         [Route("sifra:int/dodavanje/{proizvodSifra:int}")]
         public IActionResult DodajProizvode(int sifra, int proizvodSifra)
@@ -248,17 +250,17 @@ namespace OnlineTrgovina.Controllers
             try
             {
                 var kosarica = _context.Kosarica
-                    .Include(kk => kk.Proizvodi) //dodati proizvod u context
-                    .FirstOrDefault(kk => kk.sifra == sifra);
+                    .Include(kk => kk.Proizvodi)
+                    .FirstOrDefault(kk => kk.Sifra == sifra);
 
                 if (kosarica == null)
                 {
                     return BadRequest();
                 }
 
-                var proizvod =_context.Proizvod.Find(proizvodSifra);
+                var proizvod = _context.Proizvod.Find(proizvodSifra);
 
-                if(proizvod == null)
+                if (proizvod == null)
                 {
                     return BadRequest();
                 }
@@ -276,7 +278,7 @@ namespace OnlineTrgovina.Controllers
                 return StatusCode(StatusCodes.Status503ServiceUnavailable, p);
             }
         }
-
+        //brisanje proizvoda
         [HttpDelete]
         [Route("sifra:int/brisanje/{proizvodSifra:int}")]
         public IActionResult BrisiProizvode(int sifra, int proizvodSifra)
@@ -294,8 +296,8 @@ namespace OnlineTrgovina.Controllers
             try
             {
                 var kosarica = _context.Kosarica
-                    .Include(kk => kk.Proizvodi) //dodati proizvod u context
-                    .FirstOrDefault(kk => kk.sifra == sifra);
+                    .Include(kk => kk.Proizvodi)
+                    .FirstOrDefault(kk => kk.Sifra == sifra);
 
                 if (kosarica == null)
                 {

@@ -8,16 +8,17 @@ namespace LjetnaAplikacija
 {
     internal class Kosarica : Entitet
     {
-        public Kupac? Kupac { get; set; }
+        public Kupac? Kupac { get; }
 
-        public Proizvod? Proizvod { get; set; }
+        public Proizvod? Proizvod { get;}
+
+        public DateTime? DatumStvaranja { get; set;}
 
         public List<Kosarica> Kosarice { get; set; }
-
         
         public override string ToString()
         {
-            return Kupac + ", " + Proizvod;//dodati prikaz  detaljnijih atributa kosarice
+            return null;//dodati prikaz  detaljnijih atributa kosarice
         }
 
     }

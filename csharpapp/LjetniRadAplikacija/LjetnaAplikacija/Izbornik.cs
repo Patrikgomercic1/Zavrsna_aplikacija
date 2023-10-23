@@ -11,14 +11,14 @@ namespace LjetnaAplikacija
 
         public ObradaKupac ObradaKupac {  get; }
         private ObradaKosarica ObradaKosarica;
-        public ObradaProizvod ObradaProizvod { get; }
-        private ObradaInventar ObradaInventar;
+        public ObradaProizvod ObradaProizvod;
+        public ObradaInventar ObradaInventar;
 
         public Izbornik()
         {
             ObradaKupac = new ObradaKupac();
             ObradaKosarica = new ObradaKosarica(this);
-            ObradaProizvod = new ObradaProizvod();
+            ObradaProizvod = new ObradaProizvod(this);
             ObradaInventar = new ObradaInventar(this);
             PozdravnaPoruka();
             PrikaziIzbornik();     

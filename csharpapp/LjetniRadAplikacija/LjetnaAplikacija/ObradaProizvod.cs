@@ -145,7 +145,14 @@ namespace LjetnaAplikacija
                 Console.WriteLine();
                 Console.WriteLine("\t|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
             }
-        }   
+        }
+
+        private void PrikazAtriburaInventara()
+        {
+            var p = new Proizvod();
+            Izbornik.ObradaInventar.DetaljiInventara();
+            Proizvodi.Add(p);
+        }
 
         private void TestniPodaci()
         {
@@ -158,9 +165,16 @@ namespace LjetnaAplikacija
 
             Proizvodi.Add(new Proizvod()
             {
-                Naziv = "Majica2",
+                Naziv = "Potkošulja",
                 Opis = "Testni proizvod2",
                 Cijena = 20
+            });
+
+            Proizvodi.Add(new Proizvod()
+            {
+                Naziv = "Hlače",
+                Opis = "Testni proizvod3",
+                Cijena = 30
             });
         }
 

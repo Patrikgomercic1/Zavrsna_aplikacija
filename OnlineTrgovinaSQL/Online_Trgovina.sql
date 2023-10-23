@@ -20,6 +20,7 @@ create table kupac(
 create table kosarica(
 	sifra int not null primary key identity(1,1),
 	kupac int,
+	kolicinaProizvod int not null,
 	datumStvaranja datetime
 );
 
@@ -33,6 +34,7 @@ create table proizvod(
 create table inventar(
 	sifra int not null primary key identity(1,1),
 	proizvod int,
+	kategorija varchar(30),
 	kolicina int not null,
 	dostupnost bit not null
 );
@@ -81,27 +83,27 @@ values ('LED fleksibilna traka','Proširite mogućnosti osvjetljenja vašeg doma
 
 --TABLICA INVENTAR
 
-insert into inventar(proizvod,kolicina,dostupnost)
-values (2,10,0);
+insert into inventar(proizvod,kategorija,kolicina,dostupnost)
+values (2,'Informatika',10,0);
 
-insert into inventar(proizvod,kolicina,dostupnost)
-values (3,50,1);
+insert into inventar(proizvod,kategorija,kolicina,dostupnost)
+values (3,'Osvjetljenje',50,1);
 
-insert into inventar(proizvod,kolicina,dostupnost)
-values (1,50,1);
+insert into inventar(proizvod,kategorija,kolicina,dostupnost)
+values (1,'Informatika',50,1);
 
 
 
 --TABLICA KOSARICA
 
-insert into kosarica(kupac,datumStvaranja)
-values (2,'2020-02-20 17:25:01');
+insert into kosarica(kupac,kolicinaProizvod,datumStvaranja)
+values (2,15,'2020-02-20 17:25:01');
 
-insert into kosarica(kupac,datumStvaranja)
-values (1,'2022-05-02 10:58:32');
+insert into kosarica(kupac,kolicinaProizvod,datumStvaranja)
+values (1,5,'2022-05-02 10:58:32');
 
-insert into kosarica(kupac,datumStvaranja)
-values (3,'2023-12-05 08:26:41');
+insert into kosarica(kupac,kolicinaProizvod,datumStvaranja)
+values (3,20,'2023-12-05 08:26:41');
 
 
 
@@ -113,14 +115,18 @@ values(1,2),(2,3),(3,1);
 
 
 --Isprobavanje inner join-a
-
+/*
 select k.ime, kk.datumStvaranja, p.naziv, i.dostupnost
 from kupac k inner join kosarica kk on k.sifra=kk.kupac
 inner join kosaricaProizvod kP on kk.sifra=kP.kosarica
 inner join proizvod p on kP.proizvod=p.sifra
 inner join inventar i on p.sifra=i.proizvod
+*/
 
-
+--Dohvaćanje podataka iz tablica
+/*select korisnickoime,ime from kupac order by des;*/
+/*select kupac,kolicinaProizvod from kosarica;*/
+/*select * from proizvod;/*
 
 --Promjena podataka
 /*
@@ -130,8 +136,6 @@ lozinka = '213svat3Iyfg2i@',
 telefon = '095 418 1748'
 where sifra = 3;
 */
-
-
 
 --Brisanje podataka
 /*
