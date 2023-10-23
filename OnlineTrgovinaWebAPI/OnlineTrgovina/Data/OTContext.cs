@@ -22,10 +22,10 @@ namespace OnlineTrgovina.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //implementacija veze 1:n - Proizvod ima jedan Inventar
-            modelBuilder.Entity<Inventar>().HasMany(i => i.Proizvodi);
+
 
             //implementacija veze 1:1 - Košarica ima jednog Kupca/Kupac ima jednu Košaricu
-            modelBuilder.Entity<Kupac>().HasOne(k => k.Kosarica);
+
             modelBuilder.Entity<Kosarica>().HasOne(kk => kk.Kupac);
 
             //implementacija veze n:n - više Košarica ima više Proizvoda           

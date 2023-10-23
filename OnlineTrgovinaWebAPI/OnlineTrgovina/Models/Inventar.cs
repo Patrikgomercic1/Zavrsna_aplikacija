@@ -17,6 +17,6 @@ namespace OnlineTrgovina.Models
         public bool Dostupnost {  get; set; }
 
 
-        public List<Proizvod> Proizvodi { get; set; }
+       
     }
 }
