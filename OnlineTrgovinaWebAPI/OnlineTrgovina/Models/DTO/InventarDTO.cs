@@ -15,6 +15,7 @@ namespace OnlineTrgovina.Models.DTO
 
         public bool Dostupnost { get; set; }
 
-
+        //koristi se za prikaz šifre proizvoda u inventaru
+        public Proizvod? SifraProizvod { get; set; }
     }
 }

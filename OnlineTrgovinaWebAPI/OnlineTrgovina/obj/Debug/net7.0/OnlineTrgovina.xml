@@ -4,6 +4,101 @@
         <name>OnlineTrgovina</name>
     </assembly>
     <members>
+        <member name="T:OnlineTrgovina.Controllers.KosaricaController">
+            <summary>
+            Namjenjeno za CRUD operacije nad Košaricom
+            </summary>
+        </member>
+        <member name="T:OnlineTrgovina.Controllers.KupacController">
+            <summary>
+            Namjenjeno za CRUD operacije nad Kupcima
+            </summary>
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.KupacController.Get">
+             <summary>
+             Dohvaća sve kupce iz baze
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                GET api/v1/Kupac
+            
+             </remarks>
+             <returns>Kupci u bazi</returns>
+             <response code="200">Sve je u redu</response>
+             <response code="400">Zahtjev nije valjan (BadRequest)</response> 
+             <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.KupacController.Post(OnlineTrgovina.Models.DTO.KupacDTO)">
+             <summary>
+             Dodaje kupca u bazu
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                POST api/v1/Kupac
+                
+             {
+               "sifra": 0,
+                korisnickoIme": "string",
+                ime": "string",
+                prezime": "string",
+                lozinka": "string",
+                telefon": "string",
+                adresa": "string"
+             }
+            
+            
+             </remarks>
+             <returns>Kreirani proizvod u bazi sa svim podacima</returns>
+             <response code="200">Sve je u redu</response>
+             <response code="400">Zahtjev nije valjan (BadRequest)</response> 
+             <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.KupacController.Put(System.Int32,OnlineTrgovina.Models.DTO.KupacDTO)">
+             <summary>
+             Mijenja podatke postojećeg kupca u bazi
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                PUT api/v1/Kupac/{sifra}
+            
+             {
+               "sifra": 0,
+                korisnickoIme": "string",
+                ime": "string",
+                prezime": "string",
+                lozinka": "string",
+                telefon": "string",
+                adresa": "string"
+             }
+            
+             </remarks>
+             <param name="sifra">Šifra proizvoda koji se mijenja</param>  
+             <returns>Svi poslani podaci od proizvoda</returns>
+             <response code="200">Sve je u redu</response>
+             <response code="204">U bazi nema proizvoda kojeg želimo promijeniti</response>
+             <response code="415">Nismo poslali JSON</response> 
+             <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.KupacController.Delete(System.Int32)">
+             <summary>
+             Briše proizvod iz baze
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                DELETE api/v1/Kupac/{sifra}
+                
+             </remarks>
+             <param name="sifra">Šifra proizvoda koji se briše</param>  
+             <returns>Odgovor da li je obrisano ili ne</returns>
+             <response code="200">Sve je u redu</response>
+             <response code="204">U bazi nema proizvoda kojeg želimo obrisati</response>
+             <response code="415">Nismo poslali JSON</response> 
+             <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
         <member name="T:OnlineTrgovina.Controllers.ProizvodController">
             <summary>
             Namjenjeno za CRUD operacije nad Proizvodima

@@ -21,11 +21,7 @@ namespace OnlineTrgovina.Data
         //ORM
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //implementacija veze 1:n - Proizvod ima jedan Inventar
-
-
-            //implementacija veze 1:1 - Košarica ima jednog Kupca/Kupac ima jednu Košaricu
-
+            //implementacija veze 1:n - Košarica ima jednog Kupca
             modelBuilder.Entity<Kosarica>().HasOne(kk => kk.Kupac);
 
             //implementacija veze n:n - više Košarica ima više Proizvoda           

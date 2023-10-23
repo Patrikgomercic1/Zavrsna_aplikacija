@@ -174,12 +174,13 @@ namespace OnlineTrgovina.Controllers
                 }
                 _context.Proizvod.Remove(ProizvodBaza);
                 _context.SaveChanges();
-                return new JsonResult("Obrisano!");
+                return new JsonResult("{ \"poruka\":\"Obrisano!\"}");
             }
             catch (Exception x)
             {
-                return new JsonResult("Ne može se obrisati!");
+                return new JsonResult("{ \"poruka\":\"Ne može se obrisati!\"}");
             }
+            
         }
 
     }

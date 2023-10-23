@@ -6,6 +6,9 @@ using OnlineTrgovina.Models.DTO;
 
 namespace OnlineTrgovina.Controllers
 {
+    /// <summary>
+    /// Namjenjeno za CRUD operacije nad Kupcima
+    /// </summary>
     [ApiController]
     [Route("api/v1/[controller]")]
 
@@ -18,6 +21,19 @@ namespace OnlineTrgovina.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Dohvaća sve kupce iz baze
+        /// </summary>
+        /// <remarks>
+        /// Primjer upita:
+        ///
+        ///    GET api/v1/Kupac
+        ///
+        /// </remarks>
+        /// <returns>Kupci u bazi</returns>
+        /// <response code="200">Sve je u redu</response>
+        /// <response code="400">Zahtjev nije valjan (BadRequest)</response> 
+        /// <response code="503">Na azure treba dodati IP u firewall</response> 
         [HttpGet]
         public IActionResult Get() 
         {
@@ -52,6 +68,30 @@ namespace OnlineTrgovina.Controllers
             return Ok(vratiKupac);
         }
 
+        /// <summary>
+        /// Dodaje kupca u bazu
+        /// </summary>
+        /// <remarks>
+        /// Primjer upita:
+        ///
+        ///    POST api/v1/Kupac
+        ///    
+        /// {
+        ///   "sifra": 0,
+        ///    korisnickoIme": "string",
+        ///    ime": "string",
+        ///    prezime": "string",
+        ///    lozinka": "string",
+        ///    telefon": "string",
+        ///    adresa": "string"
+        /// }
+        ///
+        ///
+        /// </remarks>
+        /// <returns>Kreirani proizvod u bazi sa svim podacima</returns>
+        /// <response code="200">Sve je u redu</response>
+        /// <response code="400">Zahtjev nije valjan (BadRequest)</response> 
+        /// <response code="503">Na azure treba dodati IP u firewall</response> 
         [HttpPost]
         public IActionResult Post(KupacDTO dto)
         {
@@ -83,6 +123,31 @@ namespace OnlineTrgovina.Controllers
             }
         }
 
+        /// <summary>
+        /// Mijenja podatke postojećeg kupca u bazi
+        /// </summary>
+        /// <remarks>
+        /// Primjer upita:
+        ///
+        ///    PUT api/v1/Kupac/{sifra}
+        ///
+        /// {
+        ///   "sifra": 0,
+        ///    korisnickoIme": "string",
+        ///    ime": "string",
+        ///    prezime": "string",
+        ///    lozinka": "string",
+        ///    telefon": "string",
+        ///    adresa": "string"
+        /// }
+        ///
+        /// </remarks>
+        /// <param name="sifra">Šifra proizvoda koji se mijenja</param>  
+        /// <returns>Svi poslani podaci od proizvoda</returns>
+        /// <response code="200">Sve je u redu</response>
+        /// <response code="204">U bazi nema proizvoda kojeg želimo promijeniti</response>
+        /// <response code="415">Nismo poslali JSON</response> 
+        /// <response code="503">Na azure treba dodati IP u firewall</response> 
         [HttpPut]
         [Route("{sifra:int}")]
         public IActionResult Put(int sifra, KupacDTO kdto)
@@ -118,6 +183,21 @@ namespace OnlineTrgovina.Controllers
             }
         }
 
+        /// <summary>
+        /// Briše proizvod iz baze
+        /// </summary>
+        /// <remarks>
+        /// Primjer upita:
+        ///
+        ///    DELETE api/v1/Kupac/{sifra}
+        ///    
+        /// </remarks>
+        /// <param name="sifra">Šifra proizvoda koji se briše</param>  
+        /// <returns>Odgovor da li je obrisano ili ne</returns>
+        /// <response code="200">Sve je u redu</response>
+        /// <response code="204">U bazi nema proizvoda kojeg želimo obrisati</response>
+        /// <response code="415">Nismo poslali JSON</response> 
+        /// <response code="503">Na azure treba dodati IP u firewall</response> 
         [HttpDelete]
         [Route("{sifra:int}")]
         [Produces("application/json")]
@@ -137,11 +217,11 @@ namespace OnlineTrgovina.Controllers
                 _context.Kupac.Remove(KupacBaza);
                 _context.SaveChanges();
 
-                return new JsonResult("Obrisano!");
+                return new JsonResult("{ \"poruka\":\"Obrisano!\"}");
             }
             catch (Exception k)
             {
-                return new JsonResult("Ne može se obrisati!");
+                return new JsonResult("{ \"poruka\":\"Ne može se obrisati!\"}");
             }
         }
 

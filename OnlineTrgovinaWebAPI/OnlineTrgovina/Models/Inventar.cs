@@ -15,8 +15,5 @@ namespace OnlineTrgovina.Models
 
         [Required]
         public bool Dostupnost {  get; set; }
-
-
-       
     }
 }

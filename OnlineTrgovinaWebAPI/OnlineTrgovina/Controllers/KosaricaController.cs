@@ -6,6 +6,9 @@ using OnlineTrgovina.Models.DTO;
 
 namespace OnlineTrgovina.Controllers
 {
+    /// <summary>
+    /// Namjenjeno za CRUD operacije nad Košaricom
+    /// </summary>
     [ApiController]
     [Route("api/v1/[controller]")]
 
@@ -48,9 +51,9 @@ namespace OnlineTrgovina.Controllers
                         Sifra = kk.Sifra,
                         Kupac = kk.Kupac.KorisnickoIme,
                         KolicinaProizvod = kk.KolicinaProizvod,
-                        DatumStvaranja = kk.DatumStvaranja,
+                        //DatumStvaranja = kk.DatumStvaranja
                         //KupacSifra = kk.Kupac.Sifra,
-                        //ProizvodNaziv = kk.Proizvod.Naziv
+                        //ProizvodNaziv = kk.Proizvod.Naziv //ne može-ako se doda instanca proizvoda sve se slama
                     });
                 });
 

@@ -14,7 +14,7 @@ namespace OnlineTrgovina.Models
 
         public DateTime? DatumStvaranja { get; set; }
 
-
+        //Omogućuje prikaz proizvoda
         public List<Proizvod> Proizvodi { get; set; }
     }
 }

@@ -41,7 +41,7 @@ namespace OnlineTrgovina.Controllers
                     Kategorija = i.Kategorija,
                     Kolicina = i.Kolicina,
                     Dostupnost = i.Dostupnost,
-                    //SifraProizvod = i.Proizvod.Sifra
+                    SifraProizvod = i.Proizvod  //null-nadopuniti
                 };
                 vratiInventar.Add(idto);
             });
