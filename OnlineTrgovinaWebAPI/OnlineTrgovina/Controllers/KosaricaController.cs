@@ -24,6 +24,19 @@ namespace OnlineTrgovina.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Dohvaća sve Košarice iz baze
+        /// </summary>
+        /// <remarks>
+        /// Primjer upita:
+        ///
+        ///    GET api/v1/Kosarica
+        ///
+        /// </remarks>
+        /// <returns>Proizvodi u bazi</returns>
+        /// <response code="200">Sve je u redu</response>
+        /// <response code="400">Zahtjev nije valjan (BadRequest)</response> 
+        /// <response code="503">Na azure treba dodati IP u firewall</response> 
         [HttpGet]   //Dohvaća šifru košarice, zadanog kupca, količinu proizvoda i datum stvaranja
         public IActionResult Get()
         {
@@ -65,6 +78,20 @@ namespace OnlineTrgovina.Controllers
             }
         }
 
+        /// <summary>
+        /// Dodaje Košaricu u bazu
+        /// </summary>
+        /// <remarks>
+        /// Primjer upita:
+        ///
+        ///    POST api/v1/Kosarica
+        ///    {Naziv:"",Opis:"",Cijena=""}
+        ///
+        /// </remarks>
+        /// <returns>Kreirana košarica u bazi sa svim podacima</returns>
+        /// <response code="200">Sve je u redu</response>
+        /// <response code="400">Zahtjev nije valjan (BadRequest)</response> 
+        /// <response code="503">Na azure treba dodati IP u firewall</response> 
         [HttpPost]  //dodavanje nove košarice
         public IActionResult Post(KosaricaDTO kosaricaDTO)
         {
@@ -108,6 +135,24 @@ namespace OnlineTrgovina.Controllers
             }
         }
 
+        /// <summary>
+        /// Mijenja podatke postojeće košarice u bazi
+        /// </summary>
+        /// <remarks>
+        /// Primjer upita:
+        ///
+        ///    PUT api/v1/Kosarica/{sifra}
+        ///
+        /// {sifra: 0, kupac: "string", kolicinaProizvod: 0, datumStvaranja: "2023-10-24T16:36:54.559Z", proizvodi: 0, sifraKupac: 0}
+        /// 
+        ///
+        /// </remarks>
+        /// <param name="sifra">Šifra košarice koja se mijenja</param>  
+        /// <returns>Svi poslani podaci od košarice</returns>
+        /// <response code="200">Sve je u redu</response>
+        /// <response code="204">U bazi nema košarice koju želimo promijeniti</response>
+        /// <response code="415">Nismo poslali JSON</response> 
+        /// <response code="503">Na azure treba dodati IP u firewall</response> 
         [HttpPut]       //promjena košarice
         [Route("{sifra:int}")]
         public IActionResult Put(int sifra, KosaricaDTO kosaricaDTO)
@@ -155,6 +200,21 @@ namespace OnlineTrgovina.Controllers
 
         }
 
+        /// <summary>
+        /// Briše košaricu iz baze
+        /// </summary>
+        /// <remarks>
+        /// Primjer upita:
+        ///
+        ///    DELETE api/v1/Kosarica/{sifra}
+        ///    
+        /// </remarks>
+        /// <param name="sifra">Šifra košarice koja se briše</param>  
+        /// <returns>Odgovor da li je obrisano ili ne</returns>
+        /// <response code="200">Sve je u redu</response>
+        /// <response code="204">U bazi nema košarice koju želimo obrisati</response>
+        /// <response code="415">Nismo poslali JSON</response> 
+        /// <response code="503">Na azure treba dodati IP u firewall</response> 
         [HttpDelete]
         [Route("{sifra:int}")]
         [Produces("application/json")]
@@ -184,7 +244,21 @@ namespace OnlineTrgovina.Controllers
             }
         }
 
-        //"dohvaća opis proizvoda s odabranom šifrom"
+        /// <summary>
+        /// Dohvaća opis proizvoda s odabranom šifrom
+        /// </summary>
+        /// <remarks>
+        /// Primjer upita:
+        ///
+        ///    GET api/v1/Kosarica/{sifra}/proizvodi
+        ///    
+        /// </remarks>
+        /// <param name="sifra">Šifra košarice koja se provjerava</param>  
+        /// <returns>Odgovor da li je provjereno ili ne</returns>
+        /// <response code="200">Sve je u redu</response>
+        /// <response code="204">U bazi nema proizvoda za pregled</response>
+        /// <response code="415">Nismo poslali JSON</response> 
+        /// <response code="503">Na azure treba dodati IP u firewall</response> 
         [HttpGet]
         [Route("{sifra:int}/proizvodi")]
         public IActionResult GetProizvodi(int sifra)
@@ -234,7 +308,15 @@ namespace OnlineTrgovina.Controllers
 
         }
 
-        //dodavanje proizvoda na košaricu
+        /// <summary>
+        /// Dodavaje proizvod na košaricu
+        /// </summary>
+        /// <remarks>
+        /// Primjer upita:
+        ///
+        ///    POST api/v1/Kosarica/{sifra}/dodaj/{proizvodSifra}
+        ///    
+        /// </remarks>
         [HttpPost]
         [Route("{sifra:int}/dodaj/{proizvodSifra:int}")]
         public IActionResult DodajProizvod(int sifra, int proizvodSifra)
@@ -280,7 +362,18 @@ namespace OnlineTrgovina.Controllers
 
         }
 
-        //Brisanje proizvoda iz košarice
+        /// <summary>
+        /// Brisanje proizvoda iz košarice
+        /// </summary>
+        /// <remarks>
+        /// Primjer upita:
+        ///
+        ///    POST api/v1/Kosarica/{sifra}/obrisi/{proizvodSifra}
+        /// 
+        /// </remarks>
+        /// <param name="sifra"></param>
+        /// <param name="proizvodSifra"></param>
+        /// <returns></returns>
         [HttpDelete]
         [Route("{sifra:int}/obrisi{proizvodSifra:int}")]
         public IActionResult ObrišiProizvod(int sifra, int proizvodSifra)
@@ -324,6 +417,6 @@ namespace OnlineTrgovina.Controllers
                 return StatusCode(StatusCodes.Status503ServiceUnavailable, kk.Message);
             }
         }
-
+        
     }
 }

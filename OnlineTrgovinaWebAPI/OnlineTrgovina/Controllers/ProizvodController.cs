@@ -80,7 +80,7 @@ namespace OnlineTrgovina.Controllers
         /// Primjer upita:
         ///
         ///    POST api/v1/Proizvod
-        ///    {Naziv:"",Opis:"",Cijena=""}
+        ///    {Naziv:"",Opis:"",Cijena:""}
         ///
         /// </remarks>
         /// <returns>Kreirani proizvod u bazi sa svim podacima</returns>
@@ -127,12 +127,8 @@ namespace OnlineTrgovina.Controllers
         ///
         ///    PUT api/v1/Polaznik/{sifra}
         ///
-        /// {
-        ///   "sifra": 0,
-        ///   "naziv": "string",
-        ///   "opis": "string",
-        ///   "cijena": "10000"
-        /// }
+        /// {sifra: 0, naziv: "string", opis: "string", cijena: "10000"}
+        /// 
         ///
         /// </remarks>
         /// <param name="sifra">Šifra proizvoda koji se mijenja</param>  

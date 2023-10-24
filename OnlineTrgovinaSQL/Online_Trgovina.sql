@@ -115,29 +115,25 @@ values(1,2),(2,3),(3,1);
 
 
 --Isprobavanje inner join-a
-/*
-select k.ime, kk.datumStvaranja, p.naziv, i.dostupnost
+/*select k.ime, kk.datumStvaranja, p.naziv, i.dostupnost
 from kupac k inner join kosarica kk on k.sifra=kk.kupac
 inner join kosaricaProizvod kP on kk.sifra=kP.kosarica
 inner join proizvod p on kP.proizvod=p.sifra
-inner join inventar i on p.sifra=i.proizvod
-*/
+inner join inventar i on p.sifra=i.proizvod*/
+
 
 --Dohvaćanje podataka iz tablica
-/*select korisnickoime,ime from kupac order by des;*/
-/*select kupac,kolicinaProizvod from kosarica;*/
-/*select * from proizvod order by 1 desc;/*
+/*select korisnickoime,ime from kupac order by des;
+select kupac,kolicinaProizvod from kosarica;
+select * from proizvod order by 1 desc;*/
 
 --Promjena podataka
-/*
-update kupac set 
+/*update kupac set 
 korisnickoime = 'TihBab',
 lozinka = '213svat3Iyfg2i@',
 telefon = '095 418 1748'
-where sifra = 3;
-*/
+where sifra = 3;*/
+
 
 --Brisanje podataka
-/*
-delete from proizvod where sifra=3;
-*/
+/*delete from proizvod where sifra=3;*/

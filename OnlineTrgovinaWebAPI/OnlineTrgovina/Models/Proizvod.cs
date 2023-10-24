@@ -16,7 +16,6 @@ namespace OnlineTrgovina.Models
         public decimal Cijena { get; set; }
 
         //Omogućuje prikaz proizvoda unutar unesenih klasa
-        public ICollection<Kosarica> Kosarice { get; } = new List<Kosarica>(); 
-        public ICollection<Inventar> Inventari { get; } = new List<Inventar>(); 
+        public ICollection<Kosarica> Kosarice { get; } = new List<Kosarica>();  
     }
 }

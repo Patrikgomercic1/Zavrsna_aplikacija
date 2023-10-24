@@ -22,6 +22,19 @@ namespace OnlineTrgovina.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Dohvaća Inventare iz baze
+        /// </summary>
+        /// <remarks>
+        /// Primjer upita:
+        ///
+        ///    GET api/v1/Inventar
+        ///
+        /// </remarks>
+        /// <returns>Proizvodi u bazi</returns>
+        /// <response code="200">Sve je u redu</response>
+        /// <response code="400">Zahtjev nije valjan (BadRequest)</response> 
+        /// <response code="503">Na azure treba dodati IP u firewall</response> 
         [HttpGet]   //Dohvaća šifru proizvoda u inventaru, naziv proizvoda, naziv kategorije, količinu te dostupnost
         public IActionResult Get()
         {
@@ -62,38 +75,21 @@ namespace OnlineTrgovina.Controllers
             }
         }
 
-
-        //public IActionResult Get()
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-
-        //    var inventar = _context.Inventar.Include(i => i.Proizvod).ToList();
-        //    if (inventar == null || inventar.Count == 0)
-        //    {
-        //        return new EmptyResult();
-        //    }
-
-        //    List<InventarDTO> vratiInventar = new();
-
-        //    inventar.ForEach(i =>
-        //    {
-        //        var idto = new InventarDTO()
-        //        {
-        //            Sifra = i.Sifra,
-        //            Proizvod=i.Proizvod?.Naziv,
-        //            Kategorija = i.Kategorija,
-        //            Kolicina = i.Kolicina,
-        //            Dostupnost = i.Dostupnost 
-        //        };
-        //        vratiInventar.Add(idto);
-        //    });
-
-        //    return Ok(vratiInventar);
-        //}
-
+        /// <summary>
+        /// Dodaje Inventar u bazu
+        /// </summary>
+        /// <remarks>
+        /// Primjer upita:
+        ///
+        ///    POST api/v1/Inventar
+        ///    {sifra: 0, proizvod: "string", kategorija: "string", kolicina: 0, dostupnost: true, sifraProizvod: 0}
+        ///    
+        ///
+        /// </remarks>
+        /// <returns>Kreiran inventar u bazi sa svim podacima</returns>
+        /// <response code="200">Sve je u redu</response>
+        /// <response code="400">Zahtjev nije valjan (BadRequest)</response> 
+        /// <response code="503">Na azure treba dodati IP u firewall</response> 
         [HttpPost]  //dodavanje novog inventara
         public IActionResult Post(InventarDTO inventarDTO)
         {
@@ -138,6 +134,24 @@ namespace OnlineTrgovina.Controllers
             }
         }
 
+        /// <summary>
+        /// Mijenja podatke postojeće košarice u bazi
+        /// </summary>
+        /// <remarks>
+        /// Primjer upita:
+        ///
+        ///    PUT api/v1/Inventar/{sifra}
+        ///
+        ///     {sifra: 0, proizvod: "string", kategorija: "string", kolicina: 0, dostupnost: true, sifraProizvod: 0}
+        /// 
+        ///
+        /// </remarks>
+        /// <param name="sifra">Šifra inventara koji se mijenja</param>  
+        /// <returns>Svi poslani podaci od inventara</returns>
+        /// <response code="200">Sve je u redu</response>
+        /// <response code="204">U bazi nema inventara kojeg želimo promijeniti</response>
+        /// <response code="415">Nismo poslali JSON</response> 
+        /// <response code="503">Na azure treba dodati IP u firewall</response> 
         [HttpPut]       //promjena inventara
         [Route("{sifra:int}")]
         public IActionResult Put(int sifra, InventarDTO inventarDTO)
@@ -186,6 +200,21 @@ namespace OnlineTrgovina.Controllers
 
         }
 
+        /// <summary>
+        /// Briše inventar iz baze
+        /// </summary>
+        /// <remarks>
+        /// Primjer upita:
+        ///
+        ///    DELETE api/v1/Inventar/{sifra}
+        ///    
+        /// </remarks>
+        /// <param name="sifra">Šifra inventara koji se briše</param>  
+        /// <returns>Odgovor da li je obrisano ili ne</returns>
+        /// <response code="200">Sve je u redu</response>
+        /// <response code="204">U bazi nema inventara kojeg želimo obrisati</response>
+        /// <response code="415">Nismo poslali JSON</response> 
+        /// <response code="503">Na azure treba dodati IP u firewall</response> 
         [HttpDelete]
         [Route("{sifra:int}")]
         [Produces("application/json")]
@@ -214,6 +243,9 @@ namespace OnlineTrgovina.Controllers
                 return StatusCode(StatusCodes.Status400BadRequest, "Ne može se obrisati inventar zbog toga što ima na sebi proizvod!");
             }
         }
+
+
+        //NEDOSTUPNO! Inventar sadrži samo vanjski ključ Proizvoda, ne listu, zbog toga se ne može izvesti dodavanje, brisanje i dohvaćanje proizvoda šifrom.
 
         ////"dohvaća opis proizvoda s odabranom šifrom"
         //[HttpGet]
