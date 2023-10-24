@@ -10,5 +10,10 @@
 
         public DateTime? DatumStvaranja { get; set; }
 
+        //Koristi se za prikaz količine individualnih proizvoda u košarici
+        public int Proizvodi {  get; set; }
+
+        //Koristi se za Post route 
+        public int SifraKupac { get; set; }
     }
 }

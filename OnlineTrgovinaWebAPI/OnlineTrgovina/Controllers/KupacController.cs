@@ -240,7 +240,7 @@ namespace OnlineTrgovina.Controllers
             }
             catch (Exception k)
             {
-                return StatusCode(StatusCodes.Status503ServiceUnavailable, k);
+                return StatusCode(StatusCodes.Status503ServiceUnavailable, k.Message);
             }
         }
 

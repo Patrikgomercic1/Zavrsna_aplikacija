@@ -169,9 +169,9 @@ namespace OnlineTrgovina.Controllers
                 return StatusCode(StatusCodes.Status200OK, proizvodBaza);
 
             }
-            catch (Exception k)
+            catch (Exception p)
             {
-                return StatusCode(StatusCodes.Status503ServiceUnavailable, k);
+                return StatusCode(StatusCodes.Status503ServiceUnavailable, p.Message);
             }
         }
 
