@@ -21,7 +21,7 @@ namespace OnlineTrgovina.Controllers
             _context = context;
         }
 
-        [HttpGet]
+        [HttpGet]   //Dohvaća šifru proizvoda u inventaru, naziv proizvoda, naziv kategorije, količinu te dostupnost
         public IActionResult Get()
         {
             if (!ModelState.IsValid)

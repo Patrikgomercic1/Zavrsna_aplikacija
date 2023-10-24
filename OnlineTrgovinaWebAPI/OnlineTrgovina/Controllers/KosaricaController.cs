@@ -24,7 +24,7 @@ namespace OnlineTrgovina.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
+        [HttpGet]   //Dohvaća šifru košarice, zadanog kupca, količinu proizvoda i datum stvaranja
         public IActionResult Get()
         {
             _logger.LogInformation("Dohvaćam košaricu");

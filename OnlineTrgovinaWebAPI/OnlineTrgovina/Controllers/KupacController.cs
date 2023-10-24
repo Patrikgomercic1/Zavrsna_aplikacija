@@ -41,32 +41,72 @@ namespace OnlineTrgovina.Controllers
             {
                 return BadRequest(ModelState);
             }
-            
-            var kupci = _context.Kupac.ToList();
-            if(kupci == null || kupci.Count == 0) 
+            try
             {
-                return new EmptyResult();
+                var kupci=_context.Kupac.ToList();
+                if(kupci == null || kupci.Count == 0)
+                {
+                    return new EmptyResult();
+                }
+                return new JsonResult(_context.Kupac.ToList());
+            }
+            catch (Exception k)
+            {
+                return StatusCode(StatusCodes.Status503ServiceUnavailable, k.Message);
+            }
+            //var kupci = _context.Kupac.ToList();      //Stara sintaksa
+            //if(kupci == null || kupci.Count == 0) 
+            //{
+            //    return new EmptyResult();
+            //}
+
+            //List<KupacDTO> vratiKupac = new();
+
+            //kupci.ForEach(k =>
+            //{
+            //    var kdto = new KupacDTO()   //ručno presipavanje
+            //    {
+            //        Sifra = k.Sifra,
+            //        KorisnickoIme = k.KorisnickoIme,
+            //        Ime = k.Ime,
+            //        Prezime = k.Prezime,
+            //        Lozinka = k.Lozinka,
+            //        Telefon = k.Telefon,
+            //        Adresa = k.Adresa
+            //    };
+            //    vratiKupac.Add(kdto);
+            //});
+
+            //return Ok(vratiKupac);
+        }
+
+        [HttpGet]   //Traženje po šifri
+        [Route("{sifra:int}")]
+        public IActionResult GetBySifra(int sifra) 
+        {
+            if (sifra <= 0)
+            {
+                return BadRequest(ModelState);
             }
 
-            List<KupacDTO> vratiKupac = new();
-
-            kupci.ForEach(k =>
+            try
             {
-                var kdto = new KupacDTO()   //ručno presipavanje
-                {
-                    Sifra = k.Sifra,
-                    KorisnickoIme = k.KorisnickoIme,
-                    Ime = k.Ime,
-                    Prezime = k.Prezime,
-                    Lozinka = k.Lozinka,
-                    Telefon = k.Telefon,
-                    Adresa = k.Adresa
-                };
-                vratiKupac.Add(kdto);
-            });
+                var k = _context.Kupac.Find(sifra);
 
-            return Ok(vratiKupac);
+                if (k == null)
+                {
+                    return StatusCode(StatusCodes.Status204NoContent, k);
+                }
+
+                return new JsonResult(k);
+
+            }
+            catch (Exception k)
+            {
+                return StatusCode(StatusCodes.Status503ServiceUnavailable, k.Message);
+            }
         }
+
 
         /// <summary>
         /// Dodaje kupca u bazu
@@ -92,8 +132,8 @@ namespace OnlineTrgovina.Controllers
         /// <response code="200">Sve je u redu</response>
         /// <response code="400">Zahtjev nije valjan (BadRequest)</response> 
         /// <response code="503">Na azure treba dodati IP u firewall</response> 
-        [HttpPost]
-        public IActionResult Post(KupacDTO dto)
+        [HttpPost]      //DODAJE KUPCA
+        public IActionResult Post(Kupac kupac)
         {
             if (!ModelState.IsValid)
             {
@@ -102,26 +142,47 @@ namespace OnlineTrgovina.Controllers
 
             try
             {
-                Kupac k = new Kupac()
-                {
-                    KorisnickoIme = dto.KorisnickoIme,
-                    Ime = dto.Ime,
-                    Prezime = dto.Prezime,
-                    Lozinka = dto.Lozinka,
-                    Telefon = dto.Telefon,
-                    Adresa = dto.Adresa
-                };
-
-                _context.Kupac.Add(k);
+                _context.Kupac.Add(kupac);
                 _context.SaveChanges();
-                dto.Sifra = k.Sifra;
-                return Ok(k);
+
+                return StatusCode(StatusCodes.Status201Created, kupac);
             }
             catch (Exception k)
             {
                 return StatusCode(StatusCodes.Status503ServiceUnavailable, k.Message);
             }
         }
+
+
+        //public IActionResult Post(KupacDTO dto)   //STARA SINTAKSA
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+
+        //    try       
+        //    {
+        //        Kupac k = new Kupac()
+        //        {
+        //            KorisnickoIme = dto.KorisnickoIme,
+        //            Ime = dto.Ime,
+        //            Prezime = dto.Prezime,
+        //            Lozinka = dto.Lozinka,
+        //            Telefon = dto.Telefon,
+        //            Adresa = dto.Adresa
+        //        };
+
+        //        _context.Kupac.Add(k);
+        //        _context.SaveChanges();
+        //        dto.Sifra = k.Sifra;
+        //        return Ok(k);
+        //    }
+        //    catch (Exception k)
+        //    {
+        //        return StatusCode(StatusCodes.Status503ServiceUnavailable, k.Message);
+        //    }
+        //}
 
         /// <summary>
         /// Mijenja podatke postojećeg kupca u bazi
@@ -150,38 +211,72 @@ namespace OnlineTrgovina.Controllers
         /// <response code="503">Na azure treba dodati IP u firewall</response> 
         [HttpPut]
         [Route("{sifra:int}")]
-        public IActionResult Put(int sifra, KupacDTO kdto)
+        public IActionResult Put (int sifra, Kupac kupac)
         {
-            if (sifra <= 0 || kdto == null)
+            if(sifra <= 0 || kupac == null)
             {
                 return BadRequest();
             }
+
             try
             {
-                var KupacBaza = _context.Kupac.Find(sifra);
-                if (KupacBaza == null)
+                var kupacBaza = _context.Kupac.Find(sifra);
+                if(kupacBaza == null)
                 {
                     return BadRequest();
                 }
-                KupacBaza.KorisnickoIme = kdto.KorisnickoIme;
-                KupacBaza.Ime = kdto.Ime;
-                KupacBaza.Prezime = kdto.Prezime;
-                KupacBaza.Lozinka = kdto.Lozinka;
-                KupacBaza.Telefon= kdto.Telefon;
-                KupacBaza.Adresa = kdto.Adresa;
 
-                _context.Kupac.Update(KupacBaza);
+                kupacBaza.KorisnickoIme = kupac.KorisnickoIme;
+                kupacBaza.Ime = kupac.Ime;
+                kupacBaza.Prezime = kupac.Prezime;
+                kupacBaza.Lozinka = kupac.Lozinka;
+                kupacBaza.Telefon = kupac.Telefon;
+                kupacBaza.Adresa = kupac.Adresa;
+
+                _context.Kupac.Update(kupacBaza);
                 _context.SaveChanges();
 
-                kdto.Sifra=KupacBaza.Sifra;
-
-                return StatusCode(StatusCodes.Status200OK, KupacBaza);
+                return StatusCode(StatusCodes.Status200OK, kupacBaza);
             }
-            catch (Exception x)
+            catch (Exception k)
             {
-                return StatusCode(StatusCodes.Status503ServiceUnavailable, x.Message);
+                return StatusCode(StatusCodes.Status503ServiceUnavailable, k);
             }
         }
+
+
+        //public IActionResult Put(int sifra, KupacDTO kdto)    //STARA SINTAKSA
+        //{
+        //    if (sifra <= 0 || kdto == null)
+        //    {
+        //        return BadRequest();
+        //    }
+        //    try
+        //    {
+        //        var KupacBaza = _context.Kupac.Find(sifra);
+        //        if (KupacBaza == null)
+        //        {
+        //            return BadRequest();
+        //        }
+        //        KupacBaza.KorisnickoIme = kdto.KorisnickoIme;
+        //        KupacBaza.Ime = kdto.Ime;
+        //        KupacBaza.Prezime = kdto.Prezime;
+        //        KupacBaza.Lozinka = kdto.Lozinka;
+        //        KupacBaza.Telefon= kdto.Telefon;
+        //        KupacBaza.Adresa = kdto.Adresa;
+
+        //        _context.Kupac.Update(KupacBaza);
+        //        _context.SaveChanges();
+
+        //        kdto.Sifra=KupacBaza.Sifra;
+
+        //        return StatusCode(StatusCodes.Status200OK, KupacBaza);
+        //    }
+        //    catch (Exception x)
+        //    {
+        //        return StatusCode(StatusCodes.Status503ServiceUnavailable, x.Message);
+        //    }
+        //}
 
         /// <summary>
         /// Briše proizvod iz baze
@@ -203,26 +298,49 @@ namespace OnlineTrgovina.Controllers
         [Produces("application/json")]
         public IActionResult Delete(int sifra)
         {
-            if (sifra <= 0)
+            if(sifra <= 0)
             {
                 return BadRequest();
             }
+
+            var kupacBaza=_context.Kupac.Find(sifra);
+            if(kupacBaza == null)
+            {
+                return BadRequest();
+            }
+
             try
             {
-                var KupacBaza = _context.Kupac.Find(sifra);
-                if (KupacBaza == null)
-                {
-                    return BadRequest();
-                }
-                _context.Kupac.Remove(KupacBaza);
+                _context.Kupac.Remove(kupacBaza);
                 _context.SaveChanges();
 
-                return new JsonResult("{ \"poruka\":\"Obrisano!\"}");
+                return new JsonResult("{\"poruka\":\"Obrisano\"}");
             }
             catch (Exception k)
             {
-                return new JsonResult("{ \"poruka\":\"Ne može se obrisati!\"}");
+                return StatusCode(StatusCodes.Status400BadRequest, "Ne može se obrisati kupac zbog toga što ima na sebi košaricu!");
             }
+
+            //if (sifra <= 0)       //STARA SINTAKSA
+            //{
+            //    return BadRequest();
+            //}
+            //try
+            //{
+            //    var KupacBaza = _context.Kupac.Find(sifra);
+            //    if (KupacBaza == null)
+            //    {
+            //        return BadRequest();
+            //    }
+            //    _context.Kupac.Remove(KupacBaza);
+            //    _context.SaveChanges();
+
+            //    return new JsonResult("{ \"poruka\":\"Obrisano!\"}");
+            //}
+            //catch (Exception k)
+            //{
+            //    return new JsonResult("{ \"poruka\":\"Ne može se obrisati!\"}");
+            //}
         }
 
     }
