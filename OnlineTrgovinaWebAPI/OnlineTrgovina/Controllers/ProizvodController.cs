@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using OnlineTrgovina.Data;
 using OnlineTrgovina.Models;
+using OnlineTrgovina.Models.DTO;
 
 namespace OnlineTrgovina.Controllers
 {
@@ -37,6 +38,7 @@ namespace OnlineTrgovina.Controllers
         public IActionResult Get()
         {
             //Upit za slučaj lošeg upita
+            //Ručno presipavanje vrijednosti u DTO
             if(!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -48,11 +50,26 @@ namespace OnlineTrgovina.Controllers
                 {
                     return new EmptyResult();
                 }
-                return new JsonResult(_context.Proizvod.ToList());
+
+                List<ProizvodDTO> vrati = new();
+
+                proizvodi.ForEach(p =>
+                {
+                    var pdto = new ProizvodDTO()
+                    {
+                        Sifra = p.Sifra,
+                        Naziv=p.Naziv,
+                        Opis = p.Opis,
+                        Cijena = p.Cijena
+                    };
+                    vrati.Add(pdto);
+                });
+
+                return Ok(vrati);
             }
-            catch (Exception x)
+            catch (Exception p)
             {
-                return StatusCode(StatusCodes.Status503ServiceUnavailable, x.Message);
+                return StatusCode(StatusCodes.Status503ServiceUnavailable, p.Message);
             }
         }
 
@@ -71,21 +88,32 @@ namespace OnlineTrgovina.Controllers
         /// <response code="400">Zahtjev nije valjan (BadRequest)</response> 
         /// <response code="503">Na azure treba dodati IP u firewall</response> 
         [HttpPost]
-        public IActionResult Post(Proizvod proizvod)
-        {
+        public IActionResult Post(ProizvodDTO dto)
+        {   
+            //Presipavanje vrijednosti iz DTO - kasnije će se kroz automapper
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             try
             {
-                _context.Proizvod.Add(proizvod);
+               Proizvod p = new Proizvod();
+                {
+                    p.Naziv = dto.Naziv;
+                    p.Opis = dto.Opis;
+                    p.Cijena = dto.Cijena;
+                };
+
+                _context.Proizvod.Add(p);
                 _context.SaveChanges();
-                return StatusCode(StatusCodes.Status201Created, proizvod);
+
+                dto.Sifra = p.Sifra;
+
+                return Ok(dto);
             }
-            catch (Exception x)
+            catch (Exception p)
             {
-                return StatusCode(StatusCodes.Status503ServiceUnavailable, x.Message);
+                return StatusCode(StatusCodes.Status503ServiceUnavailable, p.Message);
             }
            
 
@@ -115,30 +143,36 @@ namespace OnlineTrgovina.Controllers
         /// <response code="503">Na azure treba dodati IP u firewall</response> 
         [HttpPut]
         [Route("{sifra:int}")]
-        public IActionResult Put(int sifra,Proizvod proizvod)
+        public IActionResult Put(int sifra, ProizvodDTO pdto)
         {
-            if(sifra <= 0 || proizvod == null)
+            if (sifra <= 0 || pdto == null)
             {
                 return BadRequest();
             }
+
             try
             {
-                var ProizvodBaza=_context.Proizvod.Find(sifra);
-                if(ProizvodBaza == null)
+                var proizvodBaza = _context.Proizvod.Find(sifra);
+                if (proizvodBaza == null)
                 {
                     return BadRequest();
                 }
-                ProizvodBaza.Naziv = proizvod.Naziv;
-                ProizvodBaza.Opis = proizvod.Opis;
-                ProizvodBaza.Cijena = proizvod.Cijena;
-                _context.Proizvod.Update(ProizvodBaza);
+
+                proizvodBaza.Naziv = pdto.Naziv;
+                proizvodBaza.Opis = pdto.Opis;
+                proizvodBaza.Cijena = pdto.Cijena;
+
+                _context.Proizvod.Update(proizvodBaza);
                 _context.SaveChanges();
-                return StatusCode(StatusCodes.Status200OK, ProizvodBaza);
+
+                pdto.Sifra = proizvodBaza.Sifra;
+                return StatusCode(StatusCodes.Status200OK, proizvodBaza);
+
             }
-            catch (Exception x)     
+            catch (Exception k)
             {
-                return StatusCode(StatusCodes.Status503ServiceUnavailable, x.Message);
-            }           
+                return StatusCode(StatusCodes.Status503ServiceUnavailable, k);
+            }
         }
 
         /// <summary>
@@ -165,15 +199,18 @@ namespace OnlineTrgovina.Controllers
             {
                 return BadRequest();
             }
+            var proizvodBaza = _context.Proizvod.Find(sifra);
+
+            if(proizvodBaza == null)
+            {
+                return BadRequest();
+            }
+
             try
             {
-                var ProizvodBaza = _context.Proizvod.Find(sifra);
-                if(ProizvodBaza == null)
-                {
-                    return BadRequest();
-                }
-                _context.Proizvod.Remove(ProizvodBaza);
+                _context.Proizvod.Remove(proizvodBaza);
                 _context.SaveChanges();
+
                 return new JsonResult("{ \"poruka\":\"Obrisano!\"}");
             }
             catch (Exception x)

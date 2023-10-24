@@ -126,7 +126,7 @@ inner join inventar i on p.sifra=i.proizvod
 --Dohvaćanje podataka iz tablica
 /*select korisnickoime,ime from kupac order by des;*/
 /*select kupac,kolicinaProizvod from kosarica;*/
-/*select * from proizvod;/*
+/*select * from proizvod order by 1 desc;/*
 
 --Promjena podataka
 /*
