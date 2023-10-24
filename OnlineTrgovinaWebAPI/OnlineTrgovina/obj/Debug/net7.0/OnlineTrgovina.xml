@@ -4,6 +4,11 @@
         <name>OnlineTrgovina</name>
     </assembly>
     <members>
+        <member name="T:OnlineTrgovina.Controllers.InventarController">
+            <summary>
+            Namjenjeno za CRUD nad Inventarom
+            </summary>
+        </member>
         <member name="T:OnlineTrgovina.Controllers.KosaricaController">
             <summary>
             Namjenjeno za CRUD operacije nad Košaricom

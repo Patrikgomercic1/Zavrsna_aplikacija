@@ -10,6 +10,5 @@
 
         public DateTime? DatumStvaranja { get; set; }
 
-
     }
 }

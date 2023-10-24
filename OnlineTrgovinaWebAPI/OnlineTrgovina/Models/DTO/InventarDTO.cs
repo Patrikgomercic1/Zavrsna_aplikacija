@@ -7,7 +7,7 @@ namespace OnlineTrgovina.Models.DTO
     {
         public int Sifra { get; set; }
 
-        public string Proizvod {  get; set; }
+        public string? Proizvod {  get; set; }
 
         public string Kategorija { get; set; }
 
@@ -16,6 +16,6 @@ namespace OnlineTrgovina.Models.DTO
         public bool Dostupnost { get; set; }
 
         //koristi se za prikaz šifre proizvoda u inventaru
-        public Proizvod? SifraProizvod { get; set; }
+        public int SifraProizvod { get; set; }
     }
 }
