@@ -65,7 +65,7 @@ namespace OnlineTrgovina.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost]  //dodavanje nove košarice
         public IActionResult Post(KosaricaDTO kosaricaDTO)
         {
             if (!ModelState.IsValid)
@@ -108,7 +108,7 @@ namespace OnlineTrgovina.Controllers
             }
         }
 
-        [HttpPut]
+        [HttpPut]       //promjena košarice
         [Route("{sifra:int}")]
         public IActionResult Put(int sifra, KosaricaDTO kosaricaDTO)
         {

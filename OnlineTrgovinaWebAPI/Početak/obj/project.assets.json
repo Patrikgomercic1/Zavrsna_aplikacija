@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net7.0": {
-      "Microsoft.AspNetCore.OpenApi/7.0.12": {
+      "Microsoft.AspNetCore.OpenApi/7.0.13": {
         "type": "package",
         "dependencies": {
           "Microsoft.OpenApi": "1.4.3"
@@ -124,10 +124,10 @@
     }
   },
   "libraries": {
-    "Microsoft.AspNetCore.OpenApi/7.0.12": {
-      "sha512": "KWfmBcvglieWin4srGSPiREh8/8+qCJpME9MPbsN2OVOwKkMXKta2K82Xk0BcZrZCk9tftMBO6qYfJgz0goQpg==",
+    "Microsoft.AspNetCore.OpenApi/7.0.13": {
+      "sha512": "CHNUWJD3mbfn1Lra1b0EeoyRHDv7udHqVvle/BLZgXSfjRcau8YSWRqmP6W9zLeZ/rxSN64kqrgOOvfkHJzgYg==",
       "type": "package",
-      "path": "microsoft.aspnetcore.openapi/7.0.12",
+      "path": "microsoft.aspnetcore.openapi/7.0.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -135,7 +135,7 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net7.0/Microsoft.AspNetCore.OpenApi.dll",
         "lib/net7.0/Microsoft.AspNetCore.OpenApi.xml",
-        "microsoft.aspnetcore.openapi.7.0.12.nupkg.sha512",
+        "microsoft.aspnetcore.openapi.7.0.13.nupkg.sha512",
         "microsoft.aspnetcore.openapi.nuspec"
       ]
     },
@@ -507,7 +507,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "Microsoft.AspNetCore.OpenApi >= 7.0.12",
+      "Microsoft.AspNetCore.OpenApi >= 7.0.13",
       "Newtonsoft.Json >= 13.0.3",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
@@ -553,7 +553,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
-            "version": "[7.0.12, )"
+            "version": "[7.0.13, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",
