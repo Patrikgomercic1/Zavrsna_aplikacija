@@ -1,6 +1,5 @@
 ﻿using System;
 using AutoMapper;
-using EdunovaApp.Models;
 using OnlineTrgovina.Models;
 using OnlineTrgovina.Models.DTO;
 

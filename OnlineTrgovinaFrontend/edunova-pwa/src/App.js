@@ -16,9 +16,7 @@ import PromjeniKosaricu from './components/kosarica/promjeniKosaricu.component';
 import Inventari from './components/inventar/inventari.component';
 import DodajInventar from './components/inventar/dodajInventar.component';
 import PromjeniInventar from './components/inventar/promjeniInventar.component';
-import Email from './components/grupa/email.component';
-import Login from './components/login.component';
-import Odjava from './components/odjava.component';
+
 
 export default function App() {
   return (
@@ -27,21 +25,18 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Pocetna />} />
         <Route path='/nadzornaploca' element={<NadzornaPloca />} />
-        <Route path='/kupci' element={<Smjerovi />} />
-        <Route path="/kupci/dodaj" element={<DodajSmjer />} />
-        <Route path="/kupci/:sifra" element={<PromjeniSmjer />} />
-        <Route path="/proizvodi" element={<Polaznici />} />
-        <Route path="/proizvodi/dodaj" element={<DodajPolaznik />} />
-        <Route path="/proizvodi/:sifra" element={<PromjeniPolaznik />} />
-        <Route path="/kosarice" element={<Grupe />} />
-        <Route path="/kosarice/dodaj" element={<DodajGrupa />} />
-        <Route path="/kosarice/:sifra" element={<PromjeniGrupa />} />
-        <Route path="/kupci/email/:sifra" element={<Email />} />
-        <Route path="/inventari" element={<Grupe />} />
-        <Route path="/inventari/dodaj" element={<DodajGrupa />} />
-        <Route path="/inventari/:sifra" element={<PromjeniGrupa />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/odjava" element={<Odjava />} />
+        <Route path='/kupci' element={<Kupci />} />
+        <Route path="/kupci/dodaj" element={<DodajKupca />} />
+        <Route path="/kupci/:sifra" element={<PromjeniKupca />} />
+        <Route path="/proizvodi" element={<Proizvodi />} />
+        <Route path="/proizvodi/dodaj" element={<DodajProizvod />} />
+        <Route path="/proizvodi/:sifra" element={<PromjeniProizvod />} />
+        <Route path="/kosarice" element={<Kosarice />} />
+        <Route path="/kosarice/dodaj" element={<DodajKosaricu />} />
+        <Route path="/kosarice/:sifra" element={<PromjeniKosaricu />} />
+        <Route path="/inventari" element={<Inventari />} />
+        <Route path="/inventari/dodaj" element={<DodajInventar />} />
+        <Route path="/inventari/:sifra" element={<PromjeniInventar />} />
       </Routes>
      
     </Router>

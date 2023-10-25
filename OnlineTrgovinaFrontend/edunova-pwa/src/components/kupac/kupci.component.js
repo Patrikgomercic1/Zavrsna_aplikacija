@@ -10,10 +10,7 @@ export default class Kupci extends Component{
 
     constructor(props){
         super(props);
-        const token = localStorage.getItem('Bearer');
-        if(token==null || token===''){
-          window.location.href='/';
-        }
+        
 
         this.state = {
             kupci: []
@@ -83,7 +80,7 @@ export default class Kupci extends Component{
 
                         <td>
                             <Link className="btn btn-primary gumb"
-                            to={`/kupci/${Kupac.sifra}`}>
+                            to={`/kupci/${kupac.sifra}`}>
                                 <FaEdit />
                             </Link>
 

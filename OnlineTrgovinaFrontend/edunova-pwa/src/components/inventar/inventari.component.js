@@ -15,10 +15,7 @@ import { Modal } from 'react-bootstrap';
 export default class Inventari extends Component {
   constructor(props) {
     super(props);
-    const token = localStorage.getItem('Bearer');
-    if(token==null || token===''){
-      window.location.href='/';
-    }
+   
     this.dohvatiInventare = this.dohvatiInventare.bind(this);
 
     this.state = {
@@ -35,7 +32,7 @@ export default class Inventari extends Component {
     this.dohvatiInventare();
   }
   dohvatiInventare() {
-    KosaricaDataService.getAll()
+    InventarDataService.getAll()
       .then(response => {
         this.setState({
           inventari: response.data

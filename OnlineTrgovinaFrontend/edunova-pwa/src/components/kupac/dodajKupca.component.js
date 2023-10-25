@@ -14,10 +14,7 @@ export default class DodajKupca extends Component {
 
   constructor(props) {
     super(props);
-    const token = localStorage.getItem('Bearer');
-    if(token==null || token===''){
-      window.location.href='/';
-    }
+    
     this.dodajKupca = this.dodajKupca.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import InventarDataService from "../../services/inventar.service";
-import KupacDataService from "../../services/kupac.service";
+import ProizvodDataService from "../../services/proizvod.service";
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Link } from "react-router-dom";
-import moment from 'moment';
+
 
 
 
@@ -15,10 +15,7 @@ export default class DodajInventar extends Component {
 
   constructor(props) {
     super(props);
-    const token = localStorage.getItem('Bearer');
-    if(token==null || token===''){
-      window.location.href='/';
-    }
+    
     this.dodajInventar = this.dodajInventar.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.dohvatiProizvode = this.dohvatiProizvode.bind(this);
@@ -97,8 +94,8 @@ export default class DodajInventar extends Component {
             <Form.Select onChange={e => {
               this.setState({ sifraKupac: e.target.value});
             }}>
-            {kupci && kupci.map((kupac,index) => (
-                  <option key={index} value={kupac.sifra}>{kupac.korisnickoIme}</option>
+            {proizvodi && proizvodi.map((proizvod,index) => (
+                  <option key={index} value={proizvod.sifra}>{proizvod.Naziv}</option>
 
             ))}
             </Form.Select>

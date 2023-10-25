@@ -60,7 +60,7 @@ class InventarDataService {
          return odgovor;
        }
 
-       async dodajProizvod(inventar, polaznik){
+       async dodajProizvod(inventar, proizvod){
     
         const odgovor = await http.post('/inventar/' + inventar + '/dodaj/' + proizvod)
            .then(response => {

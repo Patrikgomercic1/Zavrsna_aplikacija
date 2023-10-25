@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0Q3GoD9wsAL3XfGVj0kTmpl1YsraJ4JBe62J3BKK54g=",
+  "Hash": "Wyl3FS5JR893KiRkNREyvLzVQiUrmQ2WfM99E3WIkRM=",
   "Source": "OnlineTrgovina",
   "BasePath": "_content/OnlineTrgovina",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "OnlineTrgovina\\wwwroot",
       "Source": "OnlineTrgovina",
-      "ContentRoot": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
       "BasePath": "_content/OnlineTrgovina",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\asset-manifest.json",
+      "Identity": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\asset-manifest.json",
       "SourceId": "OnlineTrgovina",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
       "BasePath": "_content/OnlineTrgovina",
       "RelativePath": "asset-manifest.json",
       "AssetKind": "All",
@@ -34,10 +34,10 @@
       "OriginalItemSpec": "wwwroot\\asset-manifest.json"
     },
     {
-      "Identity": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\favicon.ico",
       "SourceId": "OnlineTrgovina",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
       "BasePath": "_content/OnlineTrgovina",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -51,10 +51,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\index.html",
+      "Identity": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\index.html",
       "SourceId": "OnlineTrgovina",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
       "BasePath": "_content/OnlineTrgovina",
       "RelativePath": "index.html",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\logo192.png",
+      "Identity": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\logo192.png",
       "SourceId": "OnlineTrgovina",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
       "BasePath": "_content/OnlineTrgovina",
       "RelativePath": "logo192.png",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\logo192.png"
     },
     {
-      "Identity": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\logo512.png",
+      "Identity": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\logo512.png",
       "SourceId": "OnlineTrgovina",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
       "BasePath": "_content/OnlineTrgovina",
       "RelativePath": "logo512.png",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\logo512.png"
     },
     {
-      "Identity": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\manifest.json",
+      "Identity": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\manifest.json",
       "SourceId": "OnlineTrgovina",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
       "BasePath": "_content/OnlineTrgovina",
       "RelativePath": "manifest.json",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\manifest.json"
     },
     {
-      "Identity": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\robots.txt",
+      "Identity": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\robots.txt",
       "SourceId": "OnlineTrgovina",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
       "BasePath": "_content/OnlineTrgovina",
       "RelativePath": "robots.txt",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\robots.txt"
     },
     {
-      "Identity": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\service-worker.js",
+      "Identity": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\service-worker.js",
       "SourceId": "OnlineTrgovina",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
       "BasePath": "_content/OnlineTrgovina",
       "RelativePath": "service-worker.js",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\service-worker.js"
     },
     {
-      "Identity": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\service-worker.js.LICENSE.txt",
+      "Identity": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\service-worker.js.LICENSE.txt",
       "SourceId": "OnlineTrgovina",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
       "BasePath": "_content/OnlineTrgovina",
       "RelativePath": "service-worker.js.LICENSE.txt",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\service-worker.js.LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\service-worker.js.map",
+      "Identity": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\service-worker.js.map",
       "SourceId": "OnlineTrgovina",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
       "BasePath": "_content/OnlineTrgovina",
       "RelativePath": "service-worker.js.map",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\service-worker.js.map"
     },
     {
-      "Identity": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\static\\css\\main.073c9b0a.css",
+      "Identity": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\static\\css\\main.073c9b0a.css",
       "SourceId": "OnlineTrgovina",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
       "BasePath": "_content/OnlineTrgovina",
       "RelativePath": "static/css/main.073c9b0a.css",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\static\\css\\main.073c9b0a.css"
     },
     {
-      "Identity": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\static\\css\\main.073c9b0a.css.map",
+      "Identity": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\static\\css\\main.073c9b0a.css.map",
       "SourceId": "OnlineTrgovina",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
       "BasePath": "_content/OnlineTrgovina",
       "RelativePath": "static/css/main.073c9b0a.css.map",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\static\\css\\main.073c9b0a.css.map"
     },
     {
-      "Identity": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\static\\js\\787.2d0ebaa6.chunk.js",
+      "Identity": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\static\\js\\787.2d0ebaa6.chunk.js",
       "SourceId": "OnlineTrgovina",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
       "BasePath": "_content/OnlineTrgovina",
       "RelativePath": "static/js/787.2d0ebaa6.chunk.js",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\static\\js\\787.2d0ebaa6.chunk.js"
     },
     {
-      "Identity": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\static\\js\\787.2d0ebaa6.chunk.js.map",
+      "Identity": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\static\\js\\787.2d0ebaa6.chunk.js.map",
       "SourceId": "OnlineTrgovina",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
       "BasePath": "_content/OnlineTrgovina",
       "RelativePath": "static/js/787.2d0ebaa6.chunk.js.map",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\static\\js\\787.2d0ebaa6.chunk.js.map"
     },
     {
-      "Identity": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\static\\js\\main.1891a268.js",
+      "Identity": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\static\\js\\main.1891a268.js",
       "SourceId": "OnlineTrgovina",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
       "BasePath": "_content/OnlineTrgovina",
       "RelativePath": "static/js/main.1891a268.js",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\static\\js\\main.1891a268.js"
     },
     {
-      "Identity": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\static\\js\\main.1891a268.js.LICENSE.txt",
+      "Identity": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\static\\js\\main.1891a268.js.LICENSE.txt",
       "SourceId": "OnlineTrgovina",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
       "BasePath": "_content/OnlineTrgovina",
       "RelativePath": "static/js/main.1891a268.js.LICENSE.txt",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\static\\js\\main.1891a268.js.LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\static\\js\\main.1891a268.js.map",
+      "Identity": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\static\\js\\main.1891a268.js.map",
       "SourceId": "OnlineTrgovina",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
       "BasePath": "_content/OnlineTrgovina",
       "RelativePath": "static/js/main.1891a268.js.map",
       "AssetKind": "All",
@@ -306,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\static\\js\\main.1891a268.js.map"
     },
     {
-      "Identity": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\static\\media\\logo.103b5fa18196d5665a7e12318285c916.svg",
+      "Identity": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\static\\media\\logo.103b5fa18196d5665a7e12318285c916.svg",
       "SourceId": "OnlineTrgovina",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\samhe\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Polaznik\\Documents\\GitHub\\Zavrsna_aplikacija\\OnlineTrgovinaWebAPI\\OnlineTrgovina\\wwwroot\\",
       "BasePath": "_content/OnlineTrgovina",
       "RelativePath": "static/media/logo.103b5fa18196d5665a7e12318285c916.svg",
       "AssetKind": "All",

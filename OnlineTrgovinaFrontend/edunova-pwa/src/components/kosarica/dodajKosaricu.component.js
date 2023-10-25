@@ -15,10 +15,7 @@ export default class DodajKosaricu extends Component {
 
   constructor(props) {
     super(props);
-    const token = localStorage.getItem('Bearer');
-    if(token==null || token===''){
-      window.location.href='/';
-    }
+    
     this.dodajKosaricu = this.dodajKosaricu.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.dohvatiKupce = this.dohvatiKupce.bind(this);

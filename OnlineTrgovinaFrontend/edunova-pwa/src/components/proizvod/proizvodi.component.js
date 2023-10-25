@@ -14,10 +14,7 @@ import { Modal } from 'react-bootstrap';
 export default class Proizvodi extends Component {
   constructor(props) {
     super(props);
-    const token = localStorage.getItem('Bearer');
-    if(token==null || token===''){
-      window.location.href='/';
-    }
+    
     this.dohvatiProizvode= this.dohvatiProizvode.bind(this);
 
     this.state = {

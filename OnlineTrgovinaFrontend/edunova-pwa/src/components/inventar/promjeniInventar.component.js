@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import KosaricaDataService from "../../services/kosarica.service";
-import KupacDataService from "../../services/kupac.service";
+import InventarDataService from "../../services/kosarica.service";
 import ProizvodDataService from "../../services/proizvod.service";
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
@@ -19,16 +18,13 @@ export default class PromjeniKosarica extends Component {
 
   constructor(props) {
     super(props);
-    const token = localStorage.getItem('Bearer');
-    if(token==null || token===''){
-      window.location.href='/';
-    }
+    
 
     this.kosarica = this.dohvatiKosarica();
     this.promjeniKosarica = this.promjeniKosarica.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.kupci = this.dohvatiKupci();
-    this.proizvodi = this.dohvatiProizvodi();
+    this.proizvodi = this.dohvatiProizvode();
     this.obrisiProizvod = this.obrisiProizvod.bind(this);
     this.traziProizvod = this.traziProizvod.bind(this);
     this.dodajProizvod = this.dodajProizvod.bind(this);
@@ -46,19 +42,19 @@ export default class PromjeniKosarica extends Component {
 
 
 
-  async dohvatiKosarica() {
+  async dohvatiInventar() {
 
     let href = window.location.href;
     let niz = href.split('/'); 
-    await KosaricaDataService.getBySifra(niz[niz.length-1])
+    await InventarDataService.getBySifra(niz[niz.length-1])
       .then(response => {
-        let kk = response.data;
-        kk.vrijemeStvaranja = moment.utc(kk.datumStvaranja).format("HH:mm");
-        kk.datumStvaranja = moment.utc(kk.datumStvaranja).format("yyyy-MM-DD");
+        let i = response.data;
+        i.proizvod = moment.utc(i.naziv);
+
         
       
         this.setState({
-          grupa: g
+          proizvod: {}
         });
        
       })
@@ -70,7 +66,7 @@ export default class PromjeniKosarica extends Component {
   
 
   async promjeniKosarica(kosarica) {
-    const odgovor = await kosaricaDataService.post(kosarica);
+    const odgovor = await InventarDataService.post(kosarica);
     if(odgovor.ok){
       // routing na kupce
       window.location.href='/kosarice';
@@ -81,9 +77,9 @@ export default class PromjeniKosarica extends Component {
   }
 
 
-  async dohvatiKupci() {
+  async dohvatiProizvodi() {
    // console.log('Dohvaćm kupce');
-    await KupacDataService.get()
+    await InventarDataService.get()
       .then(response => {
         this.setState({
           kupci: response.data,
@@ -100,7 +96,7 @@ export default class PromjeniKosarica extends Component {
   async dohvatiProizvodi() {
     let href = window.location.href;
     let niz = href.split('/'); 
-    await KosaricaDataService.getProizvodi(niz[niz.length-1])
+    await InventarDataService.getProizvodi(niz[niz.length-1])
        .then(response => {
          this.setState({
            proizvodi: response.data
@@ -130,8 +126,8 @@ export default class PromjeniKosarica extends Component {
        });
    }
 
-   async obrisiProizvod(kosarica, proizvod){
-    const odgovor = await KosaricaDataService.obrisiProizvod(kosarica, proizvod);
+   async obrisiProizvod(inventar, proizvod){
+    const odgovor = await InventarDataService.obrisiProizvod(inventar, proizvod);
     if(odgovor.ok){
      this.dohvatiProizvodi();
     }else{
@@ -139,8 +135,8 @@ export default class PromjeniKosarica extends Component {
     }
    }
 
-   async dodajProizvod(kosarica, proizvod){
-    const odgovor = await KosaricaDataService.dodajProizvod(kosarica, proizvod);
+   async dodajProizvod(inventar, proizvod){
+    const odgovor = await InventarDataService.dodajProizvod(inventar, proizvod);
     if(odgovor.ok){
      this.dohvatiProizvodi();
     }else{
@@ -157,19 +153,19 @@ export default class PromjeniKosarica extends Component {
     let datum = moment.utc(podaci.get('datumStvaranja') + ' ' + podaci.get('vrijeme'));
     console.log(datum);
 
-    this.promjeniKosarica({
-      kupac: podaci.get('korisnickoIme'),
-      //kolicinaProizvod:
-      datumStvaranja: datum,
-      sifraKupac: this.state.sifraKupac
+    this.promjeniInventar({
+      proizvod: podaci.get('naziv'),
+      kategorija: podaci.get('kategorija'),
+      kolicina: podaci.get('kolicina'),
+      dostupnost: podaci.get('dostupnost'),
+      sifraProizvod: this.state.sifraProizvod
     });
     
   }
 
 
   render() { 
-    const { kupci} = this.state;
-    const { kosarica} = this.state;
+    const { inventar} = this.state;
     const { proizvodi} = this.state;
     const { pronadeniProizvodi} = this.state;
 
@@ -181,7 +177,7 @@ export default class PromjeniKosarica extends Component {
     const odabraniProizvod = (proizvod) => {
       //console.log(kosarica.sifra + ' - ' + proizvod[0].sifra);
       if(proizvod.length>0){
-        this.dodajProizvod(kosarica.sifra, proizvod[0].sifra);
+        this.dodajProizvod(inventar.sifra, proizvod[0].sifra);
       }
      
     };
@@ -192,31 +188,34 @@ export default class PromjeniKosarica extends Component {
         <Form onSubmit={this.handleSubmit}>
           <Row>
           <Col key="1" sm={12} lg={6} md={6}>
-              <Form.Group className="mb-3" controlId="kolicinaProizvod">
-                <Form.Label>Naziv</Form.Label>
-                <Form.Control type="text" name="kolicinaProizvod" placeholder="" maxLength={255} defaultValue={kosarica.kolicinaProizvod}  required/>
+              <Form.Group className="mb-3" controlId="proizvod">
+                <Form.Label>Proizvod</Form.Label>
+                <Form.Control type="text" name="proizvod" placeholder="" maxLength={255} defaultValue={inventar.proizvod}  required/>
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="kupac">
-                <Form.Label>Smjer</Form.Label>
-                <Form.Select defaultValue={grupa.sifraKupac}  onChange={e => {
-                  this.setState({ sifraKupac: e.target.value});
+              <Form.Group className="mb-3" controlId="kategorija">
+                <Form.Label>Kategorija</Form.Label>
+                <Form.Select defaultValue={inventar.sifraProizvod}  onChange={e => {
+                  this.setState({ sifraProizvod: e.target.value});
                 }}>
-                {kupci && kupci.map((kupac,index) => (
-                      <option key={index} value={kupac.sifra}>{kupac.korisnickoIme}</option>
+                {proizvodi && proizvodi.map((proizvod,index) => (
+                      <option key={index} value={proizvod.sifra}>{proizvod.naziv}</option>
 
                 ))}
                 </Form.Select>
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="datumStvaranja">
-                <Form.Label>Datum Stvaranja</Form.Label>
-                <Form.Control type="date" name="datumStvaranja" placeholder="" defaultValue={kosarica.datumStvaranja}  />
+              <Form.Group className="mb-3" controlId="kolicina">
+                <Form.Label>Kolicina</Form.Label>
+                <Form.Control type="date" name="kolicina" placeholder="" defaultValue={inventar.kolicina}  />
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="vrijeme">
-                <Form.Label>Vrijeme</Form.Label>
-                <Form.Control type="time" name="vrijeme" placeholder="" defaultValue={kosarica.vrijemeStvaranja}  />
+              <Form.Group className="mb-3" controlId="dostupnost">
+                <Form.Check
+                inline
+                label="Dostupnost"
+                name="dostupnost"
+              />
               </Form.Group>
 
             
@@ -225,16 +224,16 @@ export default class PromjeniKosarica extends Component {
 
               <Row>
                 <Col>
-                  <Link className="btn btn-danger gumb" to={`/kosarice`}>Odustani</Link>
+                  <Link className="btn btn-danger gumb" to={`/inventari`}>Odustani</Link>
                 </Col>
                 <Col>
                 <Button variant="primary" className="gumb" type="submit">
-                  Promjeni grupu
+                  Promjeni inventar
                 </Button>
                 </Col>
               </Row>
           </Col>
-          <Col key="2" sm={12} lg={6} md={6} className="proizvodiKosarica">
+          <Col key="2" sm={12} lg={6} md={6} className="proizvodiInventar">
           <Form.Group className="mb-3" controlId="uvjet">
                 <Form.Label>Traži proizvod</Form.Label>
                 
@@ -243,14 +242,14 @@ export default class PromjeniKosarica extends Component {
             id="uvjet"
             emptyLabel="Nema rezultata"
             searchText="Tražim..."
-            labelKey={(polaznik) => `${polaznik.prezime} ${polaznik.ime}`}
+            labelKey={(proizvod) => `${proizvod.naziv}`}
             minLength={3}
             options={pronadeniProizvodi}
             onSearch={obradiTrazenje}
             placeholder="dio naziva"
             renderMenuItemChildren={(proizvod) => (
               <>
-                <span>{proizvod.naziv} {polaznik.opis}</span>
+                <span>{proizvod.naziv}</span>
               </>
             )}
             onChange={odabraniProizvod}
@@ -269,7 +268,7 @@ export default class PromjeniKosarica extends Component {
                 <tr key={index}>
                   <td > {proizvod.naziv} {proizvod.opis}</td>
                   <td>
-                  <Button variant="danger"   onClick={() => this.obrisiPolaznika(kosarica.sifra, proizvod.sifra)}><FaTrash /></Button>
+                  <Button variant="danger"   onClick={() => this.obrisiPolaznika(inventar.sifra, proizvod.sifra)}><FaTrash /></Button>
                     
                   </td>
                 </tr>

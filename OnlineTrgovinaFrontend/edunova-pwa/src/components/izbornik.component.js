@@ -11,11 +11,7 @@ export default class Izbornik extends Component{
 
 
   render() {
-    const token = localStorage.getItem('Bearer');
-    //console.log(token);
-    const autoriziran =  token!==null && token!=='';
-
-  //  console.log(autoriziran);
+    
 
     return (
     
@@ -23,7 +19,7 @@ export default class Izbornik extends Component{
       <Container>
         <Navbar.Brand href="/"><img src={logo} className="App-logo" alt="logo" /> Online Trgovina App</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        { autoriziran && 
+        { 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/nadzornaploca">Nadzorna ploča</Nav.Link>
@@ -39,7 +35,7 @@ export default class Izbornik extends Component{
         </Navbar.Collapse>
          }
 
-        { !autoriziran && 
+        { 
         <Nav.Link href="/login">Prijava</Nav.Link>
          }
       </Container>

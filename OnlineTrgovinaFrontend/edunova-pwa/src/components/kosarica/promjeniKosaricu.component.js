@@ -19,10 +19,7 @@ export default class PromjeniKosarica extends Component {
 
   constructor(props) {
     super(props);
-    const token = localStorage.getItem('Bearer');
-    if(token==null || token===''){
-      window.location.href='/';
-    }
+    
 
     this.kosarica = this.dohvatiKosarica();
     this.promjeniKosarica = this.promjeniKosarica.bind(this);
@@ -58,7 +55,7 @@ export default class PromjeniKosarica extends Component {
         
       
         this.setState({
-          grupa: g
+          grupa: kk
         });
        
       })
@@ -70,7 +67,7 @@ export default class PromjeniKosarica extends Component {
   
 
   async promjeniKosarica(kosarica) {
-    const odgovor = await kosaricaDataService.post(kosarica);
+    const odgovor = await KosaricaDataService.post(kosarica);
     if(odgovor.ok){
       // routing na kupce
       window.location.href='/kosarice';
@@ -199,7 +196,7 @@ export default class PromjeniKosarica extends Component {
 
               <Form.Group className="mb-3" controlId="kupac">
                 <Form.Label>Smjer</Form.Label>
-                <Form.Select defaultValue={grupa.sifraKupac}  onChange={e => {
+                <Form.Select defaultValue={kosarica.sifraKupac}  onChange={e => {
                   this.setState({ sifraKupac: e.target.value});
                 }}>
                 {kupci && kupci.map((kupac,index) => (
@@ -250,7 +247,7 @@ export default class PromjeniKosarica extends Component {
             placeholder="dio naziva"
             renderMenuItemChildren={(proizvod) => (
               <>
-                <span>{proizvod.naziv} {polaznik.opis}</span>
+                <span>{proizvod.naziv} {proizvod.opis}</span>
               </>
             )}
             onChange={odabraniProizvod}

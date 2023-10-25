@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SmjerDataService from "../../services/kupac.service";
+import KupacDataService from "../../services/kupac.service";
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -13,10 +13,7 @@ export default class PromjeniSmjer extends Component {
 
   constructor(props) {
     super(props);
-    const token = localStorage.getItem('Bearer');
-    if(token==null || token===''){
-      window.location.href='/';
-    }
+    
 
    
     this.kupac = this.dohvatiKupca();

@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -35,8 +35,4 @@
 
 .sredina{
   text-align: center;
-}
-
-.email{
-  font-size: 2em;
 }
