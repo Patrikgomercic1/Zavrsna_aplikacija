@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EdunovaApp.Models;
+using Microsoft.EntityFrameworkCore;
 using OnlineTrgovina.Models;
 
 namespace OnlineTrgovina.Data
@@ -17,6 +18,8 @@ namespace OnlineTrgovina.Data
         public DbSet<Proizvod> Proizvod { get; set; }
 
         public DbSet<Inventar> Inventar { get; set; }
+
+        public DbSet<Operater> Operater { get; set; }   
 
         //ORM
         protected override void OnModelCreating(ModelBuilder modelBuilder)

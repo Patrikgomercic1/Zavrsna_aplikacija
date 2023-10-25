@@ -1,0 +1,361 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OnlineTrgovina</name>
+    </assembly>
+    <members>
+        <member name="T:OnlineTrgovina.Controllers.InventarController">
+            <summary>
+            Namjenjeno za CRUD nad Inventarom
+            </summary>
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.InventarController.Get">
+             <summary>
+             Dohvaća Inventare iz baze
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                GET api/v1/Inventar
+            
+             </remarks>
+             <returns>Proizvodi u bazi</returns>
+             <response code="200">Sve je u redu</response>
+             <response code="400">Zahtjev nije valjan (BadRequest)</response> 
+             <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.InventarController.Post(OnlineTrgovina.Models.DTO.InventarDTO)">
+             <summary>
+             Dodaje Inventar u bazu
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                POST api/v1/Inventar
+                {sifra: 0, proizvod: "string", kategorija: "string", kolicina: 0, dostupnost: true, sifraProizvod: 0}
+                
+            
+             </remarks>
+             <returns>Kreiran inventar u bazi sa svim podacima</returns>
+             <response code="200">Sve je u redu</response>
+             <response code="400">Zahtjev nije valjan (BadRequest)</response> 
+             <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.InventarController.Put(System.Int32,OnlineTrgovina.Models.DTO.InventarDTO)">
+             <summary>
+             Mijenja podatke postojeće košarice u bazi
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                PUT api/v1/Inventar/{sifra}
+            
+                 {sifra: 0, proizvod: "string", kategorija: "string", kolicina: 0, dostupnost: true, sifraProizvod: 0}
+             
+            
+             </remarks>
+             <param name="sifra">Šifra inventara koji se mijenja</param>  
+             <returns>Svi poslani podaci od inventara</returns>
+             <response code="200">Sve je u redu</response>
+             <response code="204">U bazi nema inventara kojeg želimo promijeniti</response>
+             <response code="415">Nismo poslali JSON</response> 
+             <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.InventarController.Delete(System.Int32)">
+             <summary>
+             Briše inventar iz baze
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                DELETE api/v1/Inventar/{sifra}
+                
+             </remarks>
+             <param name="sifra">Šifra inventara koji se briše</param>  
+             <returns>Odgovor da li je obrisano ili ne</returns>
+             <response code="200">Sve je u redu</response>
+             <response code="204">U bazi nema inventara kojeg želimo obrisati</response>
+             <response code="415">Nismo poslali JSON</response> 
+             <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
+        <member name="T:OnlineTrgovina.Controllers.KosaricaController">
+            <summary>
+            Namjenjeno za CRUD operacije nad Košaricom
+            </summary>
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.KosaricaController.Get">
+             <summary>
+             Dohvaća sve Košarice iz baze
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                GET api/v1/Kosarica
+            
+             </remarks>
+             <returns>Proizvodi u bazi</returns>
+             <response code="200">Sve je u redu</response>
+             <response code="400">Zahtjev nije valjan (BadRequest)</response> 
+             <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.KosaricaController.Post(OnlineTrgovina.Models.DTO.KosaricaDTO)">
+             <summary>
+             Dodaje Košaricu u bazu
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                POST api/v1/Kosarica
+                {Naziv:"",Opis:"",Cijena=""}
+            
+             </remarks>
+             <returns>Kreirana košarica u bazi sa svim podacima</returns>
+             <response code="200">Sve je u redu</response>
+             <response code="400">Zahtjev nije valjan (BadRequest)</response> 
+             <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.KosaricaController.Put(System.Int32,OnlineTrgovina.Models.DTO.KosaricaDTO)">
+             <summary>
+             Mijenja podatke postojeće košarice u bazi
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                PUT api/v1/Kosarica/{sifra}
+            
+             {sifra: 0, kupac: "string", kolicinaProizvod: 0, datumStvaranja: "2023-10-24T16:36:54.559Z", proizvodi: 0, sifraKupac: 0}
+             
+            
+             </remarks>
+             <param name="sifra">Šifra košarice koja se mijenja</param>  
+             <returns>Svi poslani podaci od košarice</returns>
+             <response code="200">Sve je u redu</response>
+             <response code="204">U bazi nema košarice koju želimo promijeniti</response>
+             <response code="415">Nismo poslali JSON</response> 
+             <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.KosaricaController.Delete(System.Int32)">
+             <summary>
+             Briše košaricu iz baze
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                DELETE api/v1/Kosarica/{sifra}
+                
+             </remarks>
+             <param name="sifra">Šifra košarice koja se briše</param>  
+             <returns>Odgovor da li je obrisano ili ne</returns>
+             <response code="200">Sve je u redu</response>
+             <response code="204">U bazi nema košarice koju želimo obrisati</response>
+             <response code="415">Nismo poslali JSON</response> 
+             <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.KosaricaController.GetProizvodi(System.Int32)">
+             <summary>
+             Dohvaća opis proizvoda s odabranom šifrom
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                GET api/v1/Kosarica/{sifra}/proizvodi
+                
+             </remarks>
+             <param name="sifra">Šifra košarice koja se provjerava</param>  
+             <returns>Odgovor da li je provjereno ili ne</returns>
+             <response code="200">Sve je u redu</response>
+             <response code="204">U bazi nema proizvoda za pregled</response>
+             <response code="415">Nismo poslali JSON</response> 
+             <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.KosaricaController.DodajProizvod(System.Int32,System.Int32)">
+             <summary>
+             Dodavaje proizvod na košaricu
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                POST api/v1/Kosarica/{sifra}/dodaj/{proizvodSifra}
+                
+             </remarks>
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.KosaricaController.ObrišiProizvod(System.Int32,System.Int32)">
+             <summary>
+             Brisanje proizvoda iz košarice
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                POST api/v1/Kosarica/{sifra}/obrisi/{proizvodSifra}
+             
+             </remarks>
+             <param name="sifra"></param>
+             <param name="proizvodSifra"></param>
+             <returns></returns>
+        </member>
+        <member name="T:OnlineTrgovina.Controllers.KupacController">
+            <summary>
+            Namjenjeno za CRUD operacije nad Kupcima
+            </summary>
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.KupacController.Get">
+             <summary>
+             Dohvaća sve kupce iz baze
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                GET api/v1/Kupac
+            
+             </remarks>
+             <returns>Kupci u bazi</returns>
+             <response code="200">Sve je u redu</response>
+             <response code="400">Zahtjev nije valjan (BadRequest)</response> 
+             <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.KupacController.GetBySifra(System.Int32)">
+            <summary>
+            Traži kupca po njegovoj šifri
+            </summary>
+            <remarks>
+            Primjer upita:
+                
+                GET /api/v1/kupac/{sifra}
+            
+            </remarks>
+            <param name="sifra">Šifra kupca</param>
+            <returns>Kupac u bazi</returns>
+            <response code="200">Sve je u redu</response>
+            <response code="400">Zahtjev nije valjan (BadRequest)</response> 
+            <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.KupacController.Post(OnlineTrgovina.Models.Kupac)">
+             <summary>
+             Dodaje kupca u bazu
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                POST api/v1/Kupac
+                
+             {sifra: 0, korisnickoIme: "string", ime: "string", prezime: "string", lozinka: "string", telefon: "string", adresa: "string"}
+             
+             
+             </remarks>
+             <returns>Kreirani kupac u bazi sa svim podacima</returns>
+             <response code="200">Sve je u redu</response>
+             <response code="400">Zahtjev nije valjan (BadRequest)</response> 
+             <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.KupacController.Put(System.Int32,OnlineTrgovina.Models.Kupac)">
+             <summary>
+             Mijenja podatke postojećeg kupca u bazi
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                PUT api/v1/Kupac/{sifra}
+            
+             {sifra: 0, korisnickoIme: "string", ime: "string", prezime: "string", lozinka: "string", telefon: "string", adresa: "string"}
+             
+            
+             </remarks>
+             <param name="sifra">Šifra kupca koji se mijenja</param>  
+             <returns>Svi poslani podaci od proizvoda</returns>
+             <response code="200">Sve je u redu</response>
+             <response code="204">U bazi nema kupca kojeg želimo promijeniti</response>
+             <response code="415">Nismo poslali JSON</response> 
+             <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.KupacController.Delete(System.Int32)">
+             <summary>
+             Briše kupca iz baze
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                DELETE api/v1/Kupac/{sifra}
+                
+             </remarks>
+             <param name="sifra">Šifra kupca koji se briše</param>  
+             <returns>Odgovor da li je obrisano ili ne</returns>
+             <response code="200">Sve je u redu</response>
+             <response code="204">U bazi nema kupca kojeg želimo obrisati</response>
+             <response code="415">Nismo poslali JSON</response> 
+             <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
+        <member name="T:OnlineTrgovina.Controllers.ProizvodController">
+            <summary>
+            Namjenjeno za CRUD operacije nad Proizvodima
+            </summary>
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.ProizvodController.Get">
+             <summary>
+             Dohvaća sve proizvode iz baze
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                GET api/v1/Proizvod
+            
+             </remarks>
+             <returns>Proizvodi u bazi</returns>
+             <response code="200">Sve je u redu</response>
+             <response code="400">Zahtjev nije valjan (BadRequest)</response> 
+             <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.ProizvodController.Post(OnlineTrgovina.Models.DTO.ProizvodDTO)">
+             <summary>
+             Dodaje proizvod u bazu
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                POST api/v1/Proizvod
+                {Naziv:"",Opis:"",Cijena:""}
+            
+             </remarks>
+             <returns>Kreirani proizvod u bazi sa svim podacima</returns>
+             <response code="200">Sve je u redu</response>
+             <response code="400">Zahtjev nije valjan (BadRequest)</response> 
+             <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.ProizvodController.Put(System.Int32,OnlineTrgovina.Models.DTO.ProizvodDTO)">
+             <summary>
+             Mijenja podatke postojećeg proizvoda u bazi
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                PUT api/v1/Polaznik/{sifra}
+            
+             {sifra: 0, naziv: "string", opis: "string", cijena: "10000"}
+             
+            
+             </remarks>
+             <param name="sifra">Šifra proizvoda koji se mijenja</param>  
+             <returns>Svi poslani podaci od proizvoda</returns>
+             <response code="200">Sve je u redu</response>
+             <response code="204">U bazi nema proizvoda kojeg želimo promijeniti</response>
+             <response code="415">Nismo poslali JSON</response> 
+             <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.ProizvodController.Delete(System.Int32)">
+             <summary>
+             Briše proizvod iz baze
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                DELETE api/v1/Polaznik/{sifra}
+                
+             </remarks>
+             <param name="sifra">Šifra proizvoda koji se briše</param>  
+             <returns>Odgovor da li je obrisano ili ne</returns>
+             <response code="200">Sve je u redu</response>
+             <response code="204">U bazi nema proizvoda kojeg želimo obrisati</response>
+             <response code="415">Nismo poslali JSON</response> 
+             <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
+    </members>
+</doc>

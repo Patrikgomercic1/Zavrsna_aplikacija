@@ -1,10 +1,4 @@
 ﻿
-drop database if exists online_trgovina;
-go
-create database online_trgovina;
-go
-use online_trgovina;
-
 
 
 create table kupac(
@@ -137,3 +131,15 @@ where sifra = 3;*/
 
 --Brisanje podataka
 /*delete from proizvod where sifra=3;*/
+
+SELECT name, collation_name FROM sys.databases;
+GO
+ALTER DATABASE db_aa0904_pgomercic3 SET SINGLE_USER WITH
+ROLLBACK IMMEDIATE;
+GO
+ALTER DATABASE db_aa0904_pgomercic3 COLLATE Croatian_CI_AS;
+GO
+ALTER DATABASE db_aa0904_pgomercic3 SET MULTI_USER;
+GO
+SELECT name, collation_name FROM sys.databases;
+GO
