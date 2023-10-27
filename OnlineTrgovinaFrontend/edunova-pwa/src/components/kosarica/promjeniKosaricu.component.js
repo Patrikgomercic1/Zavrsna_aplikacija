@@ -12,7 +12,6 @@ import moment from 'moment';
 import Table from 'react-bootstrap/Table';
 import { FaTrash } from 'react-icons/fa';
 
-import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 
 
 export default class PromjeniKosarica extends Component {
@@ -55,7 +54,7 @@ export default class PromjeniKosarica extends Component {
         
       
         this.setState({
-          grupa: kk
+          grupa: g
         });
        
       })
@@ -112,21 +111,7 @@ export default class PromjeniKosarica extends Component {
 
    
 
-   async traziProizvod( uvjet) {
-
-    await ProizvodDataService.traziProizvod( uvjet)
-       .then(response => {
-         this.setState({
-          pronadeniProizvodi: response.data
-         });
- 
-        // console.log(response.data);
-       })
-       .catch(e => {
-         console.log(e);
-       });
-   }
-
+   
    async obrisiProizvod(kosarica, proizvod){
     const odgovor = await KosaricaDataService.obrisiProizvod(kosarica, proizvod);
     if(odgovor.ok){
@@ -147,13 +132,16 @@ export default class PromjeniKosarica extends Component {
  
 
   handleSubmit(e) {
+
     e.preventDefault();
     const podaci = new FormData(e.target);
+    console.log(podaci.get('kupac'));
+    console.parseInt(podaci.get('kolicinaProizvod'));
     console.log(podaci.get('datumStvaranja'));
     console.log(podaci.get('vrijeme'));
     let datum = moment.utc(podaci.get('datumStvaranja') + ' ' + podaci.get('vrijeme'));
     console.log(datum);
-
+    
     this.promjeniKosarica({
       kupac: podaci.get('korisnickoIme'),
       //kolicinaProizvod:
@@ -168,20 +156,12 @@ export default class PromjeniKosarica extends Component {
     const { kupci} = this.state;
     const { kosarica} = this.state;
     const { proizvodi} = this.state;
-    const { pronadeniProizvodi} = this.state;
+ 
 
 
-    const obradiTrazenje = (uvjet) => {
-      this.traziProizvod( uvjet);
-    };
+   
 
-    const odabraniProizvod = (proizvod) => {
-      //console.log(kosarica.sifra + ' - ' + proizvod[0].sifra);
-      if(proizvod.length>0){
-        this.dodajProizvod(kosarica.sifra, proizvod[0].sifra);
-      }
-     
-    };
+    
 
     return (
     <Container>
@@ -196,7 +176,7 @@ export default class PromjeniKosarica extends Component {
 
               <Form.Group className="mb-3" controlId="kupac">
                 <Form.Label>Smjer</Form.Label>
-                <Form.Select defaultValue={kosarica.sifraKupac}  onChange={e => {
+                <Form.Select defaultValue={grupa.sifraKupac}  onChange={e => {
                   this.setState({ sifraKupac: e.target.value});
                 }}>
                 {kupci && kupci.map((kupac,index) => (
@@ -232,27 +212,7 @@ export default class PromjeniKosarica extends Component {
               </Row>
           </Col>
           <Col key="2" sm={12} lg={6} md={6} className="proizvodiKosarica">
-          <Form.Group className="mb-3" controlId="uvjet">
-                <Form.Label>Traži proizvod</Form.Label>
-                
-          <AsyncTypeahead
-            className="autocomplete"
-            id="uvjet"
-            emptyLabel="Nema rezultata"
-            searchText="Tražim..."
-            labelKey={(polaznik) => `${polaznik.prezime} ${polaznik.ime}`}
-            minLength={3}
-            options={pronadeniProizvodi}
-            onSearch={obradiTrazenje}
-            placeholder="dio naziva"
-            renderMenuItemChildren={(proizvod) => (
-              <>
-                <span>{proizvod.naziv} {proizvod.opis}</span>
-              </>
-            )}
-            onChange={odabraniProizvod}
-          />
-          </Form.Group>
+          
           <Table striped bordered hover responsive>
               <thead>
                 <tr>
@@ -264,9 +224,9 @@ export default class PromjeniKosarica extends Component {
               {proizvodi && proizvodi.map((proizvod,index) => (
                 
                 <tr key={index}>
-                  <td > {proizvod.naziv} {proizvod.opis}</td>
+                  <td > {proizvod.naziv} {proizvod.cijena}</td>
                   <td>
-                  <Button variant="danger"   onClick={() => this.obrisiPolaznika(kosarica.sifra, proizvod.sifra)}><FaTrash /></Button>
+                  <Button variant="danger"   onClick={() => this.obrisiProizvod(kosarica.sifra, proizvod.sifra)}><FaTrash /></Button>
                     
                   </td>
                 </tr>

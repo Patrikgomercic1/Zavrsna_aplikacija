@@ -1,0 +1,11 @@
+FRONTEND/Produkcija/REACT
+http://pgomercic3-001-site1.anytempurl.com/
+
+Backend REST API
+http://pgomercic3-001-site1.anytempurl.com/api/v1
+
+GitHub
+https://github.com/Patrikgomercic1/Zavrsna_aplikacija
+
+SWAGGER/Host
+http://pgomercic3-001-site1.anytempurl.com/swagger/index.html + screen ruta

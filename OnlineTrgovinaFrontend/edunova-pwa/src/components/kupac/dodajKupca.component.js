@@ -14,7 +14,7 @@ export default class DodajKupca extends Component {
 
   constructor(props) {
     super(props);
-    
+   
     this.dodajKupca = this.dodajKupca.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -22,7 +22,7 @@ export default class DodajKupca extends Component {
   async dodajKupca(kupac) {
     const odgovor = await KupacDataService.post(kupac);
     if(odgovor.ok){
-      // routing na kupce
+      // routing na smjerovi
       window.location.href='/kupci';
     }else{
       // pokaži grešku
@@ -54,13 +54,14 @@ export default class DodajKupca extends Component {
     //console.log(podaci.get('verificiran'));
     // You can pass formData as a service body directly:
 
+
     this.dodajKupca({
-      korisnickoIme: podaci.get('korisnickoIme'),
+      korisnickoime: podaci.get('korisnickoime'),
       ime: podaci.get('ime'),
       prezime: podaci.get('prezime'),
       lozinka: podaci.get('lozinka'),
-      telefon: podaci.get('telefon'),
-      adresa: podaci.get('adresa')
+      telefon: parseInt(podaci.get('telefon')),
+      adresa: podaci.get('adresa'),
     });
     
   }
@@ -72,31 +73,29 @@ export default class DodajKupca extends Component {
         <Form onSubmit={this.handleSubmit}>
 
 
-          <Form.Group className="mb-3" controlId="korisnickoIme">
-            <Form.Label>Korisničko Ime</Form.Label>
-            <Form.Control type="text" name="korisnickoIme" placeholder="Korisnicko Ime" maxLength={255} required/>
+          <Form.Group className="mb-3" controlId="korisnickoime">
+            <Form.Label>Korisničko ime</Form.Label>
+            <Form.Control type="text" name="korisnickoime" placeholder="Korisnicko ime" maxLength={255} required/>
           </Form.Group>
-
 
           <Form.Group className="mb-3" controlId="ime">
             <Form.Label>Ime</Form.Label>
-            <Form.Control type="text" name="ime" placeholder="Marko" />
+            <Form.Control type="text" name="ime" placeholder="Ime" maxLength={255} required/>
           </Form.Group>
-
 
           <Form.Group className="mb-3" controlId="prezime">
             <Form.Label>Prezime</Form.Label>
-            <Form.Control type="text" name="prezime" placeholder="Horvat" />
+            <Form.Control type="text" name="prezime" placeholder="Prezime" maxLength={255} required/>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="lozinka">
             <Form.Label>Lozinka</Form.Label>
-            <Form.Control type="text" name="lozinka" placeholder="5asfafg32saxFD0" />
+            <Form.Control type="text" name="lozinka" placeholder="Lozinka" maxLength={255} required/>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="telefon">
             <Form.Label>Telefon</Form.Label>
-            <Form.Control type="text" name="telefon" placeholder="0985812437" />
+            <Form.Control type="text" name="telefon" placeholder="09523462152" />
             <Form.Text className="text-muted">
              Ne smije biti negativan
             </Form.Text>
@@ -104,12 +103,14 @@ export default class DodajKupca extends Component {
 
           <Form.Group className="mb-3" controlId="adresa">
             <Form.Label>Adresa</Form.Label>
-            <Form.Control type="text" name="adresa" placeholder="Osječka 68" />
+            <Form.Control type="text" name="adresa" placeholder="Adresa" maxLength={255}/>
           </Form.Group>
+
+          
 
           <Row>
             <Col>
-              <Link className="btn btn-danger gumb" to={`/smjerovi`}>Odustani</Link>
+              <Link className="btn btn-danger gumb" to={`/kupci`}>Odustani</Link>
             </Col>
             <Col>
             <Button variant="primary" className="gumb" type="submit">

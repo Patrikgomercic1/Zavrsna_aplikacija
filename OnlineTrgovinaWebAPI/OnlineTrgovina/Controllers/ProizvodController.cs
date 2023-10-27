@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using OnlineTrgovina.Data;
 using OnlineTrgovina.Models;
 using OnlineTrgovina.Models.DTO;
+using OnlineTrgovina.Validations;
 
 namespace OnlineTrgovina.Controllers
 {
@@ -70,6 +72,47 @@ namespace OnlineTrgovina.Controllers
             catch (Exception p)
             {
                 return StatusCode(StatusCodes.Status503ServiceUnavailable, p.Message);
+            }
+        }
+
+        /// <summary>
+        /// Traži proizvod po njegovoj šifri
+        /// </summary>
+        /// <remarks>
+        /// Primjer upita:
+        ///     
+        ///     GET /api/v1/proizvod/{sifra}
+        /// 
+        /// </remarks>
+        /// <param name="sifra">Šifra kupca</param>
+        /// <returns>Kupac u bazi</returns>
+        /// <response code="200">Sve je u redu</response>
+        /// <response code="400">Zahtjev nije valjan (BadRequest)</response> 
+        /// <response code="503">Na azure treba dodati IP u firewall</response> 
+        [HttpGet]   //Traženje po šifri
+        [Route("{sifra:int}")]
+        public IActionResult GetBySifra(int sifra)
+        {
+            if (sifra <= 0)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                var k = _context.Proizvod.Find(sifra);
+
+                if (k == null)
+                {
+                    return StatusCode(StatusCodes.Status204NoContent, k);
+                }
+
+                return new JsonResult(k);
+
+            }
+            catch (Exception k)
+            {
+                return StatusCode(StatusCodes.Status503ServiceUnavailable, k.Message);
             }
         }
 
@@ -171,13 +214,17 @@ namespace OnlineTrgovina.Controllers
             }
         }
 
+
+      
+
+
         /// <summary>
         /// Briše proizvod iz baze
         /// </summary>
         /// <remarks>
         /// Primjer upita:
         ///
-        ///    DELETE api/v1/Polaznik/{sifra}
+        ///    DELETE api/v1/Proizvod/{sifra}
         ///    
         /// </remarks>
         /// <param name="sifra">Šifra proizvoda koji se briše</param>  
@@ -211,10 +258,12 @@ namespace OnlineTrgovina.Controllers
             }
             catch (Exception x)
             {
-                return new JsonResult("{ \"poruka\":\"Ne može se obrisati!\"}");
+                return StatusCode(StatusCodes.Status400BadRequest, "Ne može se obrisati jer se proizvod nalazi na inventaru ili košarici");
             }
             
         }
 
+
+       
     }
 }

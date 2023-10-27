@@ -21,6 +21,7 @@ export default class PromjeniProizvod extends Component {
 
   constructor(props) {
     super(props);
+    const token = localStorage.getItem('Bearer');
     
     this.proizvod = this.dohvatiProizvod();
     this.promjeniProizvod = this.promjeniProizvod.bind(this);
@@ -38,6 +39,7 @@ export default class PromjeniProizvod extends Component {
 
 
   async dohvatiProizvod() {
+    // ovo mora bolje
     let href = window.location.href;
     let niz = href.split('/'); 
     await ProizvodDataService.getBySifra(niz[niz.length-1])
@@ -84,7 +86,7 @@ export default class PromjeniProizvod extends Component {
     this.promjeniProizvod({
       naziv: podaci.get('naziv'),
       opis: podaci.get('opis'),
-      cijena: podaci.get('cijena'),
+      cijena: parseFloat(podaci.get('cijena'))
     });
     
   }
@@ -126,11 +128,11 @@ export default class PromjeniProizvod extends Component {
 
     spremiSlikuAkcija = () =>{
       const { slikaZaServer} = this.state;
-      const { polaznik} = this.state;
+      const { proizvod} = this.state;
 
       
 
-      this.spremiSliku(polaznik.sifra,slikaZaServer); 
+      this.spremiSliku(proizvod.sifra,slikaZaServer); 
     };
 
 
@@ -166,22 +168,24 @@ export default class PromjeniProizvod extends Component {
         <Form onSubmit={this.handleSubmit}>
         <Row>
           <Col key="1" sm={12} lg={6} md={6}>
-              <Form.Group className="mb-3" controlId="naziv">
-                <Form.Label>Naziv</Form.Label>
-                <Form.Control type="text" name="naziv" placeholder="Majica" maxLength={255} defaultValue={proizvod.naziv} required/>
-              </Form.Group>
 
+          <Form.Group className="mb-3" controlId="naziv">
+            <Form.Label>Naziv</Form.Label>
+            <Form.Control type="text" name="naziv" placeholder="Naziv proizvoda" maxLength={255} required/>
+          </Form.Group>
 
-              <Form.Group className="mb-3" controlId="opis">
-                <Form.Label>Opis</Form.Label>
-                <Form.Control type="text" name="opis" placeholder="Crvena vunena majica" defaultValue={proizvod.opis}  required />
-              </Form.Group>
+          <Form.Group className="mb-3" controlId="opis">
+            <Form.Label>opis</Form.Label>
+            <Form.Control type="text" name="opis" placeholder="Opis proizvoda" maxLength={255} required/>
+          </Form.Group>
 
-
-              <Form.Group className="mb-3" controlId="cijena">
-                <Form.Label>Cijena</Form.Label>
-                <Form.Control type="text" name="cijena" placeholder="20" defaultValue={proizvod.cijena}  />
-              </Form.Group>
+          <Form.Group className="mb-3" controlId="cijena">
+            <Form.Label>Cijena</Form.Label>
+            <Form.Control type="text" name="cijena" placeholder="500" required/>
+            <Form.Text className="text-muted">
+             Ne smije biti negativna
+            </Form.Text>
+          </Form.Group>
               
               <Row>
               <Col key="1" sm={12} lg={6} md={6}>

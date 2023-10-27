@@ -1,16 +1,20 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using OnlineTrgovina.Validations;
+using System.ComponentModel.DataAnnotations;
 
 namespace OnlineTrgovina.Models
 {
     public class Kupac : Entitet
     {
 		[Required]
-		public string KorisnickoIme {  get; set; }
+        [NazivNeMozeBitiBroj]
+        public string KorisnickoIme {  get; set; }
 
         [Required]
+        [NazivNeMozeBitiBroj]
         public string Ime {  get; set; }
 
         [Required]
+        [NazivNeMozeBitiBroj]
         public string Prezime {  get; set; }
 
         [Required]

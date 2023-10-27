@@ -304,6 +304,22 @@
              <response code="400">Zahtjev nije valjan (BadRequest)</response> 
              <response code="503">Na azure treba dodati IP u firewall</response> 
         </member>
+        <member name="M:OnlineTrgovina.Controllers.ProizvodController.GetBySifra(System.Int32)">
+            <summary>
+            Traži proizvod po njegovoj šifri
+            </summary>
+            <remarks>
+            Primjer upita:
+                
+                GET /api/v1/proizvod/{sifra}
+            
+            </remarks>
+            <param name="sifra">Šifra kupca</param>
+            <returns>Kupac u bazi</returns>
+            <response code="200">Sve je u redu</response>
+            <response code="400">Zahtjev nije valjan (BadRequest)</response> 
+            <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
         <member name="M:OnlineTrgovina.Controllers.ProizvodController.Post(OnlineTrgovina.Models.DTO.ProizvodDTO)">
              <summary>
              Dodaje proizvod u bazu
@@ -347,7 +363,7 @@
              <remarks>
              Primjer upita:
             
-                DELETE api/v1/Polaznik/{sifra}
+                DELETE api/v1/Proizvod/{sifra}
                 
              </remarks>
              <param name="sifra">Šifra proizvoda koji se briše</param>  
@@ -355,6 +371,24 @@
              <response code="200">Sve je u redu</response>
              <response code="204">U bazi nema proizvoda kojeg želimo obrisati</response>
              <response code="415">Nismo poslali JSON</response> 
+             <response code="503">Na azure treba dodati IP u firewall</response> 
+        </member>
+        <member name="M:OnlineTrgovina.Controllers.ProizvodController.PostaviSliku(System.Int32,OnlineTrgovina.Models.DTO.SlikaDTO)">
+             <summary>
+             Postavlja sliku proizvoda na server
+             </summary>
+             <remarks>
+             Primjer upita:
+            
+                PUT api/v1/proizvod/postaviSliku/1
+            
+                 "BASE64 string polaznika"
+                
+             </remarks>
+             <param name="sifra">Šifra proizvoda za kojeg se postavlja slika</param>  
+             <returns>Poruku o uspješnosti pohrane slike na server</returns>
+             <response code="200">Sve je u redu</response>
+             <response code="204">Nema u bazi proizvoda kojeg postaviti sliku</response>
              <response code="503">Na azure treba dodati IP u firewall</response> 
         </member>
     </members>

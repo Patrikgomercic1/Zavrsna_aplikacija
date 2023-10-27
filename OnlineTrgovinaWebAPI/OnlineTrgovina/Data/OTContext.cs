@@ -18,6 +18,8 @@ namespace OnlineTrgovina.Data
         public DbSet<Proizvod> Proizvod { get; set; }
 
         public DbSet<Inventar> Inventar { get; set; }
+
+ 
  
 
         //ORM

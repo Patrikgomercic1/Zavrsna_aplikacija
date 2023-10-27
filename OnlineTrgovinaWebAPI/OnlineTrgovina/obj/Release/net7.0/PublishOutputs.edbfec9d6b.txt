@@ -5,8 +5,11 @@ C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTr
 C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Release\net7.0\PubTmp\Out\OnlineTrgovina.deps.json
 C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Release\net7.0\PubTmp\Out\OnlineTrgovina.runtimeconfig.json
 C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Release\net7.0\PubTmp\Out\OnlineTrgovina.pdb
+C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Release\net7.0\PubTmp\Out\AutoMapper.dll
 C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Release\net7.0\PubTmp\Out\Azure.Core.dll
 C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Release\net7.0\PubTmp\Out\Azure.Identity.dll
+C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Release\net7.0\PubTmp\Out\BCrypt.Net-Next.dll
+C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Release\net7.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Release\net7.0\PubTmp\Out\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Release\net7.0\PubTmp\Out\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Release\net7.0\PubTmp\Out\Microsoft.Data.SqlClient.dll

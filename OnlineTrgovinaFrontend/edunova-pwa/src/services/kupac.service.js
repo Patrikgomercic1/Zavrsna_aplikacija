@@ -1,8 +1,7 @@
-import http from "../http-common";
+import http from '../http-common';
 
 
 class KupacDataService{
-
     async get(){
         return await http.get('/Kupac');
     }
@@ -16,16 +15,14 @@ class KupacDataService{
         .then(response => {
             return {ok: true, poruka: 'Uspješno obrisao'};
         })
-        .catch(e=>{
+        .catch(e=> {
             return {ok: false, poruka: e.response.data};
         });
-
         return odgovor;
     }
 
-
     async post(kupac){
-        //console.log(smjer);
+        //console.log(kupac);
         const odgovor = await http.post('/kupac',kupac)
            .then(response => {
              return {ok:true, poruka: 'Unio kupca'}; // return u odgovor
@@ -39,7 +36,7 @@ class KupacDataService{
     }
 
     async put(sifra,kupac){
-        //console.log(kupac);
+        //console.log(smjer);
         const odgovor = await http.put('/kupac/' + sifra,kupac)
            .then(response => {
              return {ok:true, poruka: 'Promjenio kupca'}; // return u odgovor

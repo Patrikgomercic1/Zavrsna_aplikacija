@@ -151,3 +151,6 @@ C:\Users\Polaznik\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\Onlin
 C:\Users\Polaznik\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Release\net7.0\OnlineTrgovina.pdb
 C:\Users\Polaznik\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Release\net7.0\OnlineTrgovina.genruntimeconfig.cache
 C:\Users\Polaznik\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\obj\Release\net7.0\ref\OnlineTrgovina.dll
+C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\bin\Release\net7.0\AutoMapper.dll
+C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\bin\Release\net7.0\BCrypt.Net-Next.dll
+C:\Users\samhe\Documents\GitHub\Zavrsna_aplikacija\OnlineTrgovinaWebAPI\OnlineTrgovina\bin\Release\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

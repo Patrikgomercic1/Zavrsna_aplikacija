@@ -15,10 +15,10 @@ export default class Proizvodi extends Component {
   constructor(props) {
     super(props);
     
-    this.dohvatiProizvode= this.dohvatiProizvode.bind(this);
+    this.dohvatiProizvode = this.dohvatiProizvode.bind(this);
 
     this.state = {
-      polaznici: [],
+      proizvodi: [],
       prikaziModal: false
     };
   }
@@ -68,7 +68,10 @@ export default class Proizvodi extends Component {
               <Card style={{ width: '18rem' }}>
               <Card.Img variant="top" src={p.slika} />
                 <Card.Body>
-                  <Card.Title>{p.naziv} {p.opis}</Card.Title>
+                  <Card.Title>{p.naziv} {p.cijena}</Card.Title>
+                  <Card.Text>
+                   
+                  </Card.Text>
                   <Row>
                       <Col>
                       <Link className="btn btn-primary gumb" to={`/proizvodi/${p.sifra}`}><FaEdit /></Link>
@@ -89,7 +92,7 @@ export default class Proizvodi extends Component {
               <Modal.Header closeButton>
                 <Modal.Title>Greška prilikom brisanja</Modal.Title>
               </Modal.Header>
-              <Modal.Body>Proizvod se nalazi na jednoj ili više košarica i ne može se obrisati.</Modal.Body>
+              <Modal.Body>Proizvod se nalazi na jednoj ili više inventara ili košarica i ne može se obrisati.</Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={this.zatvoriModal}>
                   Zatvori

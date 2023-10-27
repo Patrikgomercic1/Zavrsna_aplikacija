@@ -1,6 +1,10 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using OnlineTrgovina.Data;
 using System.Reflection;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
 
 // Dokumentacija aplikacije
 builder.Services.AddSwaggerGen(sgo => { 
@@ -26,12 +30,17 @@ builder.Services.AddSwaggerGen(sgo => {
 
     };
     sgo.SwaggerDoc("v1", o);
+
+    
+
+
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     sgo.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
 
 });
 
+//dopištanje svakom da se povezuje
 builder.Services.AddCors(opcije =>
 {
     opcije.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
@@ -40,8 +49,12 @@ builder.Services.AddCors(opcije =>
 
 
 
-
+//dodavanje baze podataka
 builder.Services.AddDbContext<OTContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString(name: "OTContext")));
+
+
+
+
 
 var app = builder.Build();
 
@@ -59,6 +72,8 @@ var app = builder.Build();
 //}
 
 app.UseHttpsRedirection();
+
+
 
 app.MapControllers();
 

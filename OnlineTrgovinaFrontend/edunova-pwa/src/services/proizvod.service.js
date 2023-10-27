@@ -17,7 +17,7 @@ class ProizvodDataService {
   }
 
   async post(proizvod){
-    //console.log(proizvod);
+    //console.log(smjer);
     const odgovor = await http.post('/proizvod',proizvod)
        .then(response => {
          return {ok:true, poruka: 'Unio proizvod'}; // return u odgovor
@@ -48,7 +48,7 @@ class ProizvodDataService {
     
     const odgovor = await http.delete('/proizvod/' + sifra)
        .then(response => {
-         return {ok:true, poruka: 'Uspješno obrisao'};
+         return {ok:true, poruka: 'Uspješno obrisao '};
        })
        .catch(error => {
          console.log(error);

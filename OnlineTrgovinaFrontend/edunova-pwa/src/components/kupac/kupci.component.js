@@ -10,12 +10,11 @@ export default class Kupci extends Component{
 
     constructor(props){
         super(props);
-        
+        this.kupac = this.dohvatiKupca();
 
         this.state = {
             kupci: []
         };
-
     }
 
     componentDidMount(){
@@ -23,7 +22,6 @@ export default class Kupci extends Component{
     }
 
     async dohvatiKupce(){
-
         await KupacDataService.get()
         .then(response => {
             this.setState({
@@ -33,33 +31,32 @@ export default class Kupci extends Component{
         })
         .catch(e =>{
             console.log(e);
-        });
+        })
     }
 
     async obrisiKupca(sifra){
         const odgovor = await KupacDataService.delete(sifra);
         if(odgovor.ok){
-            this.dohvatiSmjerovi();
+            this.dohvatiKupce();
         }else{
             alert(odgovor.poruka);
         }
     }
 
-
     render(){
 
-        const { kupci } = this.state;
+        const {kupci} = this.state;
 
         return (
             <Container>
-               <a href="/smjerovi/dodaj" className="btn btn-success gumb">
-                Dodaj novi smjer
-               </a>
-                
-               <Table striped bordered hover responsive>
+                <a href="/kupci/dodaj" className="btn btn-success gumb">
+                    Dodaj novog kupca
+                </a>
+
+                <Table striped bordered hover responsive>
                 <thead>
                     <tr>
-                        <th>Korisnicko Ime</th>
+                        <th>Korisničko Ime</th>
                         <th>Ime</th>
                         <th>Prezime</th>
                         <th>Lozinka</th>
@@ -69,35 +66,42 @@ export default class Kupci extends Component{
                     </tr>
                 </thead>
                 <tbody>
-                   { kupci && kupci.map((kupac,index) => (
+                    { kupci && kupci.map((kupac,index) => (
 
-                    <tr key={index}>
-                        <td>{kupac.korisnickoIme}</td>
-                        <td>{kupac.ime}</td>
-                        <td>{kupac.prezime}</td>
-                        <td>{kupac.telefon}</td>
-                        <td>{kupac.adresa}</td>
+                        <tr key={index}>
+                            <td>{kupac.korisnickoime}</td>
+                            <td>{kupac.ime}</td>
+                            <td>{kupac.prezime}</td>
+                            <td>{kupac.lozinka}</td>
+                            <td className="broj">
+                                <NumericFormat
+                                    value={kupac.telefon}
+                                    displayType={"text"}
+                                />
+                            </td>
+                            <td>{kupac.adresa}</td>
+                            <td>
+                                <Link className="btn btn-primary gumb"
+                                    to={`/kupci/${kupac.sifra}`}>
+                                        <FaEdit />
+                                </Link>
+                                <Button variant="danger" className="gumb"
+                                onClick={()=>this.obrisiKupca(kupac.sifra)}>
+                                    <FaTrash />
+                                </Button>
+                            </td>
+                        </tr>
 
-                        <td>
-                            <Link className="btn btn-primary gumb"
-                            to={`/kupci/${kupac.sifra}`}>
-                                <FaEdit />
-                            </Link>
-
-                            <Button variant="danger" className="gumb"
-                            onClick={()=>this.obrisiKupca(kupac.sifra)}>
-                                <FaTrash />
-                            </Button>
-                        </td>
-                    </tr>
-
-                   ))}
+                    ))}
                 </tbody>
-               </Table>
-
+                </Table>
 
 
             </Container>
+            
+           
+            
+
 
 
         );

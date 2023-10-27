@@ -83,19 +83,13 @@ export default class DodajInventar extends Component {
     <Container>
         <Form onSubmit={this.handleSubmit}>
 
-
           <Form.Group className="mb-3" controlId="proizvod">
             <Form.Label>Proizvod</Form.Label>
-            <Form.Control type="text" name="proizvod" placeholder="Majica" maxLength={255} required/>
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="kupac">
-            <Form.Label>Kupac</Form.Label>
             <Form.Select onChange={e => {
-              this.setState({ sifraKupac: e.target.value});
+              this.setState({ sifraProizvod: e.target.value});
             }}>
             {proizvodi && proizvodi.map((proizvod,index) => (
-                  <option key={index} value={proizvod.sifra}>{proizvod.Naziv}</option>
+                  <option key={index} value={proizvod.sifra}>{proizvod.naziv}</option>
 
             ))}
             </Form.Select>
@@ -117,7 +111,7 @@ export default class DodajInventar extends Component {
 
           <Row>
             <Col>
-              <Link className="btn btn-danger gumb" to={`/kosarice`}>Odustani</Link>
+              <Link className="btn btn-danger gumb" to={`/inventari`}>Odustani</Link>
             </Col>
             <Col>
             <Button variant="primary" className="gumb" type="submit">

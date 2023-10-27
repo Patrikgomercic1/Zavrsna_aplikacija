@@ -8,14 +8,13 @@ import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
 import { FaEdit } from 'react-icons/fa';
 import { FaTrash } from 'react-icons/fa';
-import moment from 'moment';
 import { Modal } from 'react-bootstrap';
 
 
 export default class Inventari extends Component {
   constructor(props) {
     super(props);
-   
+    
     this.dohvatiInventare = this.dohvatiInventare.bind(this);
 
     this.state = {

@@ -229,7 +229,7 @@ namespace OnlineTrgovina.Controllers
             }
             catch (Exception k)
             {
-                return StatusCode(StatusCodes.Status400BadRequest, "Ne može se obrisati kupac zbog toga što ima na sebi košaricu!");
+                return StatusCode(StatusCodes.Status400BadRequest, "Ne može se obrisati zbog toga što kupac sadrži košaricu");
             }
         }
 
