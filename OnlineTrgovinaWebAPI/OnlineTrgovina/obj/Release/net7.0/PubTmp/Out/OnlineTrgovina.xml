@@ -373,23 +373,5 @@
              <response code="415">Nismo poslali JSON</response> 
              <response code="503">Na azure treba dodati IP u firewall</response> 
         </member>
-        <member name="M:OnlineTrgovina.Controllers.ProizvodController.PostaviSliku(System.Int32,OnlineTrgovina.Models.DTO.SlikaDTO)">
-             <summary>
-             Postavlja sliku proizvoda na server
-             </summary>
-             <remarks>
-             Primjer upita:
-            
-                PUT api/v1/proizvod/postaviSliku/1
-            
-                 "BASE64 string polaznika"
-                
-             </remarks>
-             <param name="sifra">Šifra proizvoda za kojeg se postavlja slika</param>  
-             <returns>Poruku o uspješnosti pohrane slike na server</returns>
-             <response code="200">Sve je u redu</response>
-             <response code="204">Nema u bazi proizvoda kojeg postaviti sliku</response>
-             <response code="503">Na azure treba dodati IP u firewall</response> 
-        </member>
     </members>
 </doc>
